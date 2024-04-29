@@ -5,7 +5,6 @@ import time
 from wbmulticrew.page_code import generate_section_code
 from wbmulticrew.parse_json import make_page_files
 
-
 namee = "wbmulticrew_test5"
 
 user_conversation = """ [
@@ -43,45 +42,77 @@ user_conversation = """ [
 """
 
 
-from wbmulticrew.user_req import generate_user_requirements
-from wbmulticrew.section_briefs import generate_section_briefs
+from wbmulticrew.user_requirements_crew import user_requirementsCrew
+
+from wbmulticrew.section_design_crew import Section_design_Crew
 
 
 def run():
 
-    generate_user_requirements(namee, user_conversation)
+    # generate user requirements, website design brief and website structure from user conversation ### START ###
+    inputs = {"user_conversation": user_conversation}
+
+    start_time = time.time()
+
+    os.makedirs(namee, exist_ok=True)
+    user_requirementsCrew().crew().kickoff(inputs=inputs)
+
+    end_time1 = time.time()
+    print(
+        f"Time taken for generating user requirements and website structure: {end_time1 - start_time}"
+    )
 
     website_structure = open(f"{namee}/website_structure.json", "r").read()
 
     user_requirements = open(f"{namee}/user_requirements.md", "r").read()
     website_design_brief = open(f"{namee}/website_design_brief.md", "r").read()
 
-    generate_section_briefs(
-        namee, user_requirements, website_design_brief, website_structure
-    )
+    website_structure = json.loads(website_structure)
 
-    # website_structure = open(f"{namee}/website_structure.json", "r").read()
-    # website_structure = json.loads(website_structure)
+    for page in website_structure["pages"]:
+        page_name = page["name"]
+        for section in page["sections"]:
+            section_name = section["name"]
+            start_time = time.time()
 
-    # for page in website_structure["pages"]:
-    #     page_name = page["name"]
-    #     for section in page["sections"]:
-    #         section_name = section["name"]
-    #         start_time = time.time()
-    #         section_code_json = generate_section_code(
-    #             section_name,
-    #             open(f"{namee}/{page_name}/{section_name}/design_brief.md", "r").read(),
-    #             open(f"{namee}/{page_name}/{section_name}/text_content.md", "r").read(),
-    #             open(f"{namee}/{page_name}/{section_name}/image_urls.md", "r").read(),
-    #         )
+            os.makedirs(f"{namee}/{page_name}/{section_name}", exist_ok=True)
+            inputs = {
+                "user_requirements": user_requirements,
+                "website_design_brief": website_design_brief,
+                "website_structure": website_structure,
+                "page_name": page_name,
+                "section_name": section_name,
+            }
+            Section_design_Crew(
+                page_name=page_name, section_name=section_name
+            ).crew().kickoff(inputs=inputs)
+            end_time1 = time.time()
+            print(
+                f"Time taken for creating design, content and images for {section_name} section of {page_name} page of the website : {end_time1 - start_time}"
+            )
 
-    #         with open(f"{namee}/{page_name}/{section_name}/section_code.md", "w") as f:
-    #             f.write(section_code_json)
-    #         end_time1 = time.time()
-    #         print(
-    #             f"Time taken for generating code for {section_name} section of {page_name} page of the website : {end_time1 - start_time}"
-    #         )
-    #     make_page_files(
-    #         namee, page_name, [section["name"] for section in page["sections"]]
-    #     )
-    #     return
+    website_structure = open(f"{namee}/website_structure.json", "r").read()
+    website_structure = json.loads(website_structure)
+
+    for page in website_structure["pages"]:
+        page_name = page["name"]
+        for section in page["sections"]:
+            section_name = section["name"]
+            start_time = time.time()
+            section_code_json = generate_section_code(
+                section_name,
+                open(f"{namee}/{page_name}/{section_name}/design_brief.md", "r").read(),
+                open(f"{namee}/{page_name}/{section_name}/text_content.md", "r").read(),
+                open(f"{namee}/{page_name}/{section_name}/image_urls.md", "r").read(),
+            )
+
+            with open(f"{namee}/{page_name}/{section_name}/section_code.md", "w") as f:
+                f.write(section_code_json)
+            end_time1 = time.time()
+            print(
+                f"Time taken for generating code for {section_name} section of {page_name} page of the website : {end_time1 - start_time}"
+            )
+        make_page_files(
+            namee, page_name, [section["name"] for section in page["sections"]]
+        )
+        return
