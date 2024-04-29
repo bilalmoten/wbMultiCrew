@@ -40,8 +40,8 @@ azure_gpt4 = AzureChatOpenAI(
 class Section_design_Crew:
     """Section Design Crew"""
 
-    agents_config = "config/agents.yaml"
-    tasks_config = "config/tasks.yaml"
+    agents_config = "config/agents2.yaml"
+    tasks_config = "config/tasks2.yaml"
 
     def __init__(self, page_name, section_name) -> None:
         self.page_name = page_name

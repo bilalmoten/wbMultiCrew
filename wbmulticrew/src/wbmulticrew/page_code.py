@@ -66,7 +66,6 @@ Please write the front end HTML, CSS and JS code for the {section_name} section 
 
 the website will be using bootstrap.css, bootstrap.js and jquery.js, so you should write the code accordingly to benefit from these libraries.
 
-Use the Section_design_brief, Text_content, and image_urls provided to you to write the code for the {section_name} section of the website. 
 
 Section_design_brief for {section_name} section: 
 {section_design_brief}

@@ -3,8 +3,10 @@ import json
 import os
 import time
 from wbmulticrew.page_code import generate_section_code
+from wbmulticrew.parse_json import make_page_files
 
-namee = "wbmulticrew_test4"
+
+namee = "wbmulticrew_test5"
 
 user_conversation = """ [
   {
@@ -41,79 +43,24 @@ user_conversation = """ [
 """
 
 
-# from wbmulticrew.user_requirements_crew import user_requirementsCrew
-
-from wbmulticrew.section_design_crew import Section_design_Crew
-
-# from wbmulticrew.section_code import Section_code_crew
-
-
-# def compile_page_brief(website_structure):
-#     for page in website_structure["pages"]:
-#         page_name = page["name"]
-#         page_brief = ""
-#         for section in page["sections"]:
-#             section_name = section["name"]
-#             design_brief = open(
-#                 f"{namee}/{page_name}/{section_name}/design_brief.md", "r"
-#             ).read()
-#             text_content = open(
-#                 f"{namee}/{page_name}/{section_name}/text_content.md", "r"
-#             ).read()
-#             image_urls = open(
-#                 f"{namee}/{page_name}/{section_name}/image_urls.md", "r"
-#             ).read()
-#             page_brief += f"# {section_name} Section\n\n ## {section_name} Section Design brief: \n {design_brief}\n\n ## {section_name} Section Text Content: \n {text_content}\n\n ## {section_name} Section Image URLs: \n {image_urls}\n\n"
-
-#         # Create the directory if it does not exist
-#         os.makedirs(f"{namee}/page_briefs", exist_ok=True)
-
-#         with open(f"{namee}/page_briefs/{page_name}_page_brief.md", "w") as f:
-#             f.write(page_brief)
-
-
-# def compile_section_brief(section_name, page_name):
-#     design_brief = open(
-#         f"{namee}/{page_name}/{section_name}/design_brief.md", "r"
-#     ).read()
-#     text_content = open(
-#         f"{namee}/{page_name}/{section_name}/text_content.md", "r"
-#     ).read()
-#     image_urls = open(f"{namee}/{page_name}/{section_name}/image_urls.md", "r").read()
-#     section_brief = f"# {section_name} Section\n\n ## {section_name} Section Design brief: \n {design_brief}\n\n ## {section_name} Section Text Content: \n {text_content}\n\n ## {section_name} Section Image URLs: \n {image_urls}\n\n"
-#     return section_brief
-
-
-# # Create the directory if it does not exist
-# os.makedirs(f"{namee}/page_briefs", exist_ok=True)
-
-# with open(f"{namee}/page_briefs/{page_name}_page_brief.md", "w") as f:
-#     f.write(page_brief)
+from wbmulticrew.user_req import generate_user_requirements
+from wbmulticrew.section_briefs import generate_section_briefs
 
 
 def run():
 
-    ### generate user requirements, website design brief and website structure from user conversation ### START ###
-    # # inputs = {"user_conversation": user_conversation}
+    generate_user_requirements(namee, user_conversation)
 
-    # # start_time = time.time()
+    website_structure = open(f"{namee}/website_structure.json", "r").read()
 
-    # # os.makedirs(namee, exist_ok=True)
-    # # user_requirementsCrew().crew().kickoff(inputs=inputs)
+    user_requirements = open(f"{namee}/user_requirements.md", "r").read()
+    website_design_brief = open(f"{namee}/website_design_brief.md", "r").read()
 
-    # # end_time1 = time.time()
-    # # print(
-    # #     f"Time taken for generating user requirements and website structure: {end_time1 - start_time}"
-    # # )
+    generate_section_briefs(
+        namee, user_requirements, website_design_brief, website_structure
+    )
 
-    ### generate user requirements, website design brief and website structure from user conversation ### END ###
-
-    ### generate Design brief, text content and Image URLs for each section of each page from user requirements, website design brief and website structure  ### START ###
     # website_structure = open(f"{namee}/website_structure.json", "r").read()
-
-    # user_requirements = open(f"{namee}/user_requirements.md", "r").read()
-    # website_design_brief = open(f"{namee}/website_design_brief.md", "r").read()
-
     # website_structure = json.loads(website_structure)
 
     # for page in website_structure["pages"]:
@@ -121,43 +68,20 @@ def run():
     #     for section in page["sections"]:
     #         section_name = section["name"]
     #         start_time = time.time()
+    #         section_code_json = generate_section_code(
+    #             section_name,
+    #             open(f"{namee}/{page_name}/{section_name}/design_brief.md", "r").read(),
+    #             open(f"{namee}/{page_name}/{section_name}/text_content.md", "r").read(),
+    #             open(f"{namee}/{page_name}/{section_name}/image_urls.md", "r").read(),
+    #         )
 
-    #         os.makedirs(f"{namee}/{page_name}/{section_name}", exist_ok=True)
-    #         inputs = {
-    #             "user_requirements": user_requirements,
-    #             "website_design_brief": website_design_brief,
-    #             "website_structure": website_structure,
-    #             "page_name": page_name,
-    #             "section_name": section_name,
-    #         }
-    #         Section_design_Crew(
-    #             page_name=page_name, section_name=section_name
-    #         ).crew().kickoff(inputs=inputs)
+    #         with open(f"{namee}/{page_name}/{section_name}/section_code.md", "w") as f:
+    #             f.write(section_code_json)
     #         end_time1 = time.time()
     #         print(
-    #             f"Time taken for creating design, content and images for {section_name} section of {page_name} page of the website : {end_time1 - start_time}"
+    #             f"Time taken for generating code for {section_name} section of {page_name} page of the website : {end_time1 - start_time}"
     #         )
-    ### generate Design brief, text content and Image URLs for each section of each page from user requirements, website design brief and website structure  ### END ###
-
-    website_structure = open(f"{namee}/website_structure.json", "r").read()
-    website_structure = json.loads(website_structure)
-
-    for page in website_structure["pages"]:
-        page_name = page["name"]
-        for section in page["sections"]:
-            section_name = section["name"]
-            start_time = time.time()
-            section_code_json = generate_section_code(
-                section_name,
-                open(f"{namee}/{page_name}/{section_name}/design_brief.md", "r").read(),
-                open(f"{namee}/{page_name}/{section_name}/text_content.md", "r").read(),
-                open(f"{namee}/{page_name}/{section_name}/image_urls.md", "r").read(),
-            )
-
-            with open(f"{namee}/{page_name}/{section_name}/section_code.md", "w") as f:
-                f.write(section_code_json)
-            end_time1 = time.time()
-            print(
-                f"Time taken for generating code for {section_name} section of {page_name} page of the website : {end_time1 - start_time}"
-            )
-        return
+    #     make_page_files(
+    #         namee, page_name, [section["name"] for section in page["sections"]]
+    #     )
+    #     return

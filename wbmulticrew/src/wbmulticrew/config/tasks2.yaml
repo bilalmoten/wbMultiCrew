@@ -1,0 +1,35 @@
+
+
+generate_section_design_brief:
+  description: >
+    Create a design brief for a the {section_name} section of the website, including the section layout, color schemes, typography, iconography, user interface components, and any additional design elements requested by the user. Your design brief should be based upon the user requirements document, and the website design brief and should be enhanced by your own knowledge and your expertise in website design, given your 10 years of experience at worlds best web deisgn agency.
+    The Section Design Brief that you are supposed to generate will act as the base for the developers, content writers and image artists to create the section of the website. The design brief should contain all the necessary information, design elements, background details, interactions, and animations for that section.
+    the section design brief should include the requirements for images, with description of what image is needed, and the content requirements for the section, so that the image generation agent can use the image description to prompt an AI text to image model like Dall-E 3 to generate the images for the section, and the copywriters can use the content requirements to write the content for the section.
+
+    User Requirements:
+    {user_requirements}
+
+    Website Design Brief:
+    {website_design_brief}
+
+  expected_output: > 
+    A markdown file containing the design brief, with detailed information on the design elements, interactions, and animations, for the {section_name} section of the website, along with the image and content requirement so that the content writers can write the content for the section, and the image agent can generate the images
+
+generate_section_content:
+  description: >
+    Generate high-quality text content for the {section_name} section of the website, including page copy, button labels, headlines, sub headlines, blog posts, product descriptions, and any other text that would be needed for the section, as per the section design brief, tailored to the website's purpose and target audience. 
+    
+    user Requirements:
+    {user_requirements}
+  expected_output: >
+    A markdown file containing the text content for the {section_name} section of the website. The content should be engaging, informative, and aligned with the website's goals and target audience.
+
+generate_section_images:
+  description: >
+    Generate high-quality images based on text prompts for the {section_name} section of the website, using the DALL-E 3 model. The images should be visually appealing, relevant to the content, and consistent with the branding guidelines.
+    You must use the Dalle_Image tool to generate the image urls by providing the text prompts for the images, one by one, as per the design brief.
+    the tool takes in a text prompt and uses it to generate the image using an AI text to image model like dalle 3, and then provides the image url for the generated image.
+    Remember to only use the tool once for one image, and then give the image urls in your final output.
+    If the section doesnt need any image, just return "No images needed for this section". and donot try to use the Dalle_image tool.
+  expected_output: >
+    A json file containing the image URLs and text prompts returned from using the Dalle_Image tool for the {section_name} section of the website. If no images are needed for the section, return "No images needed for this section".
