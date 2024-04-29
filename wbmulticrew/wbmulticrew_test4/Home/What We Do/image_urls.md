@@ -1,0 +1,1 @@
+The final answer is a JSON file containing the image URLs and text prompts returned from using the DALL-E 3 model for the What We Do section of the website.

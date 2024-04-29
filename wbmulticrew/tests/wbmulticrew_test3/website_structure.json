@@ -1,0 +1,49 @@
+{
+  "siteName": "Coffee House Pakistan",
+  "pages": [
+    {
+      "name": "Home",
+      "sections": [
+        {
+          "name": "Welcome"
+        },
+        {
+          "name": "About Us"
+        }
+      ]
+    },
+    {
+      "name": "Gallery",
+      "sections": [
+        {
+          "name": "Coffee Blends"
+        },
+        {
+          "name": "Brewing Process"
+        }
+      ]
+    },
+    {
+      "name": "About",
+      "sections": [
+        {
+          "name": "Our Story"
+        },
+        {
+          "name": "Our Team"
+        }
+      ]
+    },
+    {
+      "name": "Contact",
+      "sections": [
+        {
+          "name": "Location"
+        },
+        {
+          "name": "Contact Us"
+        }
+      ]
+    }
+  ]
+}

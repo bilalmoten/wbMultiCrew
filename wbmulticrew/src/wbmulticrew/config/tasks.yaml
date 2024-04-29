@@ -1,0 +1,326 @@
+# # research_task:
+# #   description: >
+# #     Conduct a thorough research about {topic}
+# #     Make sure you find any interesting and relevant information given
+# #     the current year is 2024.
+# #   expected_output: >
+# #     A list with 10 bullet points of the most relevant information about {topic}
+
+# # reporting_task:
+# #   description: >
+# #     Review the context you got and expand each topic into a full section for a report.
+# #     Make sure the report is detailed and contains any and all relevant information.
+# #   expected_output: >
+# #     A fully fledge reports with the mains topics, each with a full section of information.
+# #     Formated as markdown with out '```'
+
+
+
+
+
+# # conversational_agent_tasks:
+# #   - gather_user_requirements:
+# #       description: Read and understand the user conversation to extract key requirements for the website. If anything is unclear, or you need additional information from the user, ask for clarification, using targetted questions.
+# #       outputs:
+# #         - requirements.md
+
+# # planning_agent_tasks:
+# #   - analyze_requirements:
+# #       description: Analyze the requirements document and determine the website structure
+# #       resources:
+# #         - requirements.md
+# #       outputs:
+# #         - website_structure.json
+# #   - create_website_structure:
+# #       description: Develop a JSON representation of the website structure
+# #       resources:
+# #         - requirements.md
+# #         - website_best_practices.md
+# #       outputs:
+# #         - website_structure.json
+
+# # content_generator_tasks:
+# #   - generate_text_content:
+# #       description: Generate text content for the website, including page copy, blog posts, and product descriptions
+# #       resources:
+# #         - requirements.md
+# #         - website_structure.json
+# #         - content_guidelines.md
+# #       outputs:
+# #         - content/
+# #   - curate_multimedia_content:
+# #       description: Curate or generate multimedia content, such as images, videos, and infographics
+# #       resources:
+# #         - requirements.md
+# #         - website_structure.json
+# #         - content_guidelines.md
+# #       outputs:
+# #         - multimedia_content/
+
+# # design_agent_tasks:
+# #   - create_branding_guidelines:
+# #       description: Create branding guidelines, including color schemes, typography, and iconography
+# #       resources:
+# #         - requirements.md
+# #         - branding_references.md
+# #       outputs:
+# #         - branding_guidelines.md
+# #   - design_user_interface:
+# #       description: Design user interface components, including micro interactions, hover effects, and JS animations
+# #       resources:
+# #         - branding_guidelines.md
+# #         - website_structure.json
+# #         - ui_design_best_practices.md
+# #       outputs:
+# #         - ui_designs/
+
+# # frontend_agent_tasks:
+# #   - develop_website_frontend:
+# #       description: Translate designs and content into functional HTML, CSS, and JavaScript code
+# #       resources:
+# #         - ui_designs/
+# #         - content/
+# #         - multimedia_content/
+# #         - frontend_frameworks.md
+# #       outputs:
+# #         - frontend_code/
+
+# # image_generation_agent_tasks:
+# #   - generate_images:
+# #       description: Generate images based on text prompts for various purposes, such as website design, content illustrations, and branding elements
+# #       resources:
+# #         - image_prompts.txt
+# #         - branding_guidelines.md
+# #       outputs:
+# #         - generated_images/
+
+# # conversational_agent_tasks:
+# gather_user_requirements:
+#   description: >
+#     Read and understand the user conversation to gather requirements for the website, capturing details like purpose, target audience, desired features, branding guidelines, design preferences etc. If needed, ask the user for more details, clarify the requirements, or suggest additional features based on the conversation.
+#   expected_output: >
+#     A detailed requirements document in markdown format, covering all the essential aspects of the website, such as purpose, target audience, features, branding guidelines, and any other relevant information gathered from the user conversation.
+
+# # planning_agent_tasks:
+# create_website_structure:
+#   description: >
+#     Analyze the requirements document and determine the overall structure of the website.
+#     Develop a JSON representation of the website structure based on the requirements document and best practices.
+#     include sitename, within that would be pages(with page name and number of sections), within that would be sections(with section name, description and design notes).
+#   expected_output: >
+#     A comprehensive JSON file detailing the website structure, with a section-by-section and page-by-page breakdown. The JSON file should include the website name, each page name, each section name within the page, and some description of the section and consise design notes for the section.
+
+# # project_manager_tasks:
+# create_website: 
+#   description: > 
+#     based on the website structure, create the full website with all the sections and pages, with the content and design elements, as per the website structure and requirements document.
+#     You should use the team of agents for each section of the website, to create the content, design, and front-end code for each section, and then integrate them into the full website.
+#     Make sure you use the same navbar and footer throughout the website.
+#     important:
+#     -  make sure to use the same design elements, color schemes, typography, iconography, and user interface components throughout the website, as per the branding guidelines and design brief.
+#     - you are not supposed to use any backend calls or database, just the front-end code, with all the content and everything that would be needed to make the website fully functional, according to user requirements and the user conversation.
+
+#     Remember: If something doesnt work, just move forward. if u encounter any errors, move ahead with the next step.
+#   expected_output: >
+#     A markdown file containing the full code base files for the website, including html, css and js files. the markdown file would have the full contents of the files.
+
+# # content_generator_tasks:
+# generate_text_content:
+#   description: >
+#     Generate high-quality text content for the website, including page copy, button labels, headlines, sub headlines, blog posts, product descriptions, and any other text that would be needed for the website as per the website structure, tailored to the website's purpose and target audience. Use the user conversation and conduct additional research as needed.
+#   expected_output: >
+#     A markdown file containing the text content for each section. The content should be engaging, informative, and aligned with the website's goals and target audience.
+
+# # design_agent_tasks:
+# # create_branding_guidelines:
+# #   description: >
+# #     Create branding guidelines for the website, including color schemes, typography, and iconography, adhering to the user's preferences and industry best practices.
+# #   expected_output: >
+# #     A markdown file containing the branding guidelines, with detailed information on color schemes, typography, and iconography.
+
+# # design_user_interface_for_website:
+# #   description: >
+# #     Design user interface components for the website, including headers, footers, navigation menus, page layouts, micro interactions, hover effects, and JS animations, based on the branding guidelines and website structure.
+# #     this document would be used for the front-end development of the entire website so have a general design and look and feel of the whole website.
+# #   expected_output: >
+# #     A markdown file containing the user interface designs, with detailed information on the design elements, interactions, and animations, for the whole website. 
+
+# create_section_design_brief:
+#   description: >
+#     Create a design brief for the website, including color schemes, typography, iconography, user interface components, and any additional design elements requested by the user. The design brief should align with the branding guidelines and the website structure.
+#     You will be working with one section of the website at a time, so make sure to include all the necessary design elements, background details, interactions, and animations for that section.
+#     The design brief should be visually appealing and consistent with the branding guidelines. Make sure to include any additional design elements requested by the user.
+#   expected_output: >
+#     A markdown file containing the design brief, with detailed information on the design elements, interactions, and animations. 
+
+# # image_generation_agent_tasks:
+# generate_images:
+#   description: >
+#     Generate high-quality images based on text prompts for various purposes, such as website design, content illustrations, and branding elements, using the DALL-E 3 model. The images should be visually appealing, relevant to the content, and consistent with the branding guidelines.
+#   expected_output: >
+#     A markdown file containing all the image links(from Dall E 3) required for the section of the website you are working on, based on the text prompts and design brief. along with the image description and for what part of the section it is to be used(background, image 1 in testimonial etc.), depending on the section layout.
+
+# # frontend_agent_tasks:
+# develop_website_section:
+#   description: >
+#     Translate the design brief for the website section and content into functional HTML, CSS, and JavaScript code, ensuring responsiveness, accessibility, and performance optimization. Integrate third-party libraries, frameworks, and plugins as needed, such as Bootstrap or React.
+#     You need to implement the design and branding elements into the website, following the design brief and branding guidelines. You need to make sure that the code is clean, well-structured, and follows best practices.
+#     Make sure that the code you gives, leads to a website that is visually appealing, user-friendly, and responsive across all devices, and matches the design brief in terms of elements, micro interactions, layout, overall look and feel, etc, for the section you are working on.
+    
+#   expected_output: >
+#     ONLY A json object containing the html, css and js code for the section of the website you are working on. Images would be added as links. Here is an example of what and how to include in the json response.
+    
+#     "pagename": "about_us",
+#     "section_name": "About Us",
+#     "html_code": "<html code comes here>",
+#     "css_code": "<full css code here>",
+#     "js_code": "<full js code here>",
+    
+
+# create_page_files: 
+#   description: >
+#     Create the base HTML, CSS, and JS files for the page of the website you are asked to, based on the website structure.
+#     the functionto create files is already provided, you just need to provide a page name and the function will create the files for you.
+#   expected_output: >
+#     one word string page name, for which the files are created.
+
+
+
+
+
+
+generate_user_requirements:
+  description: >
+    Read and understand the user conversation to gather requirements for the website, capturing details like purpose, target audience, desired features, branding guidelines, design preferences etc.
+    Your job is to understand what the user wants, in the user conversation, and then use that conversation, and your own knowledge and website design expertise and best practises to create a detailed requirements document. the document should use the user conversation as the base, but your own knowledge and best practises should be used to fill in the gaps, and enhance the users website and make the document complete.
+
+    user Conversation:
+    {user_conversation}
+  expected_output: >
+    A detailed requirements document in markdown format, covering all the essential aspects of the website, such as purpose, target audience, features, branding guidelines, and any other relevant information gathered from the user conversation.
+
+generate_website_design_brief:
+  description: >
+    Create a design brief for the website, including color schemes, typography, iconography, user interface components, and any additional design elements requested by the user. Your design brief should be based upon the user requirements document and should be enhanced by your own knowledge and your expertise in website design, given your 10 years of experience at worlds best web deisgn agency.
+    the design brief contains the following details in general for the whole website, and does not contain any specific details or text etc about any section of the website. the design brief is supposed to act as background information for the designers that will be creating the individual sections of the website.
+
+    user Conversation:
+    {user_conversation}
+  expected_output: >
+    A markdown file containing the design brief, with detailed information on the design elements, interactions, and animations, and general guildlines for the website to be designed.
+
+generate_website_structure:
+  description: >
+    Analyze the requirements document and the website design brief and develop the overall structure for the website.
+    Develop a JSON representation of the website structure based on the user requirements.
+    include sitename, pages and sections within each page (with section name only)
+   
+    user Conversation:
+    {user_conversation}
+  expected_output: >
+    A JSON object for the website structure. The JSON should include different pages in the website, and the sections within each page(with section name only).
+    
+    ----
+    Rules
+    ----
+
+    - Remember that you are only supposed to Output a properly structured JSON object. No (```) are allowed, and no additional text is allowed in the output.
+    - NEVER FORGET TO CLOSE THE FINAL BRACKETS (}}) in the JSON Output.
+    - The JSON output needs to be properly fomartted so that it is parsable properly.
+    - DO NOT ADD any text or comments in the JSON output, only the JSON object is expected as the output. 
+
+
+generate_section_design_brief:
+  description: >
+    Create a design brief for a the {section_name} section of the website, including the section layout, color schemes, typography, iconography, user interface components, and any additional design elements requested by the user. Your design brief should be based upon the user requirements document, and the website design brief and should be enhanced by your own knowledge and your expertise in website design, given your 10 years of experience at worlds best web deisgn agency.
+    The Section Design Brief that you are supposed to generate will act as the base for the developers, content writers and image artists to create the section of the website. The design brief should contain all the necessary information, design elements, background details, interactions, and animations for that section.
+    the section design brief should include the requirements for images, with description of what image is needed, and the content requirements for the section, so that the image generation agent can use the image description to prompt an AI text to image model like Dall-E 3 to generate the images for the section, and the copywriters can use the content requirements to write the content for the section.
+
+    User Requirements:
+    {user_requirements}
+
+    Website Design Brief:
+    {website_design_brief}
+
+  expected_output: > 
+    A markdown file containing the design brief, with detailed information on the design elements, interactions, and animations, for the {section_name} section of the website, along with the image and content requirement so that the content writers can write the content for the section, and the image agent can generate the images
+
+generate_section_content:
+  description: >
+    Generate high-quality text content for the {section_name} section of the website, including page copy, button labels, headlines, sub headlines, blog posts, product descriptions, and any other text that would be needed for the section, as per the section design brief, tailored to the website's purpose and target audience. 
+    
+    user Requirements:
+    {user_requirements}
+  expected_output: >
+    A markdown file containing the text content for the {section_name} section of the website. The content should be engaging, informative, and aligned with the website's goals and target audience.
+
+generate_section_images:
+  description: >
+    Generate high-quality images based on text prompts for the {section_name} section of the website, using the DALL-E 3 model. The images should be visually appealing, relevant to the content, and consistent with the branding guidelines.
+    You must use the Dalle_Image tool to generate the image urls by providing the text prompts for the images, one by one, as per the design brief.
+    the tool takes in a text prompt and uses it to generate the image using an AI text to image model like dalle 3, and then provides the image url for the generated image.
+    Remember to only use the tool once for one image, and then give the image urls in your final output.
+    If the section doesnt need any image, just return "No images needed for this section". and donot try to use the Dalle_image tool.
+  expected_output: >
+    A json file containing the image URLs and text prompts returned from using the Dalle_Image tool for the {section_name} section of the website. If no images are needed for the section, return "No images needed for this section".
+
+generate_page_code:
+  description: >
+    Write the front end HTML, CSS and JS code for the {page_name} page of the website. You should use the design brief, text content, and image urls given to you of each section of the page to create the full page code. Your primary goal is to make a nice looking, responsive, and user-friendly page that matches the design brief and the user requirements.
+
+    Use the write file tool to write the HTML CSS and JS code in respective files in the provided directory.
+    Important
+      ----------
+
+    The input to this tool should be a pipe (|) separated text
+    of length two, representing the full path of the file, and the HTML or CSS or JS code you want to write to it.
+    For example, `{namee}/codefiles/pagename.html|HTML_CODE_PLACEHOLDER` or `{namee}/codefiles/pagename.css|CSS_CODE_PLACEHOLDER`.
+    Replace HTML_CODE_PLACEHOLDER with the actual
+    code you want to write to the file.
+
+    Here is a starter template for the html file. Use this to access bootstrap and fontawesome libraries.
+    ```html
+    <!doctype html>
+    <html lang="en">
+    <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/037776171a.js" crossorigin="anonymous"></script>
+
+    <title>Hello, world!</title>
+    </head>
+    <body>
+    <h1>Hello, world!</h1>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+    </html>
+    ```
+
+    Project Directory: {project_directory}
+
+    website structure:
+    {website_structure}
+
+
+    \n\n
+    {page_brief}
+  expected_output: >
+    You are expected to write the code for the page in the provided directory, in seperate HTML, CSS and JS files. You should use the File_write_tool to write the code in the files. 
+
+    Important
+    ----------
+
+    The input to this tool should be a pipe (|) separated text
+    of length two, representing the full path of the file, and the HTML or CSS or JS code you want to write to it.
+    For example, `{namee}/codefiles/pagename.html|HTML_CODE_PLACEHOLDER` or `{namee}/codefiles/pagename.css|CSS_CODE_PLACEHOLDER`.
+    Replace HTML_CODE_PLACEHOLDER with the actual
+    code you want to write to the file.

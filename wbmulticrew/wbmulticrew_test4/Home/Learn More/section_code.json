@@ -1,0 +1,83 @@
+{
+"html": "<section class=\"learn-more\">\
+            <div class=\"hero\" style=\"background-image: url('hero-image.jpg')\">\
+                <div class=\"container\">\
+                    <div class=\"cta\">\
+                        <a href=\"#\" class=\"btn\">Book a Call</a>\
+                    </div>\
+                </div>\
+            </div>\
+            <div class=\"content\">\
+                <div class=\"container\">\
+                    <h2>Learn More About Our AI Automation Services</h2>\
+                    <p>Discover how Acceleron AI can help you boost efficiency, cut costs, and stay ahead of the competition</p>\
+                    <img src=\"ai-image.jpg\" alt=\"AI Image\">\
+                    <p>At Acceleron AI, we're dedicated to helping businesses like yours harness the power of AI automation to boost efficiency, reduce costs, and stay ahead of the competition.</p>\
+                    <div class=\"features\">\
+                        <div class=\"feature\">\
+                            <h3>Boost Efficiency</h3>\
+                            <p>Automate repetitive tasks and free up your team to focus on high-value tasks.</p>\
+                        </div>\
+                        <div class=\"feature\">\
+                            <h3>Cut Costs</h3>\
+                            <p>Reduce labor costs and minimize errors.</p>\
+                        </div>\
+                        <div class=\"feature\">\
+                            <h3>Stay Ahead of the Competition</h3>\
+                            <p>Stay ahead of the competition by leveraging the latest AI technology.</p>\
+                        </div>\
+                    </div>\
+                    <div class=\"call-to-action\">\
+                        <a href=\"#\" class=\"btn\">Book a Call</a>\
+                    </div>\
+                </div>\
+            </div>\
+        </section>",
+"css": ".learn-more {\
+            padding: 50px 0;\
+        }\
+        .hero {\
+            height: 100vh;\
+            display: flex;\
+            justify-content: center;\
+            align-items: center;\
+            background-size: cover;\
+            background-position: center;\
+        }\
+        .cta {\
+            text-align: center;\
+            margin-bottom: 20px;\
+        }\
+        .cta .btn {\
+            background-color: #2E4053;\
+            color: #FFFFFF;\
+            padding: 10px 20px;\
+            border: none;\
+            border-radius: 5px;\
+            cursor: pointer;\
+        }\
+        .content {\
+            padding: 50px 0;\
+        }\
+        .content h2 {\
+            margin-top: 0;\
+        }\
+        .content img {\
+            margin: 20px auto;\
+            display: block;\
+        }\
+        .features {\
+            display: flex;\
+            flex-wrap: wrap;\
+            justify-content: center;\
+        }\
+        .feature {\
+            flex-basis: 30%;\
+            margin: 10px;\
+        }\
+        .call-to-action {\
+            text-align: center;\
+            margin: 20px 0;\
+        }",
+"js": ""
+}

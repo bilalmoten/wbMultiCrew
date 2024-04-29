@@ -1,0 +1,27 @@
+{
+"html": "<section class='book-a-call'> 
+<header> 
+<h2>Book a Call</h2> 
+<img src='https://example.com/Acceleron.AI-logo' alt='Acceleron AI Logo'/> 
+</header> 
+<div class='hero'> 
+<img src='https://example.com/circuitry-image' alt='AI Automation Image'/> 
+</div> 
+<div class='cta'> 
+<h3>Take the First Step Towards AI Automation</h3> 
+<p>Discover how Acceleron AI can help your business stay ahead of the competition with our cutting-edge AI automation solutions.</p> 
+<button class='btn btn-primary'>Book a Call</button> 
+<p>Arena you tired of manual processes holding you back? Do you want to stay ahead of the competition and improve efficiency? Look no further! At Acceleron AI, we specialize in AI automation solutions that can help your business thrive.</p> 
+<p>Our team of experts will work closely with you to understand your unique needs and develop a customized AI automation strategy that meets your goals. From automating repetitive tasks to improving customer service, our solutions can help you:</p> 
+<ul class='benefits'> 
+<li><i class='fa fa-check'></i>Boost efficiency and productivity</li> 
+<li><i class='fa fa-check'></i>Reduce costs and increase profitability</li> 
+<li><i class='fa fa-check'></i>Stay ahead of the competition and drive innovation</li> 
+</ul> 
+<button class='btn btn-primary'>Book a Call</button> 
+<p>Ready to take the first step towards AI automation? Book a call with our experts today and discover how Acceleron AI can help your business thrive.</p> 
+</div> 
+</section>",
+"css": ".book-a-call{background-color:#FFFFFF;padding:30px} .book-a-call header{background-color:#2E4053;color:#FFFFFF;padding:20px} .book-a-call .hero img{width:100%;height:300px} .book-a-call .cta{text-align:center;margin-top:20px} .book-a-call .cta h3{font-size:24px;color:#03A9F4} .book-a-call .btn-primary{background-color:#03A9F4;color:#FFFFFF;border:none;padding:10px 20px;border-radius:5px;cursor:pointer} .book-a-call .benefits{list-style:none;padding:0;margin:20px 0} .book-a-call .benefits li{padding:10px;border-bottom:1px solid #ddd} .book-a-call .benefits li:last-child{border-bottom:none} .book-a-call .benefits i.fa-check{margin-right:10px;color:#03A9F4。",
+"js": "$(document).ready(function(){ $('button.btn-primary').on('click',function(){ /* Add Any Additional Call-back Actions Here */ }) });"
+}

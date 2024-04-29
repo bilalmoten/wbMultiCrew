@@ -1,0 +1,114 @@
+```
+{
+  "siteName": "Example Website",
+  "pages": [
+    {
+      "name": "Home",
+      "sections": [
+        {
+          "name": "Hero",
+          "elements": [
+            {
+              "type": "heading",
+              "text": "Welcome to our website"
+            },
+            {
+              "type": "image",
+              "src": "hero-image.jpg"
+            }
+          ]
+        },
+        {
+          "name": "Features",
+          "elements": [
+            {
+              "type": "heading",
+              "text": "What we do"
+            },
+            {
+              "type": "list",
+              "items": [
+                {
+                  "text": "Item 1"
+                },
+                {
+                  "text": "Item 2"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "About",
+      "sections": [
+        {
+          "name": "Mission",
+          "elements": [
+            {
+              "type": "heading",
+              "text": "Our mission"
+            },
+            {
+              "type": "paragraph",
+              "text": "Our mission is to..."
+            }
+          ]
+        },
+        {
+          "name": "Team",
+          "elements": [
+            {
+              "type": "heading",
+              "text": "Meet our team"
+            },
+            {
+              "type": "list",
+              "items": [
+                {
+                  "name": "John Doe",
+                  "title": "CEO"
+                },
+                {
+                  "name": "Jane Smith",
+                  "title": "CTO"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Contact",
+      "sections": [
+        {
+          "name": "Contact Form",
+          "elements": [
+            {
+              "type": "heading",
+              "text": "Get in touch"
+            },
+            {
+              "type": "form",
+              "fields": [
+                {
+                  "name": "name",
+                  "label": "Name"
+                },
+                {
+                  "name": "email",
+                  "label": "Email"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
+This JSON file outlines the structure of the website, including the different pages, sections, and elements within each section. The website has three main pages: Home, About, and Contact. Each page has multiple sections, and each section has multiple elements. The elements can be of different types, such as headings, paragraphs, lists, images, and forms.

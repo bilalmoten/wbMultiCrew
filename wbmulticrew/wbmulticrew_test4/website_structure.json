@@ -1,0 +1,58 @@
+{
+  "siteName": "Acceleron AI",
+  "pages": [
+    {
+      "name": "Home",
+      "sections": [
+        {
+          "name": "What We Do"
+        },
+        {
+          "name": "Learn More"
+        },
+        {
+          "name": "Book a Call"
+        }
+      ]
+    },
+    {
+      "name": "About",
+      "sections": [
+        {
+          "name": "Our Story"
+        },
+        {
+          "name": "Mission"
+        },
+        {
+          "name": "Values"
+        }
+      ]
+    },
+    {
+      "name": "What We Do",
+      "sections": [
+        {
+          "name": "Supercharge Your Systems"
+        },
+        {
+          "name": "Future-Proof Your Business"
+        },
+        {
+          "name": "Boost Efficiency"
+        }
+      ]
+    },
+    {
+      "name": "Contact",
+      "sections": [
+        {
+          "name": "Book a Call"
+        },
+        {
+          "name": "Learn More"
+        }
+      ]
+    }
+  ]
+}
