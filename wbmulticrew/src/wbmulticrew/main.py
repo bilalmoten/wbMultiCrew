@@ -42,54 +42,102 @@ user_conversation = """ [
 """
 
 
-from wbmulticrew.user_requirements_crew import user_requirementsCrew
+# from wbmulticrew.user_requirements_crew import user_requirementsCrew
 
 from wbmulticrew.section_design_crew import Section_design_Crew
 
 
 def run():
 
-    # generate user requirements, website design brief and website structure from user conversation ### START ###
-    inputs = {"user_conversation": user_conversation}
+    # # generate user requirements, website design brief and website structure from user conversation ### START ###
+    # inputs = {
+    #     "user_conversation": user_conversation,
+    #     "example_website_structure": """{
+    #   "sitename": "My Website",
+    #   "pages": [
+    #     {
+    #       "name": "Home",
+    #       "sections": [
+    #         {
+    #           "name": "Hero"
+    #         },
+    #         {
+    #           "name": "About Us"
+    #         },
+    #         {
+    #           "name": "Features"
+    #         },
+    #         {
+    #           "name": "Testimonials"
+    #         },
+    #         {
+    #           "name": "Contact Us"
+    #         }
+    #       ]
+    #     },
+    #     {
+    #       "name": "About",
+    #       "sections": [
+    #         {
+    #           "name": "Mission"
+    #         },
+    #         {
+    #           "name": "Vision"
+    #         },
+    #         {
+    #           "name": "Values"
+    #         },
+    #         {
+    #           "name": "Team"
+    #         },
+    #         {
+    #           "name": "Contact Us"
+    #         }
+    #       ]
+    #     }
+    #   ]
+    #   //any other pages and sections as needed by the user requirements.
+    # }""",
+    # }
 
-    start_time = time.time()
+    # start_time = time.time()
 
-    os.makedirs(namee, exist_ok=True)
-    user_requirementsCrew().crew().kickoff(inputs=inputs)
+    # os.makedirs(namee, exist_ok=True)
+    # user_requirementsCrew().crew().kickoff(inputs=inputs)
 
-    end_time1 = time.time()
-    print(
-        f"Time taken for generating user requirements and website structure: {end_time1 - start_time}"
-    )
+    # end_time1 = time.time()
+    # print(
+    #     f"Time taken for generating user requirements and website structure: {end_time1 - start_time}"
+    # )
 
-    website_structure = open(f"{namee}/website_structure.json", "r").read()
+    # website_structure = open(f"{namee}/website_structure.json", "r").read()
 
-    user_requirements = open(f"{namee}/user_requirements.md", "r").read()
-    website_design_brief = open(f"{namee}/website_design_brief.md", "r").read()
+    # user_requirements = open(f"{namee}/user_requirements.md", "r").read()
+    # website_design_brief = open(f"{namee}/website_design_brief.md", "r").read()
 
-    website_structure = json.loads(website_structure)
+    # website_structure = json.loads(website_structure)
 
-    for page in website_structure["pages"]:
-        page_name = page["name"]
-        for section in page["sections"]:
-            section_name = section["name"]
-            start_time = time.time()
+    # for page in website_structure["pages"]:
+    #     page_name = page["name"]
+    #     for section in page["sections"]:
+    #         section_name = section["name"]
+    #         start_time = time.time()
 
-            os.makedirs(f"{namee}/{page_name}/{section_name}", exist_ok=True)
-            inputs = {
-                "user_requirements": user_requirements,
-                "website_design_brief": website_design_brief,
-                "website_structure": website_structure,
-                "page_name": page_name,
-                "section_name": section_name,
-            }
-            Section_design_Crew(
-                page_name=page_name, section_name=section_name
-            ).crew().kickoff(inputs=inputs)
-            end_time1 = time.time()
-            print(
-                f"Time taken for creating design, content and images for {section_name} section of {page_name} page of the website : {end_time1 - start_time}"
-            )
+    #         os.makedirs(f"{namee}/{page_name}/{section_name}", exist_ok=True)
+    #         inputs = {
+    #             "user_requirements": user_requirements,
+    #             "website_design_brief": website_design_brief,
+    #             "website_structure": website_structure,
+    #             "page_name": page_name,
+    #             "section_name": section_name,
+    #         }
+    #         Section_design_Crew(
+    #             page_name=page_name, section_name=section_name
+    #         ).crew().kickoff(inputs=inputs)
+    #         end_time1 = time.time()
+    #         print(
+    #             f"Time taken for creating design, content and images for {section_name} section of {page_name} page of the website : {end_time1 - start_time}"
+    #         )
 
     website_structure = open(f"{namee}/website_structure.json", "r").read()
     website_structure = json.loads(website_structure)

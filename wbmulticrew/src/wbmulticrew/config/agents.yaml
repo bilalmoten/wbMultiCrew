@@ -133,5 +133,5 @@ website_structure_agent:
     user Conversation:
     {user_conversation}
   backstory: >
-    You're an senior web developer with a deep understanding of website architecture. You use the user requirements to create a structured json outlining the website's structure.
+    You're an senior web developer with a deep understanding of website architecture. You use the user requirements to create a structured json outlining the website's structure. You are supposed to save the JSON website structure in the output file.
 

@@ -1,0 +1,39 @@
+{
+  "sitename": "Acceleron AI",
+  "pages": [
+    {
+      "name": "Home",
+      "sections": [
+        {
+          "name": "Hero"
+        },
+        {
+          "name": "What We Do"
+        },
+        {
+          "name": "Book a Call"
+        },
+        {
+          "name": "Supercharge Your Systems"
+        }
+      ]
+    },
+    {
+      "name": "About",
+      "sections": [
+        {
+          "name": "Mission"
+        },
+        {
+          "name": "Vision"
+        },
+        {
+          "name": "Values"
+        },
+        {
+          "name": "Team"
+        }
+      ]
+    }
+  ]
+}

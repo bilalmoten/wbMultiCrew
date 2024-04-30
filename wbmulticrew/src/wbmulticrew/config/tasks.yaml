@@ -219,6 +219,13 @@ generate_website_structure:
     {user_conversation}
   expected_output: >
     A JSON object for the website structure. The JSON should include different pages in the website, and the sections within each page(with section name only).
+    Remember to output the JSON object of the website structure in the output.
+
+    ONLY JSON OUTPUT. No additional text or comments are allowed in the output.
+
+    Example
+    ---------
+    {example_website_structure}
     
     ----
     Rules
