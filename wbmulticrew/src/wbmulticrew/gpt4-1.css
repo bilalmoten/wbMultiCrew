@@ -1,0 +1,48 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap');
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #8B9467;
+    /* Accent color */
+    background: linear-gradient(#F7F7F7, #E5E5E5);
+    /* Background gradient */
+}
+
+#hero {
+    text-align: center;
+    color: #34A853;
+    /* Primary color */
+}
+
+#hero h1 {
+    font-family: 'Montserrat', sans-serif;
+    animation: kineticEffect 5s infinite;
+}
+
+#features {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.feature-card {
+    transition: transform 0.5s ease;
+}
+
+.feature-card:hover {
+    transform: scale(1.1);
+}
+
+#call-to-action button {
+    animation: pulseEffect 2s infinite;
+}
+
+/* Keyframes for animations */
+@keyframes kineticEffect {
+    /* Define color and size changes */
+}
+
+@keyframes pulseEffect {
+    /* Define pulse animation */
+}

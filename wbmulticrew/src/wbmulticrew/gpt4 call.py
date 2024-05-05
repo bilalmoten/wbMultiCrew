@@ -15,7 +15,9 @@ class ChatApp:
         self.messages = [
             {
                 "role": "system",
-                "content": "You are an expert Mergers and Aquisitionss lawyer. Your goal is to advice the user and help him understand the accusation offer and how he can negotiate a better deal.",
+                "content": """You are a seasoned senior web developer with over 10 years of experience, specializing in creating stunning, responsive, and user-friendly websites using HTML, CSS, and JavaScript. You have a deep understanding of modern web development principles, best practices, and the latest trends in web design.
+                
+                You will be provided with a detailed design brief, which includes a comprehensive description of the website or section layout, user interface, and functionality. Your task is to write clean, efficient, and well-structured HTML, CSS, and JavaScript code to bring this design to life.""",
             }
         ]
 
@@ -45,6 +47,58 @@ class ChatApp:
 
 app = ChatApp()
 while True:
-    user_message = input("You: ")
-    response = app.send_message("user", user_message)
+    # user_message = input("You: ")
+    response = app.send_message(
+        "user",
+        """
+**Concept:** "Aurora Bloom"
+
+**Website Title:** "Unlock the Power of Innovation"
+
+**Color Scheme:**
+
+* Primary Color: #34A853 (A vibrant, energetic green)
+* Secondary Color: #FFC107 (A warm, inviting orange)
+* Accent Color: #8B9467 (A deep, rich brown)
+* Background Gradient: A soft, gradient blend of #F7F7F7 (Light gray) to #E5E5E5 (Medium gray)
+
+**Design:**
+
+The design is divided into three main sections: Hero, Features, and Call-to-Action.
+
+**Hero Section:**
+
+* Background: A stunning, high-resolution image of a blooming flower (e.g., a cherry blossom) with a subtle, animated glow effect to represent innovation and growth.
+* Headline: "Unlock the Power of Innovation" in a custom, bold, sans-serif font (e.g., Montserrat) with a dynamic, kinetic text effect that changes color and size as the user interacts with the page.
+* Subheading: "Discover the latest advancements in technology and innovation" in a clean, modern sans-serif font (e.g., Open Sans) with a subtle, animated underline effect.
+
+**Features Section:**
+
+* A bento grid layout featuring four interactive cards, each representing a different aspect of innovation (e.g., AI, Robotics, Sustainability, and Cybersecurity).
+* Each card has a unique, vibrant gradient background, and when hovered, the card expands to reveal a brief description and a "Learn More" button with a smooth, animated transition.
+* The cards are arranged in a staggered, asymmetrical layout to create visual interest and encourage exploration.
+
+**Call-to-Action Section:**
+
+* A prominent, circular button with a bold, white font and a subtle, animated pulse effect, encouraging users to "Explore the Future of Innovation."
+* The button is surrounded by a stylized, animated waveform that reacts to user interaction, creating a sense of energy and dynamism.
+
+**Interactive Elements:**
+
+* On page load, the hero image and headline are initially blurred, and as the user scrolls, they come into focus, creating a sense of discovery.
+* The kinetic text effect in the headline responds to user interaction, changing color and size as the user hovers or clicks on the text.
+* The interactive cards in the Features section have a subtle, animated "breathing" effect, giving the impression of life and energy.
+* The waveform surrounding the Call-to-Action button reacts to user interaction, creating a sense of movement and dynamism.
+
+**Motion Effects:**
+
+* On page load, the entire design is initially darkened, and as the user scrolls, the sections fade in, creating a sense of progression and storytelling.
+* The hero image has a subtle, animated parallax effect, giving the impression of depth and dimensionality.
+* The interactive cards have a smooth, animated transition when hovered or clicked, creating a sense of fluidity and responsiveness.
+
+**Glassmorphism:**
+
+* The design incorporates subtle, minimalist glassmorphism elements, such as soft, rounded corners, and subtle, blurred backgrounds, to create a sense of depth and dimensionality.
+""",
+    )
     print(f"AI: {response}")
