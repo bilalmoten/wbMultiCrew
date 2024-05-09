@@ -1,6 +1,8 @@
 import json
+import os
 from crewai_tools import BaseTool
 from openai import AzureOpenAI
+import requests
 
 
 class Dalle_Image(BaseTool):
@@ -9,7 +11,7 @@ class Dalle_Image(BaseTool):
         """
         Generate images with DALL-E, using text prompts that describe the image you want to create.
         The tool takes in a text prompt and generates an image based on the description provided.
-        the image URL will be returned to you, which you should add to the final output of the task.
+        the image Path will be returned to you, which you should add to the final output of the task.
         """
     )
 
@@ -27,11 +29,19 @@ class Dalle_Image(BaseTool):
                 quality="hd",
             )
             image_url = json.loads(result.model_dump_json())["data"][0]["url"]
-            return (
-                "Image Generated Successfully! Here is the image: \n"
-                + image_url
-                + "\n\n and the text prompt that was used: \n"
-                + prompt
-            )
+            # Download the image
+            response = requests.get(image_url)
+            image_name = f"generated_image_{prompt.replace(' ', '_')}.jpg"
+            # Extract the first 5 words from the prompt
+            first_5_words = " ".join(prompt.split()[:5])
+            image_name = f"generated_image_{first_5_words.replace(' ', '_')}.jpg"
+            image_path = os.path.join("images", image_name)
+
+            # Save the image
+            with open(image_path, "wb") as f:
+                f.write(response.content)
+
+            return f"Image Generated Successfully! Image saved at: {image_path}"
+
         except Exception as e:
             return f"Error Generating Image: {e} \n\n Please try again with a different prompt."

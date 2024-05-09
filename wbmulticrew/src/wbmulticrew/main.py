@@ -60,196 +60,230 @@ user_conversation = """ [
 """
 
 
-# from wbmulticrew.user_requirements_crew import user_requirementsCrew
+def website_reqs(inputs):
+    user_requirementsCrew().crew().kickoff(inputs=inputs)
 
-# from wbmulticrew.section_design_crew import Section_design_Crew
+    agentops.init(os.environ["AGENTOPS_API_KEY"])
 
-agentops.init(os.environ["AGENTOPS_API_KEY"])
+    @CrewBase
+    class user_requirementsCrew:
+        """user_requirements crew"""
+
+        agents_config = "config/agents.yaml"
+        tasks_config = "config/tasks.yaml"
+
+        @track_agent
+        @agent
+        def user_requirements_agent(self) -> Agent:
+            return Agent(
+                config=self.agents_config["user_requirements_agent"],
+                verbose=True,
+                llm=groq_llm,
+                max_iter=4,
+                allow_delegation=False,
+            )
+
+        @track_agent
+        @agent
+        def design_brief_agent(self) -> Agent:
+            return Agent(
+                config=self.agents_config["design_brief_agent"],
+                verbose=True,
+                llm=groq_llm,
+                max_iter=4,
+                allow_delegation=False,
+            )
+
+        @track_agent
+        @agent
+        def website_structure_agent(self) -> Agent:
+            return Agent(
+                config=self.agents_config["website_structure_agent"],
+                verbose=True,
+                llm=groq_llm,
+                max_iter=4,
+                allow_delegation=False,
+            )
+
+        ########### Tasks ###########
+
+        @task
+        def generate_user_requirements(self) -> Task:
+            return Task(
+                config=self.tasks_config["generate_user_requirements"],
+                verbose=True,
+                agent=self.user_requirements_agent(),
+                output_file=f"{namee}/user_requirements.md",
+                async_execution=False,
+            )
+
+        @task
+        def generate_website_design_brief(self) -> Task:
+            return Task(
+                config=self.tasks_config["generate_website_design_brief"],
+                verbose=True,
+                agent=self.design_brief_agent(),
+                async_execution=False,
+                output_file=f"{namee}/website_design_brief.md",
+                context={self.generate_user_requirements()},
+            )
+
+        @task
+        def generate_website_structure(self) -> Task:
+            return Task(
+                config=self.tasks_config["generate_website_structure"],
+                verbose=True,
+                agent=self.website_structure_agent(),
+                async_execution=False,
+                output_file=f"{namee}/website_structure.json",
+                context={
+                    self.generate_website_design_brief(),
+                    self.generate_user_requirements(),
+                },
+            )
+
+        @crew
+        def crew(self) -> Crew:
+            """Creates the user_requirements crew"""
+            return Crew(
+                agents=self.agents,
+                tasks=self.tasks,  # Automatically created by the @task decorator
+                # manager_llm=azure_gpt4,
+                # process=Process.hierarchical,  # Specifies the hierarchical management approach
+                process=Process.sequential,
+                verbose=2,
+                max_rpm=20,
+            )
 
 
-@CrewBase
-class user_requirementsCrew:
-    """user_requirements crew"""
+def website_code():
+    website_structure = open(f"{namee}/website_structure.json", "r").read()
+    website_structure = json.loads(website_structure)
 
-    agents_config = "config/agents.yaml"
-    tasks_config = "config/tasks.yaml"
+    for page in website_structure["pages"]:
+        page_name = page["name"]
+        for section in page["sections"]:
+            section_name = section["name"]
+            start_time = time.time()
+            section_code_json = generate_section_code(
+                section_name,
+                open(f"{namee}/{page_name}/{section_name}/design_brief.md", "r").read(),
+                open(f"{namee}/{page_name}/{section_name}/text_content.md", "r").read(),
+                open(f"{namee}/{page_name}/{section_name}/image_urls.md", "r").read(),
+            )
 
-    @track_agent
-    @agent
-    def user_requirements_agent(self) -> Agent:
-        return Agent(
-            config=self.agents_config["user_requirements_agent"],
-            verbose=True,
-            llm=groq_llm,
-            max_iter=4,
-            allow_delegation=False,
+            with open(f"{namee}/{page_name}/{section_name}/section_code.md", "w") as f:
+                f.write(section_code_json)
+            end_time1 = time.time()
+            print(
+                f"Time taken for generating code for {section_name} section of {page_name} page of the website : {end_time1 - start_time}"
+            )
+        make_page_files(
+            namee, page_name, [section["name"] for section in page["sections"]]
         )
-
-    @track_agent
-    @agent
-    def design_brief_agent(self) -> Agent:
-        return Agent(
-            config=self.agents_config["design_brief_agent"],
-            verbose=True,
-            llm=groq_llm,
-            max_iter=4,
-            allow_delegation=False,
-        )
-
-    @track_agent
-    @agent
-    def website_structure_agent(self) -> Agent:
-        return Agent(
-            config=self.agents_config["website_structure_agent"],
-            verbose=True,
-            llm=groq_llm,
-            max_iter=4,
-            allow_delegation=False,
-        )
-
-    ########### Tasks ###########
-
-    @task
-    def generate_user_requirements(self) -> Task:
-        return Task(
-            config=self.tasks_config["generate_user_requirements"],
-            verbose=True,
-            agent=self.user_requirements_agent(),
-            output_file=f"{namee}/user_requirements.md",
-            async_execution=False,
-        )
-
-    @task
-    def generate_website_design_brief(self) -> Task:
-        return Task(
-            config=self.tasks_config["generate_website_design_brief"],
-            verbose=True,
-            agent=self.design_brief_agent(),
-            async_execution=False,
-            output_file=f"{namee}/website_design_brief.md",
-            context={self.generate_user_requirements()},
-        )
-
-    @task
-    def generate_website_structure(self) -> Task:
-        return Task(
-            config=self.tasks_config["generate_website_structure"],
-            verbose=True,
-            agent=self.website_structure_agent(),
-            async_execution=False,
-            output_file=f"{namee}/website_structure.json",
-            context={
-                self.generate_website_design_brief(),
-                self.generate_user_requirements(),
-            },
-        )
-
-    @crew
-    def crew(self) -> Crew:
-        """Creates the user_requirements crew"""
-        return Crew(
-            agents=self.agents,
-            tasks=self.tasks,  # Automatically created by the @task decorator
-            # manager_llm=azure_gpt4,
-            # process=Process.hierarchical,  # Specifies the hierarchical management approach
-            process=Process.sequential,
-            verbose=2,
-            max_rpm=20,
-        )
+        return
 
 
-@CrewBase
-class Section_design_Crew:
-    """Section Design Crew"""
+def section_design(inputs, page_name, section_name):
 
-    agents_config = "config/agents2.yaml"
-    tasks_config = "config/tasks2.yaml"
+    agentops.init(os.environ["AGENTOPS_API_KEY"])
 
-    def __init__(self, page_name, section_name) -> None:
-        self.page_name = page_name
-        self.section_name = section_name
+    @CrewBase
+    class Section_design_Crew:
+        """Section Design Crew"""
 
-    @track_agent
-    @agent
-    def section_design_brief_agent(self) -> Agent:
-        return Agent(
-            config=self.agents_config["section_design_brief_agent"],
-            verbose=True,
-            llm=groq_llm,
-            max_iter=4,
-            allow_delegation=False,
-        )
+        agents_config = "config/agents2.yaml"
+        tasks_config = "config/tasks2.yaml"
 
-    @track_agent
-    @agent
-    def section_content_curator_agent(self) -> Agent:
-        return Agent(
-            config=self.agents_config["section_content_curator_agent"],
-            verbose=True,
-            llm=groq_llm,
-            max_iter=4,
-            allow_delegation=False,
-        )
+        def __init__(self, page_name, section_name) -> None:
+            self.page_name = page_name
+            self.section_name = section_name
 
-    @track_agent
-    @agent
-    def image_generation_agent(self) -> Agent:
-        return Agent(
-            config=self.agents_config["image_generation_agent"],
-            verbose=True,
-            llm=groq_llm,
-            max_iter=4,
-            allow_delegation=False,
-            # tools=[dalle_tool],
-        )
+        @track_agent
+        @agent
+        def section_design_brief_agent(self) -> Agent:
+            return Agent(
+                config=self.agents_config["section_design_brief_agent"],
+                verbose=True,
+                llm=groq_llm,
+                max_iter=4,
+                allow_delegation=False,
+            )
 
-    ########### Tasks ###########
+        @track_agent
+        @agent
+        def section_content_curator_agent(self) -> Agent:
+            return Agent(
+                config=self.agents_config["section_content_curator_agent"],
+                verbose=True,
+                llm=groq_llm,
+                max_iter=4,
+                allow_delegation=False,
+            )
 
-    @task
-    def generate_section_design_brief(self) -> Task:
-        return Task(
-            config=self.tasks_config["generate_section_design_brief"],
-            verbose=True,
-            agent=self.section_design_brief_agent(),
-            output_file=f"{namee}/{self.page_name}/{self.section_name}/design_brief.md",
-            async_execution=False,
-        )
+        @track_agent
+        @agent
+        def image_generation_agent(self) -> Agent:
+            return Agent(
+                config=self.agents_config["image_generation_agent"],
+                verbose=True,
+                llm=groq_llm,
+                max_iter=4,
+                allow_delegation=False,
+                # tools=[dalle_tool],
+            )
 
-    @task
-    def generate_section_content(self) -> Task:
-        return Task(
-            config=self.tasks_config["generate_section_content"],
-            verbose=True,
-            agent=self.section_content_curator_agent(),
-            output_file=f"{namee}/{self.page_name}/{self.section_name}/text_content.md",
-            async_execution=False,
-            context={self.generate_section_design_brief()},
-        )
+        ########### Tasks ###########
 
-    @task
-    def generate_section_images(self) -> Task:
-        return Task(
-            config=self.tasks_config["generate_section_images"],
-            verbose=True,
-            agent=self.image_generation_agent(),
-            output_file=f"{namee}/{self.page_name}/{self.section_name}/image_urls.md",
-            async_execution=False,
-            tools=[dalle_tool],
-            context={self.generate_section_design_brief()},
-        )
+        @task
+        def generate_section_design_brief(self) -> Task:
+            return Task(
+                config=self.tasks_config["generate_section_design_brief"],
+                verbose=True,
+                agent=self.section_design_brief_agent(),
+                output_file=f"{namee}/{self.page_name}/{self.section_name}/design_brief.md",
+                async_execution=False,
+            )
 
-    @crew
-    def crew(self) -> Crew:
-        """Creates the Section Design Crew"""
-        return Crew(
-            agents=self.agents,
-            tasks=self.tasks,
-            # manager_llm=azure_gpt4,
-            # process=Process.hierarchical,
-            process=Process.sequential,
-            verbose=2,
-            max_rpm=20,
-        )
+        @task
+        def generate_section_content(self) -> Task:
+            return Task(
+                config=self.tasks_config["generate_section_content"],
+                verbose=True,
+                agent=self.section_content_curator_agent(),
+                output_file=f"{namee}/{self.page_name}/{self.section_name}/text_content.md",
+                async_execution=False,
+                context={self.generate_section_design_brief()},
+            )
+
+        @task
+        def generate_section_images(self) -> Task:
+            return Task(
+                config=self.tasks_config["generate_section_images"],
+                verbose=True,
+                agent=self.image_generation_agent(),
+                output_file=f"{namee}/{self.page_name}/{self.section_name}/image_urls.md",
+                async_execution=False,
+                tools=[dalle_tool],
+                context={self.generate_section_design_brief()},
+            )
+
+        @crew
+        def crew(self) -> Crew:
+            """Creates the Section Design Crew"""
+            return Crew(
+                agents=self.agents,
+                tasks=self.tasks,
+                # manager_llm=azure_gpt4,
+                # process=Process.hierarchical,
+                process=Process.sequential,
+                verbose=2,
+                max_rpm=20,
+            )
+
+    Section_design_Crew(page_name=page_name, section_name=section_name).crew().kickoff(
+        inputs=inputs
+    )
 
 
 def run():
@@ -308,7 +342,7 @@ def run():
     start_time = time.time()
 
     os.makedirs(namee, exist_ok=True)
-    user_requirementsCrew().crew().kickoff(inputs=inputs)
+    website_reqs(inputs)
 
     end_time1 = time.time()
     print(
@@ -336,36 +370,10 @@ def run():
                 "page_name": page_name,
                 "section_name": section_name,
             }
-            Section_design_Crew(
-                page_name=page_name, section_name=section_name
-            ).crew().kickoff(inputs=inputs)
+            section_design(inputs, page_name, section_name)
             end_time1 = time.time()
             print(
                 f"Time taken for creating design, content and images for {section_name} section of {page_name} page of the website : {end_time1 - start_time}"
             )
 
-    # website_structure = open(f"{namee}/website_structure.json", "r").read()
-    # website_structure = json.loads(website_structure)
-
-    # for page in website_structure["pages"]:
-    #     page_name = page["name"]
-    #     for section in page["sections"]:
-    #         section_name = section["name"]
-    #         start_time = time.time()
-    #         section_code_json = generate_section_code(
-    #             section_name,
-    #             open(f"{namee}/{page_name}/{section_name}/design_brief.md", "r").read(),
-    #             open(f"{namee}/{page_name}/{section_name}/text_content.md", "r").read(),
-    #             open(f"{namee}/{page_name}/{section_name}/image_urls.md", "r").read(),
-    #         )
-
-    #         with open(f"{namee}/{page_name}/{section_name}/section_code.md", "w") as f:
-    #             f.write(section_code_json)
-    #         end_time1 = time.time()
-    #         print(
-    #             f"Time taken for generating code for {section_name} section of {page_name} page of the website : {end_time1 - start_time}"
-    #         )
-    #     make_page_files(
-    #         namee, page_name, [section["name"] for section in page["sections"]]
-    #     )
-    #     return
+    return website_code()

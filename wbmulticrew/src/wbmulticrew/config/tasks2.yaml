@@ -27,9 +27,9 @@ generate_section_content:
 generate_section_images:
   description: >
     Generate high-quality images based on text prompts for the {section_name} section of the website, using the DALL-E 3 model. The images should be visually appealing, relevant to the content, and consistent with the branding guidelines.
-    You must use the Dalle_Image tool to generate the image urls by providing the text prompts for the images, one by one, as per the design brief.
-    the tool takes in a text prompt and uses it to generate the image using an AI text to image model like dalle 3, and then provides the image url for the generated image.
-    Remember to only use the tool once for one image, and then give the image urls in your final output.
+    You must use the Dalle_Image tool to generate the image paths by providing the text prompts for the images, one by one, as per the design brief.
+    the tool takes in a text prompt and uses it to generate the image using an AI text to image model like dalle 3, and then provides the image path for the generated image.
+    Remember to only use the tool once for one image, and then give the image paths in your final output.
     If the section doesnt need any image, just return "No images needed for this section". and donot try to use the Dalle_image tool.
   expected_output: >
-    A json file containing the image URLs and text prompts returned from using the Dalle_Image tool for the {section_name} section of the website. If no images are needed for the section, return "No images needed for this section".
+    A json file containing the image paths and text prompts returned from using the Dalle_Image tool for the {section_name} section of the website. If no images are needed for the section, return "No images needed for this section".
