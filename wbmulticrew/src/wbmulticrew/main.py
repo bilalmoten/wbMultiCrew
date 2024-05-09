@@ -16,13 +16,14 @@ from wbmulticrew.parse_json import make_page_files
 
 
 from wbmulticrew.tools.dalle_tool import Dalle_Image
+import shutil
 
 
 groq_llm = ChatGroq(temperature=0, model_name="llama3-8b-8192")
 
 dalle_tool = Dalle_Image()
 
-namee = "test9 pharma"
+namee = "test10_pharma"
 
 user_conversation = """ [
   { "role": "user", "content": "hello" },
@@ -160,7 +161,7 @@ def website_reqs(inputs):
             )
 
     user_requirementsCrew().crew().kickoff(inputs=inputs)
-    agentops.end_session("Success")
+    # agentops.end_session("Success")
 
 
 def section_design(inputs, page_name, section_name):
@@ -268,7 +269,7 @@ def section_design(inputs, page_name, section_name):
     Section_design_Crew(page_name=page_name, section_name=section_name).crew().kickoff(
         inputs=inputs
     )
-    agentops.end_session("Success")
+    # agentops.end_session("Success")
 
 
 def website_code():
@@ -410,4 +411,7 @@ def run():
                 f"Time taken for creating design, content and images for {section_name} section of {page_name} page of the website : {end_time1 - start_time}"
             )
 
-    return website_code()
+    website_code()
+    # Move the images folder to {namee}/files
+    shutil.move("images", f"{namee}/files")
+    return "Website Generated Successfully!"
