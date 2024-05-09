@@ -22,7 +22,7 @@ groq_llm = ChatGroq(temperature=0, model_name="llama3-8b-8192")
 
 dalle_tool = Dalle_Image()
 
-namee = "test8 pharma"
+namee = "test9 pharma"
 
 user_conversation = """ [
   { "role": "user", "content": "hello" },
@@ -149,7 +149,11 @@ def website_reqs(inputs):
             """Creates the user_requirements crew"""
             return Crew(
                 agents=self.agents,
-                tasks=self.tasks,
+                tasks=[
+                    self.generate_user_requirements(),
+                    self.generate_website_design_brief(),
+                    self.generate_website_structure(),
+                ],
                 process=Process.sequential,
                 verbose=2,
                 max_rpm=20,
