@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 import json
 import os
 import time
@@ -7,7 +6,6 @@ from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 
 from langchain_groq import ChatGroq
-from langchain_openai import AzureChatOpenAI
 
 import agentops
 from agentops import track_agent
@@ -71,7 +69,7 @@ def website_reqs(inputs):
         agents_config = "config/agents.yaml"
         tasks_config = "config/tasks.yaml"
 
-        # @track_agent
+        @track_agent(name="user_requirements_agent")
         @agent
         def user_requirements_agent(self) -> Agent:
             return Agent(
@@ -82,7 +80,7 @@ def website_reqs(inputs):
                 allow_delegation=False,
             )
 
-        # @track_agent
+        @track_agent(name="design_brief_agent")
         @agent
         def design_brief_agent(self) -> Agent:
             return Agent(
@@ -93,7 +91,7 @@ def website_reqs(inputs):
                 allow_delegation=False,
             )
 
-        # @track_agent
+        @track_agent(name="website_structure_agent")
         @agent
         def website_structure_agent(self) -> Agent:
             return Agent(
@@ -146,18 +144,14 @@ def website_reqs(inputs):
             """Creates the user_requirements crew"""
             return Crew(
                 agents=self.agents,
-                tasks=self.tasks,  # Automatically created by the @task decorator
-                # manager_llm=azure_gpt4,
-                # process=Process.hierarchical,  # Specifies the hierarchical management approach
+                tasks=self.tasks,
                 process=Process.sequential,
                 verbose=2,
                 max_rpm=20,
             )
 
     user_requirementsCrew().crew().kickoff(inputs=inputs)
-    # End of program
     agentops.end_session("Success")
-    # Woohoo! You're done 🎉
 
 
 def section_design(inputs, page_name, section_name):
@@ -206,58 +200,9 @@ def section_design(inputs, page_name, section_name):
                 llm=groq_llm,
                 max_iter=4,
                 allow_delegation=False,
-                # tools=[dalle_tool],
             )
 
         ########### Tasks ###########
-
-        # generate_section_design_brief_task = Task(
-        #     # config=self.tasks_config["generate_section_design_brief"],
-        #     description="""Create a design brief for a the {section_name} section of the website, including the section layout, color schemes, typography, iconography, user interface components, and any additional design elements requested by the user. Your design brief should be based upon the user requirements document, and the website design brief and should be enhanced by your own knowledge and your expertise in website design, given your 10 years of experience at worlds best web deisgn agency.
-        #     The Section Design Brief that you are supposed to generate will act as the base for the developers, content writers and image artists to create the section of the website. The design brief should contain all the necessary information, design elements, background details, interactions, and animations for that section.
-        #     the section design brief should include the requirements for images, with description of what image is needed, and the content requirements for the section, so that the image generation agent can use the image description to prompt an AI text to image model like Dall-E 3 to generate the images for the section, and the copywriters can use the content requirements to write the content for the section.
-
-        #     User Requirements:
-        #     {user_requirements}
-
-        #     Website Design Brief:
-        #     {website_design_brief}""",
-        #     expected_output="""A markdown file containing the design brief, with detailed information on the design elements, interactions, and animations, for the {section_name} section of the website, along with the image and content requirement so that the content writers can write the content for the section, and the image agent can generate the images""",
-        #     verbose=True,
-        #     agent=section_design_brief_agent(),
-        #     output_file=f"{namee}/{page_name}/{section_name}/design_brief.md",
-        #     async_execution=False,
-        # )
-
-        # generate_section_content_task = Task(
-        #     # config=self.tasks_config["generate_section_content"],
-        #     description="""    Generate high-quality text content for the {section_name} section of the website, including page copy, button labels, headlines, sub headlines, blog posts, product descriptions, and any other text that would be needed for the section, as per the section design brief, tailored to the website's purpose and target audience.
-
-        #     user Requirements:
-        #     {user_requirements}""",
-        #     expected_output="""A markdown file containing the text content for the {section_name} section of the website. The content should be engaging, informative, and aligned with the website's goals and target audience.""",
-        #     verbose=True,
-        #     agent=section_content_curator_agent(),
-        #     output_file=f"{namee}/{page_name}/{section_name}/text_content.md",
-        #     async_execution=False,
-        #     context={generate_section_design_brief_task()},
-        # )
-
-        # generate_section_images_task = Task(
-        #     # config=self.tasks_config["generate_section_images"],
-        #     description=""" Generate high-quality images based on text prompts for the {section_name} section of the website, using the DALL-E 3 model. The images should be visually appealing, relevant to the content, and consistent with the branding guidelines.
-        #     You must use the Dalle_Image tool to generate the image paths by providing the text prompts for the images, one by one, as per the design brief.
-        #     the tool takes in a text prompt and uses it to generate the image using an AI text to image model like dalle 3, and then provides the image path for the generated image.
-        #     Remember to only use the tool once for one image, and then give the image paths in your final output.
-        #     If the section doesnt need any image, just return "No images needed for this section". and donot try to use the Dalle_image tool.""",
-        #     expected_output="""A json file containing the image paths and text prompts returned from using the Dalle_Image tool for the {section_name} section of the website. If no images are needed for the section, return "No images needed for this section".""",
-        #     verbose=True,
-        #     agent=image_generation_agent(),
-        #     output_file=f"{namee}/{page_name}/{section_name}/image_urls.md",
-        #     async_execution=False,
-        #     tools=[dalle_tool],
-        #     context={generate_section_design_brief_task()},
-        # )
 
         @task
         def generate_section_design_brief(self) -> Task:
@@ -302,8 +247,6 @@ def section_design(inputs, page_name, section_name):
                     self.generate_section_content(),
                     self.generate_section_images(),
                 ],
-                # manager_llm=azure_gpt4,
-                # process=Process.hierarchical,
                 process=Process.sequential,
                 verbose=2,
                 max_rpm=20,
@@ -312,9 +255,7 @@ def section_design(inputs, page_name, section_name):
     Section_design_Crew(page_name=page_name, section_name=section_name).crew().kickoff(
         inputs=inputs
     )
-    # End of program
     agentops.end_session("Success")
-    # Woohoo! You're done 🎉
 
 
 def website_code():
@@ -346,7 +287,6 @@ def website_code():
 
 def run():
 
-    # generate user requirements, website design brief and website structure from user conversation ### START ###
     inputs = {
         "user_conversation": user_conversation,
         "example_website_structure": """{
