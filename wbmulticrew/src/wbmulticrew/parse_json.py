@@ -1,6 +1,4 @@
-import json
-import re
-
+import os
 import re
 
 
@@ -26,10 +24,8 @@ def parse_markdown(md_text):
     return html_code, css_code, js_code
 
 
-def parse_files(page_name, section_names):
-    base_path = (
-        "/Users/muhammedbilal/Development/wbMultiCrew/wbmulticrew/wbmulticrew_test5"
-    )
+def parse_files(site_name, page_name, section_names):
+    base_path = f"/Users/muhammedbilal/Development/wbMultiCrew/wbmulticrew/src/wbmulticrew/{site_name}"
     html_code = ""
     css_code = ""
     js_code = ""
@@ -43,17 +39,14 @@ def parse_files(page_name, section_names):
             css_code += f"/* {section_name} */\n{file_css_code}\n"
             js_code += f"// {section_name}\n{file_js_code}\n"
 
-    with open(f"{page_name}.html", "a") as html_file:
+    with open(f"{site_name}/files/{page_name}.html", "a") as html_file:
         html_file.write(html_code)
 
-    with open(f"{page_name}.css", "a") as css_file:
+    with open(f"{site_name}/files/{page_name}.css", "a") as css_file:
         css_file.write(css_code)
 
-    with open(f"{page_name}.js", "a") as js_file:
+    with open(f"{site_name}/files/{page_name}.js", "a") as js_file:
         js_file.write(js_code)
-
-
-# def edit_html_file(file_list):
 
 
 def make_page_files(site_name, page_name, section_names):
@@ -86,20 +79,18 @@ def make_page_files(site_name, page_name, section_names):
     </html>
     """
 
+    # create the files folder if it doesn't exist
+    if not os.path.exists(f"{site_name}/files"):
+        os.makedirs(f"{site_name}/files")
+
     # create the html file
+
     # add html starter
-    with open(f"{page_name}.html", "w") as html_file:
+    with open(f"{site_name}/files/{page_name}.html", "w") as html_file:
         html_file.write(html_starter.format(page_name=page_name, site_name=site_name))
     # add html sections
-    parse_files(page_name, section_names)
+    parse_files(site_name, page_name, section_names)
     # add html end
-    with open(f"{page_name}.html", "a") as html_file:
+    with open(f"{site_name}/files/{page_name}.html", "a") as html_file:
         html_file.write(html_end.format(page_name=page_name))
-    print("HTML file for the {page_name} page has been created successfully.")
-
-
-# section_names = ["What We Do", "Learn More", "Book a Call"]
-# page_name = "Home"
-# site_name = "wbmulticrew_test4"
-
-# make_page_files(site_name, page_name, section_names)
+    print(f"HTML file for the {page_name} page has been created successfully.")

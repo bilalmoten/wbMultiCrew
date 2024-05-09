@@ -1,0 +1,203 @@
+/* What We Do */
+.what-we-do {
+    background-image: linear-gradient(to bottom, #212121, #202020);
+    background-size: 100% 300px;
+    background-position: 0% 100%;
+    padding-bottom: 100px;
+    padding-top: 100px;
+}
+
+.what-we-do .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.what-we-do .section-title {
+    font-weight: bold;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.what-we-do .section-subtitle {
+    font-weight: normal;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.what-we-do ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.what-we-do ul li {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.what-we-do .btn-cta {
+    background-color: #03A9F4;
+    color: #FFFFFF;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.what-we-do .btn-cta:hover {
+    background-color: #02a2e7;
+}
+
+.what-we-do img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Future-proof your business */
+#future-proof-business {
+    background-color: #FFFFFF;
+    padding: 50px;
+}
+
+.hero {
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+}
+
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.content {
+    padding: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    padding: 10px;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+li:last-child {
+    border-bottom: none;
+}
+
+.cta {
+    background-color: #03A9F4;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cta:hover {
+    background-color: #0069D9;
+}
+
+.testimonials {
+    padding: 20px;
+    background-color: #F7F7F7;
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.testimonials h2 {
+    margin-top: 0;
+}
+
+.call-to-action {
+    padding: 20px;
+    text-align: center;
+}
+
+.btn {
+    background-color: #03A9F4;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.btn:hover {
+    background-color: #0069D9;
+}
+
+/* Boost efficiency, cut costs */
+.boost-efficiency-cut-costs {
+  background-color: #FFFFFF;
+  color: #212121;
+}
+
+.boost-efficiency-cut-costs .section-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.boost-efficiency-cut-costs .section-subheading {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.boost-efficiency-cut-costs img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.boost-efficiency-cut-costs .body-text {
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+.boost-efficiency-cut-costs .btn {
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.boost-efficiency-cut-costs .btn-primary {
+  background-color: #03A9F4;
+  color: #FFFFFF;
+}
+
+.boost-efficiency-cut-costs .btn-secondary {
+  background-color: #CCCCCC;
+  color: #666666;
+}
+
+.boost-efficiency-cut-costs .btn:hover {
+  opacity: 0.8;
+  transition: 0.3s;
+}
+

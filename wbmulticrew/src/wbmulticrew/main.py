@@ -21,7 +21,7 @@ groq_llm = ChatGroq(temperature=0, model_name="llama3-8b-8192")
 
 dalle_tool = Dalle_Image()
 
-namee = "wbmulticrew_test6"
+namee = "wbmulticrew_test7"
 
 user_conversation = """ [ 
   {
@@ -241,7 +241,11 @@ def section_design(inputs, page_name, section_name):
         def crew(self) -> Crew:
             """Creates the Section Design Crew"""
             return Crew(
-                agents=self.agents,
+                agents=[
+                    self.section_design_brief_agent(),
+                    self.section_content_curator_agent(),
+                    self.image_generation_agent(),
+                ],
                 tasks=[
                     self.generate_section_design_brief(),
                     self.generate_section_content(),
@@ -376,7 +380,22 @@ def run():
                 "page_name": page_name,
                 "section_name": section_name,
             }
-            section_design(inputs, page_name, section_name)
+            if (
+                not os.path.exists(
+                    f"{namee}/{page_name}/{section_name}/design_brief.md"
+                )
+                or not os.path.exists(
+                    f"{namee}/{page_name}/{section_name}/text_content.md"
+                )
+                or not os.path.exists(
+                    f"{namee}/{page_name}/{section_name}/image_urls.md"
+                )
+            ):
+                section_design(inputs, page_name, section_name)
+            else:
+                print(
+                    f"Required files already exist for {section_name} section of {page_name} page, skipping section design crew"
+                )
             end_time1 = time.time()
             print(
                 f"Time taken for creating design, content and images for {section_name} section of {page_name} page of the website : {end_time1 - start_time}"
