@@ -3,6 +3,7 @@ import os
 from crewai_tools import BaseTool
 from openai import AzureOpenAI
 import requests
+from main import namee
 
 
 class Dalle_Image(BaseTool):
@@ -35,7 +36,7 @@ class Dalle_Image(BaseTool):
             # Extract the first 5 words from the prompt
             first_5_words = " ".join(prompt.split()[:5])
             image_name = f"generated_image_{first_5_words.replace(' ', '_')}.jpg"
-            image_path = os.path.join("images", image_name)
+            image_path = os.path.join(namee, "images", image_name)
 
             # Save the image
             os.makedirs(os.path.dirname(image_path), exist_ok=True)

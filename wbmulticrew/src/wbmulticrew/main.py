@@ -8,7 +8,8 @@ from crewai.project import CrewBase, agent, crew, task
 from langchain_groq import ChatGroq
 
 import agentops
-from agentops import track_agent
+
+# from agentops import track_agent
 
 from wbmulticrew.page_code import generate_section_code
 from wbmulticrew.parse_json import make_page_files
@@ -21,46 +22,50 @@ groq_llm = ChatGroq(temperature=0, model_name="llama3-8b-8192")
 
 dalle_tool = Dalle_Image()
 
-namee = "wbmulticrew_test7"
+namee = "test8 pharma"
 
-user_conversation = """ [ 
-  {
-    "role": "user",
-    "content": "i want t a website for my ai automation agency named acceleron ai"
-  },
+user_conversation = """ [
+  { "role": "user", "content": "hello" },
   {
     "role": "assistant",
-    "content": "Exciting! So, you want a website for your AI automation agency, Acceleron AI. That's a great start! Can you tell me a bit more about what Acceleron AI does and what kind of audience you're targeting with this website? For example, are you focused on a specific industry or type of automation?"
+    "content": "Hello! I'm excited to discuss your website project with you. Can you please tell me the name of the website or the business you want the website for? Additionally, do you have any information about the website that you'd like to share, such as its purpose, target audience, or any specific features you'd like to include?"
   },
   {
     "role": "user",
-    "content": " Acceleron AI Home About What We Do Learn More Book a Call Supercharge your systems with AI Future-proof your business by bringing AI into your team. Boost efficiency, cut costs, and stay ahead effortlessly. Book A Call  From Outdated to AI Leader AI Agents Have AI employees - they never ask for a raise! Full-fledged team's weekly work done by AI in hours. Connect  Apps Connect your apps to the AI agents Give AI access to work on your behalf.  Overtake Competitors Whoosh past your competition! Boost efficiency, cut costs, save time, and outperform competitors effortlessly.  More Juice, Less Squeeze. It's truly effortless.  With AI agents in your team, you get to: Experience 100% efficiency, no human errors. Eliminate costs by assigning low ROI tasks to an AI assistant. Achieve upto 5x faster work cycles; no employee friction.  When will you Adapt? Embrace the AI revolution, and join the 85% of  enterprises implementing AI by 2026!"
+    "content": "i am the founder of a phramacuetical company named bkf pharma, we are developing a propreitary medicine for cancer treatment. the research isnt comlete yet so details cant be shared, but i want to have a website that i can show to potential partners and investors, i dont have any branding etc set so u are free to design as you want, i am a little short on time, so try not to ask me a lot of stuff and u can give me options and ill say yes or no"
   },
   {
     "role": "assistant",
-    "content": "It looks like you have a clear vision for your website and a good idea of the message you want to convey to your audience. I've taken note of the key points you've mentioned, including the emphasis on boosting efficiency, cutting costs, and staying ahead of the competition with AI automation.\n\nFrom a design perspective, I can see that you might be interested in a modern, futuristic aesthetic to match the innovative and cutting-edge nature of AI automation. Perhaps we could explore a color scheme that incorporates blues and whites to convey a sense of technology and innovation?\n\nCan you tell me a bit more about the type of design elements you envision for the website? For example, would you like to feature any specific imagery, such as robots or circuits, or do you have any specific typography or layout preferences?"
+    "content": "Thank you for sharing that with me. It sounds like you're looking to create a website that will serve as a professional presence for BKF Pharma, showcasing your company's mission and vision to potential partners and investors.\n\nGiven the sensitive nature of your research, I completely understand that you can't share too many details at this point. Let's focus on creating a website that conveys your company's values and goals.\n\nFor the design, I'll suggest a few options, and you can give me a thumbs up or down. Sound good?\n\nHere's a question to get started: Would you prefer a website with a more modern, sleek design or a more traditional, professional look?"
   },
-  { "role": "user", "content": "your ideas sound great, " },
+  { "role": "user", "content": "modern, sleek design," },
   {
     "role": "assistant",
-    "content": "I'm glad you like the direction we're headed. Now, let's dive a bit deeper into the design preferences. \n\nFor the imagery, would you like to feature any specific types of images or graphics on the website? For example, would you like to showcase AI-related visuals like robots, circuits, or futuristic landscapes, or perhaps more abstract representations of innovation and technology?\n\nAdditionally, are there any specific typography or font styles that you're drawn to? For instance, would you like a clean and minimalist sans-serif font or a more futuristic, high-tech font with a bold and edgy feel?\n\nLastly, are there any specific layout or UI elements that you envision for the website? For example, would you like to feature a prominent hero section, a showcase of case studies or testimonials, or a prominent call-to-action (CTA) to encourage visitors to book a call or learn more?\n\nLet me know your thoughts, and I can start to get a better sense of your design preferences!"
+    "content": "A modern, sleek design will give your website a fresh and innovative feel, which is perfect for a pharmaceutical company like BKF Pharma that's pushing the boundaries of cancer treatment.\n\nNext question: What kind of imagery would you like to feature on your website? For example, would you like to see:\n\nA) Abstract, futuristic visuals that evoke a sense of innovation and cutting-edge technology\nB) Images of people, such as scientists, researchers, or patients, to add a human touch\nC) Minimalist, clean designs that focus on typography and simple graphics\n\nLet me know your preference, and I'll take it from there!"
   },
-  {
-    "role": "user",
-    "content": "i dont have any other specifics, you can think about everything else yourself."
-  },
+  { "role": "user", "content": "a and some b" },
   {
     "role": "assistant",
-    "content": "With the information you've provided, I have a good understanding of the overall direction and tone you're aiming for. I'll use my expertise to make suggestions and recommendations for the design and development of your website.\n\nSince we're focusing on a modern, futuristic aesthetic, I'll explore design elements that incorporate clean lines, minimalism, and a touch of innovation. I'll also ensure that the typography and color scheme align with the AI automation theme.\n\nAs we're done discussing the project details, I'll wrap up our conversation here. I'll say... Exit"
+    "content": "You'd like to combine the futuristic, high-tech feel of abstract visuals with some human elements to add a touch of warmth and empathy. This will help convey the innovative spirit of BKF Pharma while also highlighting the human impact of your work.\n\nNext question: What's the primary action you'd like visitors to take when they land on your website? For example, would you like them to:\n\nA) Learn more about BKF Pharma's mission and values\nB) Get in touch with you or your team for potential partnerships or investments\nC) Stay updated on the latest news and developments from BKF Pharma\n\nLet me know your top priority, and I'll make sure to design a website that guides visitors towards that goal!"
   },
-  { "role": "user", "content": "okay" }
+  { "role": "user", "content": "a with a contact page for b" },
+  {
+    "role": "assistant",
+    "content": "You'd like the website to primarily focus on showcasing BKF Pharma's mission and values, with a clear call-to-action to encourage visitors to learn more about your company's vision and goals.\n\nAdditionally, you'd like to include a dedicated contact page that makes it easy for potential partners, investors, or other interested parties to get in touch with you or your team.\n\nNext question: What kind of tone would you like to convey through your website's content and design? For example, would you like it to be:\n\nA) Professional and authoritative, conveying a sense of expertise and credibility\nB) Inspirational and motivational, highlighting the potential impact of your work\nC) Friendly and approachable, conveying a sense of collaboration and openness\n\nLet me know your preference, and I'll help create a website that resonates with your target audience!"
+  },
+  { "role": "user", "content": "b" },
+  {
+    "role": "assistant",
+    "content": "You'd like the tone of your website to be inspirational and motivational, highlighting the potential impact of BKF Pharma's work on cancer treatment. This will help create an emotional connection with your visitors and inspire them to learn more about your mission.\n\nI think I have a good understanding of your vision now. Before I wrap up, is there anything else you'd like to add or any specific concerns you have about the website?\n\nIf not, I'll summarize the key points we've discussed and get started on designing a website that meets your needs.\n\n(Type \"Exit\" if you're ready to conclude our conversation)"
+  },
+  { "role": "user", "content": "nothing else" }
 ]
 """
 
 
 def website_reqs(inputs):
 
-    agentops.init(os.environ["AGENTOPS_API_KEY"])
+    # agentops.init(os.environ["AGENTOPS_API_KEY"])
 
     @CrewBase
     class user_requirementsCrew:
@@ -69,7 +74,7 @@ def website_reqs(inputs):
         agents_config = "config/agents.yaml"
         tasks_config = "config/tasks.yaml"
 
-        @track_agent(name="user_requirements_agent")
+        # @track_agent(name="user_requirements_agent")
         @agent
         def user_requirements_agent(self) -> Agent:
             return Agent(
@@ -80,7 +85,7 @@ def website_reqs(inputs):
                 allow_delegation=False,
             )
 
-        @track_agent(name="design_brief_agent")
+        # @track_agent(name="design_brief_agent")
         @agent
         def design_brief_agent(self) -> Agent:
             return Agent(
@@ -91,7 +96,7 @@ def website_reqs(inputs):
                 allow_delegation=False,
             )
 
-        @track_agent(name="website_structure_agent")
+        # @track_agent(name="website_structure_agent")
         @agent
         def website_structure_agent(self) -> Agent:
             return Agent(
@@ -156,7 +161,7 @@ def website_reqs(inputs):
 
 def section_design(inputs, page_name, section_name):
 
-    agentops.init(os.environ["AGENTOPS_API_KEY"])
+    # agentops.init(os.environ["AGENTOPS_API_KEY"])
 
     @CrewBase
     class Section_design_Crew:
@@ -169,7 +174,7 @@ def section_design(inputs, page_name, section_name):
             self.page_name = page_name
             self.section_name = section_name
 
-        @track_agent(name="section_design_brief_agent")
+        # @track_agent(name="section_design_brief_agent")
         @agent
         def section_design_brief_agent(self) -> Agent:
             return Agent(
@@ -180,7 +185,7 @@ def section_design(inputs, page_name, section_name):
                 allow_delegation=False,
             )
 
-        @track_agent(name="section_content_curator_agent")
+        # @track_agent(name="section_content_curator_agent")
         @agent
         def section_content_curator_agent(self) -> Agent:
             return Agent(
@@ -191,7 +196,7 @@ def section_design(inputs, page_name, section_name):
                 allow_delegation=False,
             )
 
-        @track_agent(name="image_generation_agent")
+        # @track_agent(name="image_generation_agent")
         @agent
         def image_generation_agent(self) -> Agent:
             return Agent(
@@ -290,7 +295,7 @@ def website_code():
 
 
 def run():
-
+    agentops.init(os.environ["AGENTOPS_API_KEY"])
     inputs = {
         "user_conversation": user_conversation,
         "example_website_structure": """{

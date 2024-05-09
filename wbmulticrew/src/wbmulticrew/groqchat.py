@@ -1,9 +1,14 @@
 import json
+import os
 from groq import Groq
+
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 client = Groq(
-    api_key="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"
+    api_key=os.environ.get("GROQ_API_KEY"),
 )  # Create a Groq client
 
 
@@ -66,7 +71,7 @@ def chat_with_groq_llm():
             filtered_chat_history = [
                 msg for msg in chat_history if msg["role"] != "system"
             ]
-            with open("conversation.json", "w") as f:
+            with open("conversation2.json", "w") as f:
                 json.dump(filtered_chat_history, f)
             break
         else:
