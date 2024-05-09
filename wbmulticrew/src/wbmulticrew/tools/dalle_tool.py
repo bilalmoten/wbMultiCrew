@@ -38,6 +38,7 @@ class Dalle_Image(BaseTool):
             image_path = os.path.join("images", image_name)
 
             # Save the image
+            os.makedirs(os.path.dirname(image_path), exist_ok=True)
             with open(image_path, "wb") as f:
                 f.write(response.content)
 

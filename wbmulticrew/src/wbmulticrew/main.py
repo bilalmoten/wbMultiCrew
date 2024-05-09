@@ -61,7 +61,6 @@ user_conversation = """ [
 
 
 def website_reqs(inputs):
-    user_requirementsCrew().crew().kickoff(inputs=inputs)
 
     agentops.init(os.environ["AGENTOPS_API_KEY"])
 
@@ -72,7 +71,7 @@ def website_reqs(inputs):
         agents_config = "config/agents.yaml"
         tasks_config = "config/tasks.yaml"
 
-        @track_agent
+        # @track_agent
         @agent
         def user_requirements_agent(self) -> Agent:
             return Agent(
@@ -83,7 +82,7 @@ def website_reqs(inputs):
                 allow_delegation=False,
             )
 
-        @track_agent
+        # @track_agent
         @agent
         def design_brief_agent(self) -> Agent:
             return Agent(
@@ -94,7 +93,7 @@ def website_reqs(inputs):
                 allow_delegation=False,
             )
 
-        @track_agent
+        # @track_agent
         @agent
         def website_structure_agent(self) -> Agent:
             return Agent(
@@ -155,33 +154,7 @@ def website_reqs(inputs):
                 max_rpm=20,
             )
 
-
-def website_code():
-    website_structure = open(f"{namee}/website_structure.json", "r").read()
-    website_structure = json.loads(website_structure)
-
-    for page in website_structure["pages"]:
-        page_name = page["name"]
-        for section in page["sections"]:
-            section_name = section["name"]
-            start_time = time.time()
-            section_code_json = generate_section_code(
-                section_name,
-                open(f"{namee}/{page_name}/{section_name}/design_brief.md", "r").read(),
-                open(f"{namee}/{page_name}/{section_name}/text_content.md", "r").read(),
-                open(f"{namee}/{page_name}/{section_name}/image_urls.md", "r").read(),
-            )
-
-            with open(f"{namee}/{page_name}/{section_name}/section_code.md", "w") as f:
-                f.write(section_code_json)
-            end_time1 = time.time()
-            print(
-                f"Time taken for generating code for {section_name} section of {page_name} page of the website : {end_time1 - start_time}"
-            )
-        make_page_files(
-            namee, page_name, [section["name"] for section in page["sections"]]
-        )
-        return
+    user_requirementsCrew().crew().kickoff(inputs=inputs)
 
 
 def section_design(inputs, page_name, section_name):
@@ -199,7 +172,7 @@ def section_design(inputs, page_name, section_name):
             self.page_name = page_name
             self.section_name = section_name
 
-        @track_agent
+        @track_agent(name="section_design_brief_agent")
         @agent
         def section_design_brief_agent(self) -> Agent:
             return Agent(
@@ -210,7 +183,7 @@ def section_design(inputs, page_name, section_name):
                 allow_delegation=False,
             )
 
-        @track_agent
+        @track_agent(name="section_content_curator_agent")
         @agent
         def section_content_curator_agent(self) -> Agent:
             return Agent(
@@ -221,7 +194,7 @@ def section_design(inputs, page_name, section_name):
                 allow_delegation=False,
             )
 
-        @track_agent
+        @track_agent(name="image_generation_agent")
         @agent
         def image_generation_agent(self) -> Agent:
             return Agent(
@@ -234,6 +207,54 @@ def section_design(inputs, page_name, section_name):
             )
 
         ########### Tasks ###########
+
+        # generate_section_design_brief_task = Task(
+        #     # config=self.tasks_config["generate_section_design_brief"],
+        #     description="""Create a design brief for a the {section_name} section of the website, including the section layout, color schemes, typography, iconography, user interface components, and any additional design elements requested by the user. Your design brief should be based upon the user requirements document, and the website design brief and should be enhanced by your own knowledge and your expertise in website design, given your 10 years of experience at worlds best web deisgn agency.
+        #     The Section Design Brief that you are supposed to generate will act as the base for the developers, content writers and image artists to create the section of the website. The design brief should contain all the necessary information, design elements, background details, interactions, and animations for that section.
+        #     the section design brief should include the requirements for images, with description of what image is needed, and the content requirements for the section, so that the image generation agent can use the image description to prompt an AI text to image model like Dall-E 3 to generate the images for the section, and the copywriters can use the content requirements to write the content for the section.
+
+        #     User Requirements:
+        #     {user_requirements}
+
+        #     Website Design Brief:
+        #     {website_design_brief}""",
+        #     expected_output="""A markdown file containing the design brief, with detailed information on the design elements, interactions, and animations, for the {section_name} section of the website, along with the image and content requirement so that the content writers can write the content for the section, and the image agent can generate the images""",
+        #     verbose=True,
+        #     agent=section_design_brief_agent(),
+        #     output_file=f"{namee}/{page_name}/{section_name}/design_brief.md",
+        #     async_execution=False,
+        # )
+
+        # generate_section_content_task = Task(
+        #     # config=self.tasks_config["generate_section_content"],
+        #     description="""    Generate high-quality text content for the {section_name} section of the website, including page copy, button labels, headlines, sub headlines, blog posts, product descriptions, and any other text that would be needed for the section, as per the section design brief, tailored to the website's purpose and target audience.
+
+        #     user Requirements:
+        #     {user_requirements}""",
+        #     expected_output="""A markdown file containing the text content for the {section_name} section of the website. The content should be engaging, informative, and aligned with the website's goals and target audience.""",
+        #     verbose=True,
+        #     agent=section_content_curator_agent(),
+        #     output_file=f"{namee}/{page_name}/{section_name}/text_content.md",
+        #     async_execution=False,
+        #     context={generate_section_design_brief_task()},
+        # )
+
+        # generate_section_images_task = Task(
+        #     # config=self.tasks_config["generate_section_images"],
+        #     description=""" Generate high-quality images based on text prompts for the {section_name} section of the website, using the DALL-E 3 model. The images should be visually appealing, relevant to the content, and consistent with the branding guidelines.
+        #     You must use the Dalle_Image tool to generate the image paths by providing the text prompts for the images, one by one, as per the design brief.
+        #     the tool takes in a text prompt and uses it to generate the image using an AI text to image model like dalle 3, and then provides the image path for the generated image.
+        #     Remember to only use the tool once for one image, and then give the image paths in your final output.
+        #     If the section doesnt need any image, just return "No images needed for this section". and donot try to use the Dalle_image tool.""",
+        #     expected_output="""A json file containing the image paths and text prompts returned from using the Dalle_Image tool for the {section_name} section of the website. If no images are needed for the section, return "No images needed for this section".""",
+        #     verbose=True,
+        #     agent=image_generation_agent(),
+        #     output_file=f"{namee}/{page_name}/{section_name}/image_urls.md",
+        #     async_execution=False,
+        #     tools=[dalle_tool],
+        #     context={generate_section_design_brief_task()},
+        # )
 
         @task
         def generate_section_design_brief(self) -> Task:
@@ -273,7 +294,11 @@ def section_design(inputs, page_name, section_name):
             """Creates the Section Design Crew"""
             return Crew(
                 agents=self.agents,
-                tasks=self.tasks,
+                tasks=[
+                    self.generate_section_design_brief(),
+                    self.generate_section_content(),
+                    self.generate_section_images(),
+                ],
                 # manager_llm=azure_gpt4,
                 # process=Process.hierarchical,
                 process=Process.sequential,
@@ -284,6 +309,33 @@ def section_design(inputs, page_name, section_name):
     Section_design_Crew(page_name=page_name, section_name=section_name).crew().kickoff(
         inputs=inputs
     )
+
+
+def website_code():
+    website_structure = open(f"{namee}/website_structure.json", "r").read()
+    website_structure = json.loads(website_structure)
+
+    for page in website_structure["pages"]:
+        page_name = page["name"]
+        for section in page["sections"]:
+            section_name = section["name"]
+            start_time = time.time()
+            section_code_json = generate_section_code(
+                section_name,
+                open(f"{namee}/{page_name}/{section_name}/design_brief.md", "r").read(),
+                open(f"{namee}/{page_name}/{section_name}/text_content.md", "r").read(),
+                open(f"{namee}/{page_name}/{section_name}/image_urls.md", "r").read(),
+            )
+
+            with open(f"{namee}/{page_name}/{section_name}/section_code.md", "w") as f:
+                f.write(section_code_json)
+            end_time1 = time.time()
+            print(
+                f"Time taken for generating code for {section_name} section of {page_name} page of the website : {end_time1 - start_time}"
+            )
+        make_page_files(
+            namee, page_name, [section["name"] for section in page["sections"]]
+        )
 
 
 def run():
@@ -342,8 +394,16 @@ def run():
     start_time = time.time()
 
     os.makedirs(namee, exist_ok=True)
-    website_reqs(inputs)
-
+    if (
+        not os.path.exists(f"{namee}/website_structure.json")
+        or not os.path.exists(f"{namee}/user_requirements.md")
+        or not os.path.exists(f"{namee}/website_design_brief.md")
+    ):
+        website_reqs(inputs)
+    else:
+        print(
+            "Required files already exist already exist, skipping user requirements crew"
+        )
     end_time1 = time.time()
     print(
         f"Time taken for generating user requirements and website structure: {end_time1 - start_time}"

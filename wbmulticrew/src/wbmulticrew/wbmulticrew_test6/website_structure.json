@@ -1,0 +1,33 @@
+{
+  "sitename": "Acceleron AI",
+  "pages": [
+    {
+      "name": "Home",
+      "sections": [
+        {
+          "name": "Hero"
+        },
+        {
+          "name": "What We Do"
+        },
+        {
+          "name": "Book a Call"
+        }
+      ]
+    },
+    {
+      "name": "About",
+      "sections": [
+        {
+          "name": "What We Do"
+        },
+        {
+          "name": "Future-proof your business"
+        },
+        {
+          "name": "Boost efficiency, cut costs"
+        }
+      ]
+    }
+  ]
+}
