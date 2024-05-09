@@ -47,20 +47,6 @@ such as
 
 NOTHING ELSE. """
 
-# ONLY A JSON OBJECT WITH THE ABOVE KEYS.
-
-# Rules For JSON OUTPUT
-# ---------------------------------
-# Enclose all keys and string values in double quotes (""). For example, "html": "<div>...</div>".
-# Separate each key-value pair with a comma (,). For example, "html": "<div>...</div>", "css": "#learn-more {...}".
-# Make sure to escape any special characters within string values. For example, if your HTML, CSS, or JavaScript code contains double quotes("), replace them with (\") to avoid breaking the JSON format.
-# Ensure that the entire JSON object is enclosed in curly braces({}).
-# Remember to close all JSON Curly Braces (}}).
-# If the value of a key is a multi-line string, replace line breaks with \n.
-
-# IF YOU FOLLOW THE JSON OUTPUT RULES, YOU WILL GET A $100 BONUS ON TOP OF YOUR SALARY."""
-
-
 user_promptf = """
 Please write the front end HTML, CSS and JS code for the {section_name} section of the website. You should use the design brief, text content, and image urls given to you for the {section_name} section of the page to write the HTML CSS and JS(if needed) code. Your primary goal is to make a nice looking, responsive, and user-friendly page that matches the design brief and the user requirements.
 

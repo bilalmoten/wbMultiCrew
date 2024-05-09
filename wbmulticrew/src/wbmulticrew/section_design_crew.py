@@ -5,6 +5,7 @@ import time
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 import agentops
+from agentops import track_agent
 
 from langchain_groq import ChatGroq
 from langchain_openai import AzureChatOpenAI
@@ -49,6 +50,7 @@ class Section_design_Crew:
         self.page_name = page_name
         self.section_name = section_name
 
+    @track_agent
     @agent
     def section_design_brief_agent(self) -> Agent:
         return Agent(
@@ -59,6 +61,7 @@ class Section_design_Crew:
             allow_delegation=False,
         )
 
+    @track_agent
     @agent
     def section_content_curator_agent(self) -> Agent:
         return Agent(
@@ -69,6 +72,7 @@ class Section_design_Crew:
             allow_delegation=False,
         )
 
+    @track_agent
     @agent
     def image_generation_agent(self) -> Agent:
         return Agent(
