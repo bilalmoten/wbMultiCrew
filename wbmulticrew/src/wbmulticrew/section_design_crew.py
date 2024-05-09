@@ -4,6 +4,7 @@ import time
 
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
+import agentops
 
 from langchain_groq import ChatGroq
 from langchain_openai import AzureChatOpenAI
@@ -34,6 +35,7 @@ azure_gpt4 = AzureChatOpenAI(
     azure_deployment="gpt4-wbmulticrew",
     api_version="2024-02-15-preview",
 )
+agentops.init(os.environ["AGENTOPS_API_KEY"])
 
 
 @CrewBase

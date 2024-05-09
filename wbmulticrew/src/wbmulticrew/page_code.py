@@ -5,14 +5,14 @@ import json
 from groq import Groq
 
 
-client = Groq(
-    api_key="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"
-)  # Create a Groq client
-
-
 from dotenv import load_dotenv
 
 load_dotenv()
+
+
+client = Groq(
+    api_key=os.environ["GROQ_API_KEY"],
+)  # Create a Groq client
 
 system_prompt = """
 You're the Lead Developer at the worlds top website development agency. You have 10 years of experience in developing highly interactive, beautifully designed websites. Your expertise in HTML, CSS and JS based front-end web development is unmatched.
