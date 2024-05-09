@@ -155,6 +155,9 @@ def website_reqs(inputs):
             )
 
     user_requirementsCrew().crew().kickoff(inputs=inputs)
+    # End of program
+    agentops.end_session("Success")
+    # Woohoo! You're done 🎉
 
 
 def section_design(inputs, page_name, section_name):
@@ -309,6 +312,9 @@ def section_design(inputs, page_name, section_name):
     Section_design_Crew(page_name=page_name, section_name=section_name).crew().kickoff(
         inputs=inputs
     )
+    # End of program
+    agentops.end_session("Success")
+    # Woohoo! You're done 🎉
 
 
 def website_code():

@@ -95,6 +95,7 @@ def make_page_files(site_name, page_name, section_names):
     # add html end
     with open(f"{page_name}.html", "a") as html_file:
         html_file.write(html_end.format(page_name=page_name))
+    print("HTML file for the {page_name} page has been created successfully.")
 
 
 # section_names = ["What We Do", "Learn More", "Book a Call"]
