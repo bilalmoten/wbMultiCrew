@@ -1,0 +1,160 @@
+/* Get in Touch */
+.get-in-touch {
+  background-size: cover;
+  background-position: center;
+  padding: 100px 0;
+  color: #fff;
+}
+
+.get-in-touch header {
+  text-align: center;
+}
+
+.get-in-touch h2 {
+  font-weight: bold;
+  color: #fff;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.get-in-touch p {
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+.get-in-touch form {
+  margin-top: 40px;
+}
+
+.get-in-touch label {
+  font-size: 16px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.get-in-touch input[type="text"], .get-in-touch input[type="email"], .get-in-touch input[type="tel"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+}
+
+.get-in-touch textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  height: 150px;
+}
+
+.get-in-touch input[type="submit"] {
+  width: 100%;
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.get-in-touch input[type="submit"]:hover {
+  background-color: #f7dc6f;
+}
+
+.get-in-touch footer {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.get-in-touch footer h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.get-in-touch footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.get-in-touch footer li {
+  margin-bottom: 10px;
+}
+
+.get-in-touch footer strong {
+  font-weight: bold;
+}
+
+.get-in-touch footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.get-in-touch footer a:hover {
+  color: #f7dc6f;
+}
+
+/* Contact Form */
+#contact-form {
+  padding: 50px 0;
+}
+
+#contact-form .background-image {
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+#contact-form h2 {
+  color: #3498db;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+#contact-form p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+#contact-form .form-group {
+  margin-bottom: 20px;
+}
+
+#contact-form label {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+#contact-form input[type="text"], #contact-form input[type="email"], #contact-form input[type="tel"] {
+  height: 40px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+
+#contact-form textarea {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  height: 100px;
+}
+
+#contact-form button[type="submit"] {
+  background-color: #3498db;
+  color: #ffffff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#contact-form button[type="submit"]:hover {
+  background-color: #2980b9;
+}
+

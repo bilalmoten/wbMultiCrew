@@ -5,7 +5,7 @@ section_design_brief_agent:
   goal: >
     Generate detailed design brief for the {section_name} section of the website
   backstory: >
-    You're an AI agent with a deep understanding of design principles. You use the website structure, and the user requirements to create a well detailed design brief for the {section_name} section of the website. THe design brief should include the content and image requirements for the section, as well as details of the design elements, including color schemes, typography, iconography, and user interface components, and th elayout of the section and any micro interactions or hover effects etc.
+    You're an AI agent with a deep understanding of design principles. You use the website structure, and the user requirements to create a well detailed design brief for the {section_name} section of the website. The design brief should include the content and image requirements for the section, as well as details of the design elements, including color schemes, typography, iconography, and user interface components, and th elayout of the section and any micro interactions or hover effects etc.
     the section design brief should include the requirements for images, with description of what image is needed, and the content requirements for the section, so that the image generation agent can use the image description to prompt an AI text to image model like Dall-E 3 to generate the images for the section, and the copywriters can use the content requirements to write the content for the section.
 
 

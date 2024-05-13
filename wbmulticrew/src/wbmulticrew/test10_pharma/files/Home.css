@@ -1,0 +1,377 @@
+/* Hero */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center center;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(48, 112, 150, 0.7);
+}
+
+.hero-image {
+  object-fit: cover;
+  width: 100%;
+  height: 100vh;
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  z-index: 1;
+  color: #fff;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+hero-content p {
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+
+.hero-content button {
+  font-size: 18px;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  background: #3498db;
+  color: #fff;
+  cursor: pointer;
+}
+
+.hero-content button:hover {
+  background: #f7dc6f;
+}
+
+/* About Us */
+.hero-section {
+  background: #3498db;
+  /* primary color */
+  padding: 50px 0;
+}
+
+-company-history {
+  background: #f7dc6f;
+  /* secondary color */
+  padding: 20px 0;
+}
+
+-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.section-title {
+  font-family: Montserrat;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+About Us section component .company-history ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  font-family: Montserrat;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+#mission-and-values {
+  background: #f7dc6f;
+  /* secondary color */
+  padding: 20px 0;
+}
+
+#mission-and-values ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#team .team-member {
+  flex-basis: 30%;
+  margin: 10px;
+  padding: 20px;
+  background: #8bc34a;
+  /* accent color */
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button.btn {
+  background: #3498db;
+  /* primary color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button.btn:hover {
+  background: #225a8a;
+  /* darker primary color */
+}
+
+.testimonials blockquote {
+  font-family: Montserrat;
+  font-size: 18px;
+  margin: 20px 0;
+  padding: 20px;
+  background: #8bc34a;
+  /* accent color */
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Mission */
+.mission-section {
+  background-color: #f7dc6f;
+  padding: 60px 0;
+}
+
+.mission-section h2 {
+  color: #3498db;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.mission-section p {
+  margin-bottom: 40px;
+}
+
+.mission-section a {
+  color: #8bc34a;
+  text-decoration: none;
+}
+
+.mission-section a:hover {
+  color: #3498db;
+}
+
+#values {
+  margin-top: 60px;
+}
+
+.value-box {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.value-box i {
+  font-size: 24px;
+  color: #3498db;
+  margin-bottom: 10px;
+}
+
+.value-box h4 {
+  margin-top: 0;
+}
+
+.value-box p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* Values */
+.values-section {
+  padding: 40px 0;
+}
+
+.values-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.values-section header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.values-section header h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.values-section header p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.values-section .values-grid {
+  margin: 40px 0;
+}
+
+.values-section .value {
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #f7dc6f;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.values-section .value h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.values-section .value p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.values-section .value img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.values-section .cta {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.values-section .cta h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.values-section .cta .btn {
+  font-size: 18px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: #3498db;
+  color: #fff;
+  cursor: pointer;
+}
+
+.values-section .cta .btn:hover {
+  background-color: #2879a8;
+}
+
+/* Contact Us */
+.contact-us-section {
+  background-color: #f7dc6f;
+  padding: 50px 0;
+}
+
+.header {
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header h1 {
+  color: #3498db;
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.header p {
+  color: #8bc34a;
+  font-size: 18px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-md-6 {
+  flex: 0 0 50%;
+}
+
+.col-md-4 {
+  flex: 0 0 33.33%;
+}
+
+#contact-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+#contact-form input[type="text"], #contact-form input[type="email"], #contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+}
+
+#contact-form input[type="submit"] {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#contact-form input[type="submit"]:hover {
+  background-color: #2980b9;
+}
+
+.contact-information p {
+  margin-bottom: 10px;
+}
+
+.follow-us ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.follow-us li {
+  margin-bottom: 10px;
+}
+
+.follow-us a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.follow-us a:hover {
+  color: #2980b9;
+}
