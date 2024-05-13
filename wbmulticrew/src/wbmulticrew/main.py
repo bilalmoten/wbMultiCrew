@@ -7,8 +7,9 @@ from crewai.project import CrewBase, agent, crew, task
 
 from langchain_groq import ChatGroq
 
-import agentops
+# import agentops
 
+# agentops.init(os.environ["AGENTOPS_API_KEY"])
 # from agentops import track_agent
 
 from wbmulticrew.page_code import generate_section_code
@@ -19,11 +20,11 @@ from wbmulticrew.tools.dalle_tool import Dalle_Image
 import shutil
 
 
-groq_llm = ChatGroq(temperature=0, model_name="llama3-8b-8192")
+groq_llm = ChatGroq(temperature=0, model_name="llama3-70b-8192")
 
 dalle_tool = Dalle_Image()
 
-namee = "test10_pharma"
+namee = "test11_pharma"
 
 user_conversation = """ [
   { "role": "user", "content": "hello" },
@@ -300,50 +301,28 @@ def website_code():
 
 
 def run():
-    agentops.init(os.environ["AGENTOPS_API_KEY"])
+
     inputs = {
         "user_conversation": user_conversation,
         "example_website_structure": """{
       "sitename": "My Website",
       "pages": [
         {
-          "name": "Home",
+          "name": "<page name>",
           "sections": [
             {
-              "name": "Hero"
+              "name": "<section name>"
             },
-            {
-              "name": "About Us"
-            },
-            {
-              "name": "Features"
-            },
-            {
-              "name": "Testimonials"
-            },
-            {
-              "name": "Contact Us"
-            }
+            <more sections>
           ]
         },
         {
-          "name": "About",
+          "name": "<page name>",
           "sections": [
             {
-              "name": "Mission"
+              "name": "<section name>"
             },
-            {
-              "name": "Vision"
-            },
-            {
-              "name": "Values"
-            },
-            {
-              "name": "Team"
-            },
-            {
-              "name": "Contact Us"
-            }
+            <more sections>
           ]
         }
       ]
@@ -375,7 +354,7 @@ def run():
     website_design_brief = open(f"{namee}/website_design_brief.md", "r").read()
 
     website_structure = json.loads(website_structure)
-
+    # agentops.init(os.environ["AGENTOPS_API_KEY"])
     for page in website_structure["pages"]:
         page_name = page["name"]
         for section in page["sections"]:
