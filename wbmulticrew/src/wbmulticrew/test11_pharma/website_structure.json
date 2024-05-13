@@ -1,0 +1,41 @@
+{
+  "sitename": "BKF Pharma",
+  "pages": [
+    {
+      "name": "Home",
+      "sections": [
+        {
+          "name": "Hero"
+        },
+        {
+          "name": "About Us"
+        },
+        {
+          "name": "Call to Action"
+        }
+      ]
+    },
+    {
+      "name": "About Us",
+      "sections": [
+        {
+          "name": "Company History"
+        },
+        {
+          "name": "Mission and Values"
+        }
+      ]
+    },
+    {
+      "name": "Contact",
+      "sections": [
+        {
+          "name": "Contact Form"
+        },
+        {
+          "name": "Address and Map"
+        }
+      ]
+    }
+  ]
+}
