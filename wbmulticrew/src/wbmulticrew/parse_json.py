@@ -25,7 +25,7 @@ def parse_markdown(md_text):
 
 
 def parse_files(site_name, page_name, section_names):
-    base_path = f"/Users/muhammedbilal/Development/wbMultiCrew/wbmulticrew/src/wbmulticrew/{site_name}"
+    base_path = f"/Users/muhammedbilal/Development/wbMultiCrew/wbmulticrew/{site_name}"
     html_code = ""
     css_code = ""
     js_code = ""

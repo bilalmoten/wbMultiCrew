@@ -7,24 +7,27 @@ from crewai.project import CrewBase, agent, crew, task
 
 from langchain_groq import ChatGroq
 
-# import agentops
-
-# agentops.init(os.environ["AGENTOPS_API_KEY"])
-# from agentops import track_agent
-
+from langchain_openai import AzureChatOpenAI
 from wbmulticrew.page_code import generate_section_code
 from wbmulticrew.parse_json import make_page_files
 
 
 from wbmulticrew.tools.dalle_tool import Dalle_Image
 import shutil
+import os
 
+# groq_llm = ChatGroq(temperature=0, model_name="llama3-70b-8192")
 
-groq_llm = ChatGroq(temperature=0, model_name="llama3-70b-8192")
+azure_gpt4o = AzureChatOpenAI(
+    azure_endpoint="https://answerai-bilal.openai.azure.com/",
+    api_key=os.environ["AZURE_OPENAI_API_KEY2"],
+    azure_deployment="gpt4o-azure",
+    api_version="2024-02-15-preview",
+)
 
 dalle_tool = Dalle_Image()
 
-namee = "test11_pharma"
+namee = "test13_pharma"
 
 user_conversation = """ [
   { "role": "user", "content": "hello" },
@@ -82,7 +85,7 @@ def website_reqs(inputs):
             return Agent(
                 config=self.agents_config["user_requirements_agent"],
                 verbose=True,
-                llm=groq_llm,
+                llm=azure_gpt4o,
                 max_iter=4,
                 allow_delegation=False,
             )
@@ -93,7 +96,7 @@ def website_reqs(inputs):
             return Agent(
                 config=self.agents_config["design_brief_agent"],
                 verbose=True,
-                llm=groq_llm,
+                llm=azure_gpt4o,
                 max_iter=4,
                 allow_delegation=False,
             )
@@ -104,7 +107,7 @@ def website_reqs(inputs):
             return Agent(
                 config=self.agents_config["website_structure_agent"],
                 verbose=True,
-                llm=groq_llm,
+                llm=azure_gpt4o,
                 max_iter=4,
                 allow_delegation=False,
             )
@@ -158,11 +161,18 @@ def website_reqs(inputs):
                 ],
                 process=Process.sequential,
                 verbose=2,
+                # memory=True,
                 max_rpm=20,
+                # embedder={
+                #     "provider": "azure_openai",
+                #     "config": {
+                #         "model": "text-embedding-ada-002",
+                #         "deployment_name": "ada-crewai",
+                #     },
+                # },
             )
 
     user_requirementsCrew().crew().kickoff(inputs=inputs)
-    # agentops.end_session("Success")
 
 
 def section_design(inputs, page_name, section_name):
@@ -186,7 +196,7 @@ def section_design(inputs, page_name, section_name):
             return Agent(
                 config=self.agents_config["section_design_brief_agent"],
                 verbose=True,
-                llm=groq_llm,
+                llm=azure_gpt4o,
                 max_iter=4,
                 allow_delegation=False,
             )
@@ -197,7 +207,7 @@ def section_design(inputs, page_name, section_name):
             return Agent(
                 config=self.agents_config["section_content_curator_agent"],
                 verbose=True,
-                llm=groq_llm,
+                llm=azure_gpt4o,
                 max_iter=4,
                 allow_delegation=False,
             )
@@ -208,7 +218,7 @@ def section_design(inputs, page_name, section_name):
             return Agent(
                 config=self.agents_config["image_generation_agent"],
                 verbose=True,
-                llm=groq_llm,
+                llm=azure_gpt4o,
                 max_iter=4,
                 allow_delegation=False,
             )
@@ -281,6 +291,14 @@ def website_code():
         page_name = page["name"]
         for section in page["sections"]:
             section_name = section["name"]
+            section_code_file = f"{namee}/{page_name}/{section_name}/section_code.md"
+
+            if os.path.exists(section_code_file):
+                print(
+                    f"Section code file already exists for {section_name} section of {page_name} page."
+                )
+                continue
+
             start_time = time.time()
             section_code_json = generate_section_code(
                 section_name,
@@ -289,7 +307,7 @@ def website_code():
                 open(f"{namee}/{page_name}/{section_name}/image_urls.md", "r").read(),
             )
 
-            with open(f"{namee}/{page_name}/{section_name}/section_code.md", "w") as f:
+            with open(section_code_file, "w") as f:
                 f.write(section_code_json)
             end_time1 = time.time()
             print(
@@ -312,6 +330,7 @@ def run():
           "sections": [
             {
               "name": "<section name>"
+              "description": "<brief section description>"
             },
             <more sections>
           ]
@@ -319,8 +338,9 @@ def run():
         {
           "name": "<page name>",
           "sections": [
-            {
+           {
               "name": "<section name>"
+              "description": "<brief section description>"
             },
             <more sections>
           ]
@@ -354,7 +374,6 @@ def run():
     website_design_brief = open(f"{namee}/website_design_brief.md", "r").read()
 
     website_structure = json.loads(website_structure)
-    # agentops.init(os.environ["AGENTOPS_API_KEY"])
     for page in website_structure["pages"]:
         page_name = page["name"]
         for section in page["sections"]:
@@ -391,6 +410,5 @@ def run():
             )
 
     website_code()
-    # Move the images folder to {namee}/files
     shutil.move("images", f"{namee}/files")
     return "Website Generated Successfully!"

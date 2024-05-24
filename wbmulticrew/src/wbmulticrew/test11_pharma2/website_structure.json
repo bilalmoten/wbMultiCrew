@@ -1,0 +1,69 @@
+{
+  "sitename": "BKF Pharma",
+  "pages": [
+    {
+      "name": "Home",
+      "sections": [
+        {
+          "name": "Hero"
+        },
+        {
+          "name": "About Us"
+        },
+        {
+          "name": "Mission and Values"
+        }
+      ]
+    },
+    {
+      "name": "About Us",
+      "sections": [
+        {
+          "name": "Company History"
+        },
+        {
+          "name": "Mission Statement"
+        },
+        {
+          "name": "Values"
+        }
+      ]
+    },
+    {
+      "name": "Research",
+      "sections": [
+        {
+          "name": "Overview"
+        },
+        {
+          "name": "Research and Development"
+        }
+      ]
+    },
+    {
+      "name": "Contact",
+      "sections": [
+        {
+          "name": "Contact Form"
+        },
+        {
+          "name": "Address and Phone Number"
+        },
+        {
+          "name": "Email"
+        }
+      ]
+    },
+    {
+      "name": "News/Blog",
+      "sections": [
+        {
+          "name": "Latest News"
+        },
+        {
+          "name": "Blog Posts"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "sitename": "BKF Pharma",
+  "pages": [
+    {
+      "name": "Home",
+      "sections": [
+        {
+          "name": "Hero Section",
+          "description": "Introduction to BKF Pharma's mission and values"
+        },
+        {
+          "name": "About Us",
+          "description": "Brief overview of BKF Pharma's history and mission"
+        },
+        {
+          "name": "Call to Action",
+          "description": "Encouraging visitors to learn more about BKF Pharma"
+        }
+      ]
+    },
+    {
+      "name": "About",
+      "sections": [
+        {
+          "name": "Company History",
+          "description": "Detailed history of BKF Pharma"
+        },
+        {
+          "name": "Mission Statement",
+          "description": "BKF Pharma's mission and values"
+        },
+        {
+          "name": "Team Profiles",
+          "description": "Optional section for team member profiles"
+        }
+      ]
+    },
+    {
+      "name": "Contact",
+      "sections": [
+        {
+          "name": "Contact Form",
+          "description": "Form for potential partners, investors, and other interested parties"
+        },
+        {
+          "name": "Address and Contact Info",
+          "description": "BKF Pharma's address, phone number, and email address"
+        }
+      ]
+    },
+    {
+      "name": "News",
+      "sections": [
+        {
+          "name": "Latest News",
+          "description": "Latest news and developments from BKF Pharma"
+        }
+      ]
+    }
+  ]
+}

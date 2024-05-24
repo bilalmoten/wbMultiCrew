@@ -1,0 +1,137 @@
+/* Mission and Values */
+#mission-values .header-banner {
+  background-size: cover;
+  background-position: center;
+  padding: 120px 0;
+}
+
+#mission-values .header-banner .container {
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 20px;
+}
+
+#mission-values .mission-statement,
+#mission-values .values-list {
+  padding: 20px;
+  background-color: #F0F0F0;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+#mission-values .values-list .value-item {
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: white;
+  border-radius: 12px;
+  display: flex;
+  align-items: center; 
+}
+
+.img-fluid.mt-3.d-lg-block.d-sm-none {
+  margin-left: 200px;
+}
+
+#mission-values .values-list .value-item .icon {
+  margin-right: 20px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+#mission-values .text-center .btn-primary {
+  background-color: #003366;
+  color: #FFFFFF;
+  border: none;
+}
+
+#mission-values .text-center .btn-primary:hover {
+  background-color: #00bfff;
+  color: #FFFFFF;
+}
+
+#mission-values .text-center .btn-secondary {
+  background-color: #f0f0f0;
+  color: #003366;
+}
+
+#mission-values .text-center .btn-secondary:hover {
+  background-color: #e0e0e0;
+  color: #003366;
+}
+
+/* Innovative Work */
+#innovative-work .hero-section {
+    background: url('images/generated_image_A_futuristic_lab_with_scientists.jpg') no-repeat center center;
+    background-size: cover;
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#innovative-work .hero-section .hero-overlay {
+    background: rgba(0, 51, 102, 0.6);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+#innovative-work .hero-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+#innovative-work .overview-section, .key-innovations-section, .impact-stories-section .call-to-action-section {
+    padding: 60px 15px;
+}
+
+#innovative-work .container h2 {
+    font-family: 'Roboto Slab', serif;
+}
+
+#innovative-work .container p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+}
+
+#innovative-work h3.card-title {
+    color: #003366;
+}
+
+#innovative-work .card {
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+#innovative-work .card:hover {
+    transform: translateY(-10px);
+}
+
+#innovative-work .btn-primary {
+    background-color: #003366;
+    border: none;
+    font-size: 16px;
+}
+
+#innovative-work .btn-primary:hover {
+    background-color: #00bfff;
+}
+
+#innovative-work .btn-secondary {
+    background-color: #f0f0f0;
+    color: #003366;
+    border: none;
+}
+
+#innovative-work .btn-secondary:hover {
+    color: #00bfff;
+}

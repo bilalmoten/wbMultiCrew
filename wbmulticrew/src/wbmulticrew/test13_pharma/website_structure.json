@@ -1,0 +1,53 @@
+{
+  "sitename": "BKF Pharma",
+  "pages": [
+    {
+      "name": "Home",
+      "sections": [
+        {
+          "name": "Mission and Values",
+          "description": "A prominent section highlighting BKF Pharma's mission and values, showcasing the company's dedication to innovative cancer treatment."
+        },
+        {
+          "name": "Innovative Work",
+          "description": "Information about the cutting-edge work being done at BKF Pharma in cancer treatment, presented without revealing sensitive research details."
+        }
+      ]
+    },
+    {
+      "name": "About",
+      "sections": [
+        {
+          "name": "Company Overview",
+          "description": "A detailed overview of BKF Pharma, including its history, mission, and vision, providing visitors with a comprehensive understanding of the company."
+        },
+        {
+          "name": "Team",
+          "description": "Information about the key team members at BKF Pharma, highlighting their roles and contributions to the company's mission."
+        }
+      ]
+    },
+    {
+      "name": "Contact",
+      "sections": [
+        {
+          "name": "Contact Form",
+          "description": "A form for potential partners, investors, and other interested parties to get in touch with the BKF Pharma team easily."
+        },
+        {
+          "name": "Contact Information",
+          "description": "Details for direct contact, including email, phone number, and physical address."
+        }
+      ]
+    },
+    {
+      "name": "News",
+      "sections": [
+        {
+          "name": "News and Updates",
+          "description": "A section dedicated to keeping visitors informed about the latest developments and news from BKF Pharma."
+        }
+      ]
+    }
+  ]
+}

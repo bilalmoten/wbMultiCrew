@@ -1,69 +1,87 @@
-**BKF Pharma Website Design Brief**
+**Design Brief for BKF Pharma Website**
 =====================================
 
-**Overview**
-------------
-
-The BKF Pharma website will be a modern, sleek, and inspirational online presence that showcases the company's mission and values to potential partners and investors. The design will feature abstract, futuristic visuals with some human elements, conveying a sense of innovation, professionalism, and empathy.
-
 **Color Scheme**
---------------
+---------------
 
-* Primary color: **#3498db** (a calming blue tone that evokes trust and professionalism)
-* Secondary color: **#f7dc6f** (a warm, optimistic yellow tone that conveys innovation and hope)
-* Accent color: **#8bc34a** (a deep, rich green tone that represents growth and harmony)
+The color scheme for the BKF Pharma website will be a combination of calming blues and whites, with accents of bright, energetic colors to evoke a sense of innovation and cutting-edge technology.
+
+* Primary color: `#4567b7` (a soft, calming blue)
+* Secondary color: `#ffffff` (white)
+* Accent color: `#34c759` (a bright, energetic green)
+* Background color: `#f7f7f7` (a light gray)
 
 **Typography**
 -------------
 
-* Font family: **Montserrat** (a modern, clean sans-serif font that conveys professionalism and sophistication)
+The typography for the BKF Pharma website will be clean, modern, and easy to read.
+
+* Font family: Open Sans
 * Font sizes:
-	+ Header: 24px
-	+ Subheader: 18px
+	+ Header 1: 36px
+	+ Header 2: 24px
+	+ Header 3: 18px
 	+ Body text: 16px
-
-**Iconography**
--------------
-
-* Custom-designed icons will be used throughout the website to add visual interest and illustrate key concepts.
-* Icons will be simple, modern, and minimalist in style, using a combination of solid and outline styles.
+* Line height: 1.5
 
 **Imagery**
 ---------
 
-* Abstract, futuristic visuals will be used to convey a sense of innovation and cutting-edge technology.
-* Human elements, such as images of people, scientists, researchers, or patients, will be used to add a touch of warmth and empathy.
-* Images will be high-quality, high-resolution, and optimized for web use.
+The imagery for the BKF Pharma website will be a combination of abstract, futuristic visuals and images of people to add a human touch.
+
+* Image style: Minimalist, clean, and modern
+* Image sizes:
+	+ Hero image: 1920x1080px
+	+ Featured image: 800x600px
+	+ Thumbnail image: 400x300px
 
 **User Interface Components**
 -----------------------------
 
-* Buttons: Modern, rounded rectangles with a subtle gradient effect and a hover state that changes the background color.
-* Forms: Clean, simple, and easy to use, with clear labels and minimal clutter.
-* Navigation: A simple, responsive navigation menu that adapts to different screen sizes and devices.
+The user interface components for the BKF Pharma website will be modern, sleek, and easy to use.
+
+* Buttons:
+	+ Primary button: `#34c759` (bright, energetic green)
+	+ Secondary button: `#4567b7` (soft, calming blue)
+* Forms:
+	+ Input fields: `#f7f7f7` (light gray)
+	+ Labels: `#333333` (dark gray)
+* Navigation:
+	+ Menu items: `#333333` (dark gray)
+	+ Hover effect: `#34c759` (bright, energetic green)
 
 **Interactions and Animations**
 -----------------------------
 
-* Subtle animations will be used to enhance the user experience, such as fade-ins, slide-ins, and hover effects.
-* Interactions will be smooth, responsive, and intuitive, with clear feedback and visual cues.
+The interactions and animations for the BKF Pharma website will be subtle and modern.
+
+* Hover effects: `#34c759` (bright, energetic green)
+* Loading animations: `#4567b7` (soft, calming blue)
+* Scroll effects: `#f7f7f7` (light gray)
 
 **Responsive Design**
 ---------------------
 
-* The website will be fully responsive, with a mobile-first approach that adapts to different screen sizes and devices.
-* Breakpoints will be set at 1200px, 992px, 768px, and 480px to ensure a seamless user experience across different devices.
+The BKF Pharma website will be fully responsive, with a focus on optimal user experience on desktop, tablet, and mobile devices.
+
+* Breakpoints:
+	+ Desktop: 1200px
+	+ Tablet: 768px
+	+ Mobile: 480px
 
 **Accessibility**
---------------
+-----------------
 
-* The website will be designed and developed with accessibility in mind, following the Web Content Accessibility Guidelines (WCAG 2.1).
-* Clear and consistent navigation, high contrast colors, and descriptive alt text will ensure that the website is usable by everyone.
+The BKF Pharma website will be designed with accessibility in mind, following the Web Content Accessibility Guidelines (WCAG 2.1).
 
-**Development Guidelines**
+* Color contrast: 4.5:1
+* Font sizes: 16px minimum
+* Image alt text: descriptive and concise
+
+**Additional Guidelines**
 -------------------------
 
-* The website will be built using modern web development technologies and best practices.
-* The design and development process will be iterative, with regular feedback and revisions.
+* The website should be easy to navigate and understand, with a clear call-to-action to encourage visitors to learn more about BKF Pharma's mission and values.
+* The design should be modern, sleek, and professional, with a focus on showcasing the company's innovative spirit and commitment to cancer treatment.
 
-By following these guidelines, we can create a website that effectively showcases BKF Pharma's mission and values, while also providing a professional and inspirational presence for the company.
+By following these design guidelines, we can create a website that effectively communicates BKF Pharma's mission and values to potential partners, investors, and other stakeholders.

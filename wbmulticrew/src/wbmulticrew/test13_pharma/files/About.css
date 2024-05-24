@@ -1,0 +1,156 @@
+/* Company Overview */
+#company-overview {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.header-banner {
+  background-image: url('path-to-header-image.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 50px 20px;
+  position: relative;
+}
+
+.header-banner .header-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header-content h1 {
+  font-family: 'Roboto Slab', serif;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.tagline {
+  font-size: 1.5em;
+  margin-bottom: 30px;
+}
+
+.content-area {
+  padding: 30px 0;
+}
+
+.subsection {
+  background-color: #F0F0F0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  padding: 20px;
+  text-align: center;
+}
+
+.subsection img {
+  border-radius: 10px;
+}
+
+.subsection h2 {
+  font-family: 'Roboto Slab';
+  color: #003366;
+}
+
+.subsection p {
+  margin: 15px 0;
+}
+
+.btn-primary {
+  background-color: #003366;
+  border-color: #003366;
+  color: white;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #00BFFF;
+  border-color: #00BFFF;
+}
+
+.btn.secondary {
+  background-color: #F0F0F0;
+  border-color: white;
+  color: #003366;
+  transition: color 0.3s;
+}
+
+.btn-secondary:hover {
+  background-color: #003366;
+  color: white;
+}
+
+.footer {
+  background-color: #003366;
+  padding: 30px 15px;
+  color: white;
+  text-align: center;
+}
+
+.call-to-action-btns {
+  margin: 10px;
+}
+
+/* Team */
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #F0F0F0;
+}
+
+.team-section {
+    color: #003366;
+}
+
+.team-section .display-4 {
+    color: #003366;
+    font-family: 'Roboto Slab', serif;
+}
+
+.team-member.card {
+    border: none;
+}
+
+.team-member img {
+    transition: transform 0.3s ease;
+    border-radius: 0.25em;
+}
+
+.team-member.card:hover img {
+    transform: scale(1.05);
+}
+
+.team-member .card-body {
+    background-color: white;
+    padding: 30px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.team-member h5 {
+    font-family: 'Roboto Slab', serif;
+    font-weight: bold;
+    color: #003366;
+    margin-bottom: 15px;
+}
+
+.team-member p {
+    color: #555;
+    font-size: 14px;
+    line-height: 1.6rem;
+}
+
+.team-member .read-more {
+    color: #003366;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.team-member .read-more:hover {
+    color: #00BFFF;
+}
+
+.team-member.card:hover .card-body {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-10px);
+}
+

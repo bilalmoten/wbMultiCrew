@@ -1,0 +1,108 @@
+/* Contact Form */
+#contact-form {
+  background-color: #F0F0F0;
+}
+
+.contact-form-heading {
+  color: #003366;
+  font-size: 24px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+}
+
+.contact-form-intro {
+  color: #66CDAA;
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: normal;
+}
+
+.form-group label {
+  color: #66CDAA;
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 500;
+}
+
+.form-control {
+  background-color: #ffffff;
+  border-color: #003366;
+  color: #003366;
+  font-size: 14px;
+}
+
+.input-group-text {
+  background-color: #ffffff;
+  border-color: #003366;
+  color: #003366;
+}
+
+.btn-primary {
+  background-color: #003366;
+  color: #ffffff;
+  font-family: 'Open Sans', sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #00BFFF;
+}
+
+.form-control:focus {
+  border-color: #00BFFF;
+  box-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
+}
+
+.feedback-message {
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+  display: none;
+}
+
+.feedback-message.success {
+  color: #66CDAA;
+}
+
+.feedback-message.error {
+  color: #FFA500;
+}
+
+/* Contact Information */
+#contact-info {
+    background: url('images/generated_image_A_futuristic,_abstract_image_representing.jpg') no-repeat center center;
+    background-size: cover;
+    color: #FFFFFF;
+}
+
+#contact-info h2, #contact-info h3 {
+    color: #003366;
+}
+
+.contact-detail p {
+    color: #66CDAA;
+}
+
+#contact-form input:focus, #contact-form textarea:focus {
+    border-color: #00BFFF;
+    box-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
+}
+
+#contact-form .form-control {
+    background-color: #F0F0F0;
+    color: #000;
+}
+
+#contact-form .btn-primary {
+    background-color: #003366;
+    border-color: #003366;
+}
+
+#contact-form .btn-primary:hover {
+    background-color: #00BFFF;
+    border-color: #00BFFF;
+}
+
+#map {
+    background-color: #F0F0F0;
+}
+

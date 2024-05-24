@@ -3,6 +3,13 @@ import os
 # import time
 import json
 from groq import Groq
+from openai import AzureOpenAI
+
+from dotenv import load_dotenv
+
+load_dotenv()
+
+# AzureOpenAI.api_key = os.environ["AZURE_OPENAI_API_KEY"]
 
 
 from dotenv import load_dotenv
@@ -26,12 +33,12 @@ Only Respond with a Properly Formatted MARKDOWN with the following
 
 the markdown should include each codeblock seperatly with language specified as HTML, CSS or JS
 
-such as 
+such as
 
 ## <section name>
 ### HTML
 
-```html 
+```html
 <html code here>
 ```
 
@@ -53,13 +60,13 @@ Please write the front end HTML, CSS and JS code for the {section_name} section 
 the website will be using bootstrap.css, bootstrap.js and jquery.js, so you should write the code accordingly to benefit from these libraries.
 
 
-Section_design_brief for {section_name} section: 
+Section_design_brief for {section_name} section:
 {section_design_brief}
 
-Text_content for {section_name} section: 
+Text_content for {section_name} section:
 {text_content}
 
-Image_urls to use in the {section_name} section: 
+Image_urls to use in the {section_name} section:
 {image_urls}
 
 
@@ -82,6 +89,33 @@ Only Respond with a Properly Formatted Markdown with the following
 # Make sure to escape any special characters within string values. For example, if your HTML, CSS, or JavaScript code contains double quotes("), replace them with (\") to avoid breaking the JSON format.
 # Remember to close all JSON Curly Braces (}}).
 # If the value of a key is a multi-line string, replace line breaks with \n.
+
+
+def call_gpt4o(system_prompt, user_prompt):
+    client = AzureOpenAI(
+        azure_endpoint="https://answerai-bilal.openai.azure.com/",
+        api_version="2024-02-01",
+        api_key="523a50ed7a7444468d1ae5a384f032bf",
+        # azure_deployment="gpt4o-azure",
+    )
+    completion = client.chat.completions.create(
+        model="gpt4o-azure",
+        messages=[
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt},
+        ],
+        temperature=1.3,
+        max_tokens=4096,
+        top_p=1,
+        stop=None,
+        stream=False,
+    )
+    # print the number of tokens used
+    print(completion.to_json())
+    # print(completion.to_json())
+    # print("################### helllolo #############################")
+    # print(completion.choices[0].message.content)
+    return completion.choices[0].message.content
 
 
 def call_groq(system_prompt, user_prompt):
@@ -114,5 +148,5 @@ def generate_section_code(
         image_urls=image_urls,
     )
 
-    response = call_groq(system_prompt, user_prompt)
+    response = call_gpt4o(system_prompt, user_prompt)
     return response

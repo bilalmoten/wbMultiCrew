@@ -191,7 +191,7 @@
 
 generate_user_requirements:
   description: >
-    Read and understand the user conversation to gather requirements for the website, capturing details like purpose, target audience, desired features, branding guidelines, design preferences etc.
+    Read and understand the user conversation to gather requirements for the website, capturing details like purpose, target audience, branding guidelines etc, according to user's preferences.
     Your job is to understand what the user wants, in the user conversation, and then use that conversation, and your own knowledge and website design expertise and best practises to create a detailed requirements document. the document should use the user conversation as the base, but your own knowledge and best practises should be used to fill in the gaps, and enhance the users website and make the document complete.
 
     user Conversation:
@@ -201,8 +201,18 @@ generate_user_requirements:
 
 generate_website_design_brief:
   description: >
-    Create a design brief for the website, including color schemes, typography, iconography, user interface components, and any additional design elements requested by the user. Your design brief should be based upon the user requirements document and should be enhanced by your own knowledge and your expertise in website design, given your 10 years of experience at worlds best web deisgn agency.
+    Create a design brief for the website, including color schemes, Typography(font and sizes), guide/reusable user interface components, and any additional design elements requested by the user. Your design brief should be based upon the user requirements document and should be enhanced by your own knowledge and your expertise in website design, given your 10 years of experience at worlds best web deisgn agency.
     the design brief contains the following details in general for the whole website, and does not contain any specific details or text etc about any section of the website. the design brief is supposed to act as background information for the designers that will be creating the individual sections of the website.
+
+    REMEMBER:
+    ---------
+
+    The website will be made by a team of AI agents, including content writer agent, section design agent, AI image generation agent and section code agent. So make sure that the design is ot very complex, simple but beautiful and aesthetically pleasing. Make sure to not include any custom icons or things that an AI agent will not be able to deliver on. Make sure to give specific guidelines for the color schemes, typography, and user interface components, so that the agents can follow them and create the website as per the design brief.
+
+    It would also be advises to include some basic design guidelines, like colours for different uses, typography for different uses, and some basic user interface components that should be used throughout the website.
+    Make sure to not refer to any specific sizes for fonts and images as they will change based on the section of the website, and the users device and screen size, as the website needs to be responsive for all screen sizes.
+
+
 
     user Conversation:
     {user_conversation}
@@ -211,15 +221,18 @@ generate_website_design_brief:
 
 generate_website_structure:
   description: >
-    Analyze the requirements document and the website design brief and develop the overall structure for the website.
-    Develop a JSON representation of the website structure based on the user requirements.
-    include sitename, pages and sections within each page (with section name only)
+    Analyze the user requirements document, the user conversation and the website design brief and develop the overall structure for the website.
+    Develop a JSON representation of the website structure based on the user's requirements.
+    include sitename, pages and sections within each page (with section name  and description only)
+
+    The section description would be a brief description of what the section is about and what it contains.
+    Remember to not have similar sections on different pages of the website
    
     user Conversation:
     {user_conversation}
   expected_output: >
-    A JSON object for the website structure. The JSON should include different pages in the website, and the sections within each page(with section name only).
-    Remember to output the JSON object of the website structure in the output.
+    A JSON object for the website structure. The JSON should include different pages in the website, and the sections within each page(with section name and description only).
+    Remember to output the JSON object of the website structure in the output. 
 
     ONLY JSON OUTPUT. No additional text or comments are allowed in the output.
 
