@@ -1,0 +1,256 @@
+/* Mission and Vision */
+#mission-vision {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+#mission-vision .primary-color {
+  color: #0056b3;
+}
+
+#mission-vision p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+#mission-vision .btn-primary {
+  background-color: #0056b3;
+  border: none;
+  font-size: 18px;
+  padding: 10px 20px;
+}
+
+#mission-vision .btn-primary:hover {
+  background-color: #004494;
+}
+
+#mission-vision h2 {
+  font-size: 36px;
+}
+
+#mission-vision h5 {
+  font-size: 24px;
+}
+
+img {
+  border: 2px solid #dfe6e9;
+  padding: 5px;
+}
+
+/* Innovative Approach */
+#innovative-approach {
+  background-color: #f1f3f4;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+#innovative-approach h1 {
+  color: #1a73e8;
+  font-family: 'Helvetica', sans-serif;
+}
+
+#innovative-approach h2 {
+  color: #6c757d;
+  font-family: 'Helvetica', sans-serif;
+}
+
+#innovative-approach p {
+  font-size: 16px;
+  color: #333;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#innovative-approach .btn-primary {
+  background-color: #1a73e8;
+  border: none;
+  color: #fff;
+}
+
+#innovative-approach .btn-primary:hover {
+  background-color: #155bcb;
+}
+
+@media (max-width: 768px) {
+  #innovative-approach img {
+    margin-bottom: 20px;
+  }
+}
+
+/* Visuals */
+#visuals-section .section-title {
+  color: #0057B8;
+  font-size: 2.5em;
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  margin-bottom: 1.5em;
+}
+
+#visuals-section .card {
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+#visuals-section .card:hover {
+  transform: translateY(-10px);
+}
+
+#visuals-section .card .card-img-top {
+  object-fit: cover;
+  max-height: 250px;
+}
+
+#visuals-section .card-title {
+  color: #0057B8;
+  font-size: 1.75em;
+  font-family: 'Helvetica', 'Arial', sans-serif;
+}
+
+#visuals-section .card-subtitle {
+  color: #6E6E6E;
+  font-size: 1.1em;
+  margin-bottom: 1em;
+}
+
+#visuals-section .card-text {
+  color: #6E6E6E;
+  font-size: 1em;
+}
+
+#visuals-section .btn-primary {
+  background-color: #0057B8;
+  border-color: #0057B8;
+}
+
+#visuals-section .btn-primary:hover {
+  background-color: #004a9f;
+  border-color: #004a9f;
+}
+
+/* Mission and Vision */
+#mission-vision {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+#mission-vision .primary-color {
+  color: #0056b3;
+}
+
+#mission-vision p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+#mission-vision .btn-primary {
+  background-color: #0056b3;
+  border: none;
+  font-size: 18px;
+  padding: 10px 20px;
+}
+
+#mission-vision .btn-primary:hover {
+  background-color: #004494;
+}
+
+#mission-vision h2 {
+  font-size: 36px;
+}
+
+#mission-vision h5 {
+  font-size: 24px;
+}
+
+img {
+  border: 2px solid #dfe6e9;
+  padding: 5px;
+}
+
+/* Innovative Approach */
+#innovative-approach {
+  background-color: #f1f3f4;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+#innovative-approach h1 {
+  color: #1a73e8;
+  font-family: 'Helvetica', sans-serif;
+}
+
+#innovative-approach h2 {
+  color: #6c757d;
+  font-family: 'Helvetica', sans-serif;
+}
+
+#innovative-approach p {
+  font-size: 16px;
+  color: #333;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#innovative-approach .btn-primary {
+  background-color: #1a73e8;
+  border: none;
+  color: #fff;
+}
+
+#innovative-approach .btn-primary:hover {
+  background-color: #155bcb;
+}
+
+@media (max-width: 768px) {
+  #innovative-approach img {
+    margin-bottom: 20px;
+  }
+}
+
+/* Visuals */
+#visuals-section .section-title {
+  color: #0057B8;
+  font-size: 2.5em;
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  margin-bottom: 1.5em;
+}
+
+#visuals-section .card {
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+#visuals-section .card:hover {
+  transform: translateY(-10px);
+}
+
+#visuals-section .card .card-img-top {
+  object-fit: cover;
+  max-height: 250px;
+}
+
+#visuals-section .card-title {
+  color: #0057B8;
+  font-size: 1.75em;
+  font-family: 'Helvetica', 'Arial', sans-serif;
+}
+
+#visuals-section .card-subtitle {
+  color: #6E6E6E;
+  font-size: 1.1em;
+  margin-bottom: 1em;
+}
+
+#visuals-section .card-text {
+  color: #6E6E6E;
+  font-size: 1em;
+}
+
+#visuals-section .btn-primary {
+  background-color: #0057B8;
+  border-color: #0057B8;
+}
+
+#visuals-section .btn-primary:hover {
+  background-color: #004a9f;
+  border-color: #004a9f;
+}
+

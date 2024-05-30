@@ -1,0 +1,180 @@
+/* Company Overview */
+#company-overview .timeline {
+    position: relative;
+    padding: 0;
+    margin-top: 40px;
+}
+#company-overview .timeline ul {
+    padding: 0;
+    list-style: none;
+}
+#company-overview .timeline ul li {
+    position: relative;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    line-height: 1.5em;
+}
+#company-overview .timeline ul li::before {
+    content: " ";
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #0033A0;
+}
+#company-overview .timeline ul li p {
+    margin: 0;
+    color: #7D7D7D;
+}
+.timeline-item em {
+    color: #0033A0;
+    font-weight: bold;
+}
+#company-overview h2, #company-overview h3 {
+    color: #0033A0;
+}
+#company-overview .btn-primary {
+    background-color: #0033A0;
+    border-color: #0033A0;
+}
+#company-overview .btn-outline-primary {
+    border-color: #0033A0;
+    color: #0033A0;
+}
+a:hover {
+    text-decoration: none;
+}
+a:hover .btn-primary {
+    background-color: #001F78;
+}
+a:hover .btn-outline-primary {
+    background-color: #0033A0;
+    color: #FFFFFF;
+}
+
+/* Team Introduction */
+#team {
+    background-color: #f8f9fa;
+}
+.team-member-card {
+    border: none;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.team-member-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.team-member-card .card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.team-member-name {
+    color: #1E90FF;
+    font-size: 1.25rem;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+.team-member-card:hover .team-member-name {
+    color: #20B2AA;
+}
+.card-subtitle {
+    color: #696969;
+    font-weight: medium;
+}
+.card-text {
+    font-size: 0.9rem;
+}
+
+/* Company Overview */
+#company-overview .timeline {
+    position: relative;
+    padding: 0;
+    margin-top: 40px;
+}
+#company-overview .timeline ul {
+    padding: 0;
+    list-style: none;
+}
+#company-overview .timeline ul li {
+    position: relative;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    line-height: 1.5em;
+}
+#company-overview .timeline ul li::before {
+    content: " ";
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #0033A0;
+}
+#company-overview .timeline ul li p {
+    margin: 0;
+    color: #7D7D7D;
+}
+.timeline-item em {
+    color: #0033A0;
+    font-weight: bold;
+}
+#company-overview h2, #company-overview h3 {
+    color: #0033A0;
+}
+#company-overview .btn-primary {
+    background-color: #0033A0;
+    border-color: #0033A0;
+}
+#company-overview .btn-outline-primary {
+    border-color: #0033A0;
+    color: #0033A0;
+}
+a:hover {
+    text-decoration: none;
+}
+a:hover .btn-primary {
+    background-color: #001F78;
+}
+a:hover .btn-outline-primary {
+    background-color: #0033A0;
+    color: #FFFFFF;
+}
+
+/* Team Introduction */
+#team {
+    background-color: #f8f9fa;
+}
+.team-member-card {
+    border: none;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.team-member-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.team-member-card .card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.team-member-name {
+    color: #1E90FF;
+    font-size: 1.25rem;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+.team-member-card:hover .team-member-name {
+    color: #20B2AA;
+}
+.card-subtitle {
+    color: #696969;
+    font-weight: medium;
+}
+.card-text {
+    font-size: 0.9rem;
+}
+

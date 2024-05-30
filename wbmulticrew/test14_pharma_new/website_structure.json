@@ -1,0 +1,61 @@
+{
+  "sitename": "BKF Pharma",
+  "pages": [
+    {
+      "name": "Homepage",
+      "sections": [
+        {
+          "name": "Mission and Vision",
+          "description": "A prominent section that clearly outlines BKF Pharma's mission and vision."
+        },
+        {
+          "name": "Innovative Approach",
+          "description": "Highlight the innovative and proprietary nature of the cancer treatment being developed."
+        },
+        {
+          "name": "Visuals",
+          "description": "A mix of abstract, futuristic visuals and human-centric images."
+        }
+      ]
+    },
+    {
+      "name": "About Us",
+      "sections": [
+        {
+          "name": "Company Overview",
+          "description": "Detailed information about BKF Pharma, including its history, mission, and vision."
+        },
+        {
+          "name": "Team Introduction",
+          "description": "Brief bios and photos of key team members to add a personal touch."
+        }
+      ]
+    },
+    {
+      "name": "Research and Development",
+      "sections": [
+        {
+          "name": "Overview",
+          "description": "General information about the ongoing research and development efforts."
+        },
+        {
+          "name": "Innovation Focus",
+          "description": "Highlight the cutting-edge technology and innovative approaches being used."
+        }
+      ]
+    },
+    {
+      "name": "Contact",
+      "sections": [
+        {
+          "name": "Contact Form",
+          "description": "A form for visitors to fill out with their name, email, subject, and message."
+        },
+        {
+          "name": "Contact Information",
+          "description": "Display the company's contact details, including email, phone number, and physical address if applicable."
+        }
+      ]
+    }
+  ]
+}

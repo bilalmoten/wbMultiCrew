@@ -11,10 +11,12 @@ from langchain_openai import AzureChatOpenAI
 from wbmulticrew.page_code import generate_section_code
 from wbmulticrew.parse_json import make_page_files
 
+import agentops
 
 from wbmulticrew.tools.dalle_tool import Dalle_Image
 import shutil
 import os
+
 
 # groq_llm = ChatGroq(temperature=0, model_name="llama3-70b-8192")
 
@@ -27,10 +29,10 @@ azure_gpt4o = AzureChatOpenAI(
 
 dalle_tool = Dalle_Image()
 
-namee = "test13_pharma"
+namee = "test15_coffee"
 
 user_conversation = """ [
-  { "role": "user", "content": "hello" },
+{ "role": "user", "content": "hello" },
   {
     "role": "assistant",
     "content": "Hello! I'm excited to discuss your website project with you. Can you please tell me the name of the website or the business you want the website for? Additionally, do you have any information about the website that you'd like to share, such as its purpose, target audience, or any specific features you'd like to include?"
@@ -64,13 +66,13 @@ user_conversation = """ [
     "content": "You'd like the tone of your website to be inspirational and motivational, highlighting the potential impact of BKF Pharma's work on cancer treatment. This will help create an emotional connection with your visitors and inspire them to learn more about your mission.\n\nI think I have a good understanding of your vision now. Before I wrap up, is there anything else you'd like to add or any specific concerns you have about the website?\n\nIf not, I'll summarize the key points we've discussed and get started on designing a website that meets your needs.\n\n(Type \"Exit\" if you're ready to conclude our conversation)"
   },
   { "role": "user", "content": "nothing else" }
-]
-"""
+]"""
 
 
 def website_reqs(inputs):
 
     # agentops.init(os.environ["AGENTOPS_API_KEY"])
+    # agentops.init()
 
     @CrewBase
     class user_requirementsCrew:
@@ -319,6 +321,7 @@ def website_code():
 
 
 def run():
+    overall_start_time = time.time()
 
     inputs = {
         "user_conversation": user_conversation,
@@ -411,4 +414,8 @@ def run():
 
     website_code()
     shutil.move("images", f"{namee}/files")
+    overall_end_time = time.time()
+    print(
+        f"Time taken for generating website structure, design, content and images: {overall_end_time - overall_start_time}"
+    )
     return "Website Generated Successfully!"
