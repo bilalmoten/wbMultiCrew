@@ -1,47 +1,37 @@
 import json
 import os
 import time
-import logging
-import shutil
-from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
+
+from langchain_groq import ChatGroq
 
 from langchain_openai import AzureChatOpenAI
 from wbmulticrew.page_code import generate_section_code
 from wbmulticrew.parse_json import make_page_files
 
+import agentops
+
 from wbmulticrew.tools.dalle_tool import Dalle_Image
+import shutil
+import os
 
-# Initialize logging
-logging.basicConfig(
-    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
-)
 
-# Configuration
-CONFIG = {
-    "azure_endpoint": "https://answerai-bilal.openai.azure.com/",
-    "api_key": os.getenv("AZURE_OPENAI_API_KEY2"),
-    "azure_deployment": "gpt4o-azure",
-    "api_version": "2024-02-15-preview",
-    "project_name": "test1_pharma_gpt4o",
-    "agents_config": "config/agents.yaml",
-    "tasks_config": "config/tasks.yaml",
-    "agents2_config": "config/agents2.yaml",
-    "tasks2_config": "config/tasks2.yaml",
-}
+# groq_llm = ChatGroq(temperature=0, model_name="llama3-70b-8192")
 
 azure_gpt4o = AzureChatOpenAI(
-    azure_endpoint=CONFIG["azure_endpoint"],
-    api_key=CONFIG["api_key"],
-    azure_deployment=CONFIG["azure_deployment"],
-    api_version=CONFIG["api_version"],
+    azure_endpoint="https://answerai-bilal.openai.azure.com/",
+    api_key=os.environ["AZURE_OPENAI_API_KEY2"],
+    azure_deployment="gpt4o-azure",
+    api_version="2024-02-15-preview",
 )
 
 dalle_tool = Dalle_Image()
 
-USER_CONVERSATION = """ [
+namee = "test15_coffee"
+
+user_conversation = """ [
 { "role": "user", "content": "hello" },
   {
     "role": "assistant",
@@ -79,38 +69,19 @@ USER_CONVERSATION = """ [
 ]"""
 
 
-# Function to check if all required files exist
-def check_files_exist(files):
-    return all(os.path.exists(file) for file in files)
+def website_reqs(inputs):
 
+    # agentops.init(os.environ["AGENTOPS_API_KEY"])
+    # agentops.init()
 
-# Function to create directories if not exist
-def create_directories(paths):
-    for path in paths:
-        os.makedirs(path, exist_ok=True)
-
-
-# Function to run tasks asynchronously
-def run_tasks_in_parallel(tasks):
-    results = []
-    with ThreadPoolExecutor() as executor:
-        future_tasks = {executor.submit(task): task for task in tasks}
-        for future in as_completed(future_tasks):
-            task = future_tasks[future]
-            try:
-                results.append(future.result())
-            except Exception as exc:
-                logging.error(f"Task {task} generated an exception: {exc}")
-    return results
-
-
-# Define Crews
-def define_user_requirements_crew():
     @CrewBase
-    class UserRequirementsCrew:
-        agents_config = CONFIG["agents_config"]
-        tasks_config = CONFIG["tasks_config"]
+    class user_requirementsCrew:
+        """user_requirements crew"""
 
+        agents_config = "config/agents.yaml"
+        tasks_config = "config/tasks.yaml"
+
+        # @track_agent(name="user_requirements_agent")
         @agent
         def user_requirements_agent(self) -> Agent:
             return Agent(
@@ -121,6 +92,7 @@ def define_user_requirements_crew():
                 allow_delegation=False,
             )
 
+        # @track_agent(name="design_brief_agent")
         @agent
         def design_brief_agent(self) -> Agent:
             return Agent(
@@ -131,6 +103,7 @@ def define_user_requirements_crew():
                 allow_delegation=False,
             )
 
+        # @track_agent(name="website_structure_agent")
         @agent
         def website_structure_agent(self) -> Agent:
             return Agent(
@@ -141,13 +114,15 @@ def define_user_requirements_crew():
                 allow_delegation=False,
             )
 
+        ########### Tasks ###########
+
         @task
         def generate_user_requirements(self) -> Task:
             return Task(
                 config=self.tasks_config["generate_user_requirements"],
                 verbose=True,
                 agent=self.user_requirements_agent(),
-                output_file=f"{CONFIG['project_name']}/user_requirements.md",
+                output_file=f"{namee}/user_requirements.md",
                 async_execution=False,
             )
 
@@ -158,7 +133,7 @@ def define_user_requirements_crew():
                 verbose=True,
                 agent=self.design_brief_agent(),
                 async_execution=False,
-                output_file=f"{CONFIG['project_name']}/website_design_brief.md",
+                output_file=f"{namee}/website_design_brief.md",
                 context={self.generate_user_requirements()},
             )
 
@@ -169,7 +144,7 @@ def define_user_requirements_crew():
                 verbose=True,
                 agent=self.website_structure_agent(),
                 async_execution=False,
-                output_file=f"{CONFIG['project_name']}/website_structure.json",
+                output_file=f"{namee}/website_structure.json",
                 context={
                     self.generate_website_design_brief(),
                     self.generate_user_requirements(),
@@ -178,6 +153,7 @@ def define_user_requirements_crew():
 
         @crew
         def crew(self) -> Crew:
+            """Creates the user_requirements crew"""
             return Crew(
                 agents=self.agents,
                 tasks=[
@@ -187,22 +163,36 @@ def define_user_requirements_crew():
                 ],
                 process=Process.sequential,
                 verbose=2,
+                # memory=True,
                 max_rpm=20,
+                # embedder={
+                #     "provider": "azure_openai",
+                #     "config": {
+                #         "model": "text-embedding-ada-002",
+                #         "deployment_name": "ada-crewai",
+                #     },
+                # },
             )
 
-    return UserRequirementsCrew().crew()
+    user_requirementsCrew().crew().kickoff(inputs=inputs)
 
 
-def define_section_design_crew(page_name, section_name):
+def section_design(inputs, page_name, section_name):
+
+    # agentops.init(os.environ["AGENTOPS_API_KEY"])
+
     @CrewBase
-    class SectionDesignCrew:
-        agents_config = CONFIG["agents2_config"]
-        tasks_config = CONFIG["tasks2_config"]
+    class Section_design_Crew:
+        """Section Design Crew"""
+
+        agents_config = "config/agents2.yaml"
+        tasks_config = "config/tasks2.yaml"
 
         def __init__(self, page_name, section_name) -> None:
             self.page_name = page_name
             self.section_name = section_name
 
+        # @track_agent(name="section_design_brief_agent")
         @agent
         def section_design_brief_agent(self) -> Agent:
             return Agent(
@@ -213,6 +203,7 @@ def define_section_design_crew(page_name, section_name):
                 allow_delegation=False,
             )
 
+        # @track_agent(name="section_content_curator_agent")
         @agent
         def section_content_curator_agent(self) -> Agent:
             return Agent(
@@ -223,6 +214,7 @@ def define_section_design_crew(page_name, section_name):
                 allow_delegation=False,
             )
 
+        # @track_agent(name="image_generation_agent")
         @agent
         def image_generation_agent(self) -> Agent:
             return Agent(
@@ -233,13 +225,15 @@ def define_section_design_crew(page_name, section_name):
                 allow_delegation=False,
             )
 
+        ########### Tasks ###########
+
         @task
         def generate_section_design_brief(self) -> Task:
             return Task(
                 config=self.tasks_config["generate_section_design_brief"],
                 verbose=True,
                 agent=self.section_design_brief_agent(),
-                output_file=f"{CONFIG['project_name']}/{self.page_name}/{self.section_name}/design_brief.md",
+                output_file=f"{namee}/{self.page_name}/{self.section_name}/design_brief.md",
                 async_execution=False,
             )
 
@@ -249,7 +243,7 @@ def define_section_design_crew(page_name, section_name):
                 config=self.tasks_config["generate_section_content"],
                 verbose=True,
                 agent=self.section_content_curator_agent(),
-                output_file=f"{CONFIG['project_name']}/{self.page_name}/{self.section_name}/text_content.md",
+                output_file=f"{namee}/{self.page_name}/{self.section_name}/text_content.md",
                 async_execution=False,
                 context={self.generate_section_design_brief()},
             )
@@ -260,7 +254,7 @@ def define_section_design_crew(page_name, section_name):
                 config=self.tasks_config["generate_section_images"],
                 verbose=True,
                 agent=self.image_generation_agent(),
-                output_file=f"{CONFIG['project_name']}/{self.page_name}/{self.section_name}/image_urls.md",
+                output_file=f"{namee}/{self.page_name}/{self.section_name}/image_urls.md",
                 async_execution=False,
                 tools=[dalle_tool],
                 context={self.generate_section_design_brief()},
@@ -268,6 +262,7 @@ def define_section_design_crew(page_name, section_name):
 
         @crew
         def crew(self) -> Crew:
+            """Creates the Section Design Crew"""
             return Crew(
                 agents=[
                     self.section_design_brief_agent(),
@@ -284,14 +279,52 @@ def define_section_design_crew(page_name, section_name):
                 max_rpm=20,
             )
 
-    return SectionDesignCrew(page_name=page_name, section_name=section_name).crew()
+    Section_design_Crew(page_name=page_name, section_name=section_name).crew().kickoff(
+        inputs=inputs
+    )
+    # agentops.end_session("Success")
 
 
-# Main workflow
+def website_code():
+    website_structure = open(f"{namee}/website_structure.json", "r").read()
+    website_structure = json.loads(website_structure)
+
+    for page in website_structure["pages"]:
+        page_name = page["name"]
+        for section in page["sections"]:
+            section_name = section["name"]
+            section_code_file = f"{namee}/{page_name}/{section_name}/section_code.md"
+
+            if os.path.exists(section_code_file):
+                print(
+                    f"Section code file already exists for {section_name} section of {page_name} page."
+                )
+                continue
+
+            start_time = time.time()
+            section_code_json = generate_section_code(
+                section_name,
+                open(f"{namee}/{page_name}/{section_name}/design_brief.md", "r").read(),
+                open(f"{namee}/{page_name}/{section_name}/text_content.md", "r").read(),
+                open(f"{namee}/{page_name}/{section_name}/image_urls.md", "r").read(),
+            )
+
+            with open(section_code_file, "w") as f:
+                f.write(section_code_json)
+            end_time1 = time.time()
+            print(
+                f"Time taken for generating code for {section_name} section of {page_name} page of the website : {end_time1 - start_time}"
+            )
+        make_page_files(
+            namee, page_name, [section["name"] for section in page["sections"]]
+        )
+
+
 def run():
     overall_start_time = time.time()
+
     inputs = {
-        "user_conversation": USER_CONVERSATION,
+        "user_conversation": user_conversation,
         "example_website_structure": """{
       "sitename": "My Website",
       "pages": [
@@ -320,121 +353,69 @@ def run():
     }""",
     }
 
-    create_directories([CONFIG["project_name"]])
+    start_time = time.time()
 
-    # Run User Requirements Crew
-    if not check_files_exist(
-        [
-            f"{CONFIG['project_name']}/website_structure.json",
-            f"{CONFIG['project_name']}/user_requirements.md",
-            f"{CONFIG['project_name']}/website_design_brief.md",
-        ]
+    os.makedirs(namee, exist_ok=True)
+    if (
+        not os.path.exists(f"{namee}/website_structure.json")
+        or not os.path.exists(f"{namee}/user_requirements.md")
+        or not os.path.exists(f"{namee}/website_design_brief.md")
     ):
-        crew1 = define_user_requirements_crew()
-        crew1.kickoff(inputs)
+        website_reqs(inputs)
     else:
-        logging.info("Required files already exist, skipping user requirements crew")
+        print(
+            "Required files already exist already exist, skipping user requirements crew"
+        )
+    end_time1 = time.time()
+    print(
+        f"Time taken for generating user requirements and website structure: {end_time1 - start_time}"
+    )
 
-    # Read generated files
-    with open(f"{CONFIG['project_name']}/website_structure.json", "r") as file:
-        website_structure = json.load(file)
+    website_structure = open(f"{namee}/website_structure.json", "r").read()
 
-    with open(f"{CONFIG['project_name']}/user_requirements.md", "r") as file:
-        user_requirements = file.read()
+    user_requirements = open(f"{namee}/user_requirements.md", "r").read()
+    website_design_brief = open(f"{namee}/website_design_brief.md", "r").read()
 
-    with open(f"{CONFIG['project_name']}/website_design_brief.md", "r") as file:
-        website_design_brief = file.read()
-
-    # Run Section Design Crews
-    tasks = []
-    for page in website_structure["pages"]:
-        ## page name is either page["name"] or page["title"]
-        page_name = page["name"] if "name" in page else page["page"]
-
-        for section in page["sections"]:
-            section_name = section["name"]
-            create_directories([f"{CONFIG['project_name']}/{page_name}/{section_name}"])
-
-            if not check_files_exist(
-                [
-                    f"{CONFIG['project_name']}/{page_name}/{section_name}/design_brief.md",
-                    f"{CONFIG['project_name']}/{page_name}/{section_name}/text_content.md",
-                    f"{CONFIG['project_name']}/{page_name}/{section_name}/image_urls.md",
-                ]
-            ):
-                inputs = {
-                    "user_requirements": user_requirements,
-                    "website_design_brief": website_design_brief,
-                    "website_structure": website_structure,
-                    "page_name": page_name,
-                    "section_name": section_name,
-                }
-                tasks.append(
-                    lambda: define_section_design_crew(page_name, section_name).kickoff(
-                        inputs
-                    )
-                )
-            else:
-                logging.info(
-                    f"Files already exist for {section_name} section of {page_name} page, skipping section design crew"
-                )
-
-    run_tasks_in_parallel(tasks)
-
-    # Generate website code
+    website_structure = json.loads(website_structure)
     for page in website_structure["pages"]:
         page_name = page["name"]
         for section in page["sections"]:
             section_name = section["name"]
-            section_code_file = (
-                f"{CONFIG['project_name']}/{page_name}/{section_name}/section_code.md"
-            )
-
-            if os.path.exists(section_code_file):
-                logging.info(
-                    f"Section code file already exists for {section_name} section of {page_name} page."
-                )
-                continue
-
             start_time = time.time()
-            section_code_json = generate_section_code(
-                section_name,
-                open(
-                    f"{CONFIG['project_name']}/{page_name}/{section_name}/design_brief.md",
-                    "r",
-                ).read(),
-                open(
-                    f"{CONFIG['project_name']}/{page_name}/{section_name}/text_content.md",
-                    "r",
-                ).read(),
-                open(
-                    f"{CONFIG['project_name']}/{page_name}/{section_name}/image_urls.md",
-                    "r",
-                ).read(),
+
+            os.makedirs(f"{namee}/{page_name}/{section_name}", exist_ok=True)
+            inputs = {
+                "user_requirements": user_requirements,
+                "website_design_brief": website_design_brief,
+                "website_structure": website_structure,
+                "page_name": page_name,
+                "section_name": section_name,
+            }
+            if (
+                not os.path.exists(
+                    f"{namee}/{page_name}/{section_name}/design_brief.md"
+                )
+                or not os.path.exists(
+                    f"{namee}/{page_name}/{section_name}/text_content.md"
+                )
+                or not os.path.exists(
+                    f"{namee}/{page_name}/{section_name}/image_urls.md"
+                )
+            ):
+                section_design(inputs, page_name, section_name)
+            else:
+                print(
+                    f"Required files already exist for {section_name} section of {page_name} page, skipping section design crew"
+                )
+            end_time1 = time.time()
+            print(
+                f"Time taken for creating design, content and images for {section_name} section of {page_name} page of the website : {end_time1 - start_time}"
             )
 
-            with open(section_code_file, "w") as f:
-                f.write(section_code_json)
-
-            end_time = time.time()
-            logging.info(
-                f"Time taken for generating code for {section_name} section of {page_name} page: {end_time - start_time}"
-            )
-
-    make_page_files(
-        CONFIG["project_name"],
-        page_name,
-        [section["name"] for section in page["sections"]],
-    )
-    shutil.move("images", f"{CONFIG['project_name']}/files")
-
+    website_code()
+    shutil.move("images", f"{namee}/files")
     overall_end_time = time.time()
-    logging.info(
+    print(
         f"Time taken for generating website structure, design, content and images: {overall_end_time - overall_start_time}"
     )
-
     return "Website Generated Successfully!"
-
-
-# if __name__ == "__main__":
-#     run()
