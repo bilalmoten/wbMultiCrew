@@ -192,7 +192,7 @@
 generate_user_requirements:
   description: >
     Read and understand the user conversation to gather requirements for the website, capturing details like purpose, target audience, branding guidelines etc, according to user's preferences.
-    Your job is to understand what the user wants, in the user conversation, and then use that conversation, and your own knowledge and website design expertise and best practises to create a detailed requirements document. the document should use the user conversation as the base, but your own knowledge and best practises should be used to fill in the gaps, and enhance the users website and make the document complete.
+    Your job is to understand what the user wants, in the user conversation, and then use that conversation, and your own knowledge and website design expertise and best practises to create a detailed requirements document. the document should use the user conversation as the base, but your own knowledge and best practises should be used to fill in the gaps, and enhance the users website and make the document complete. Remember to not have more than 5 pages, ideally only 3, unless specified by the user.
 
     user Conversation:
     {user_conversation}

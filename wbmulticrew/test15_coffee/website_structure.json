@@ -1,0 +1,66 @@
+{
+  "sitename": "BKF Pharma",
+  "pages": [
+    {
+      "name": "Homepage",
+      "sections": [
+        {
+          "name": "Hero Section",
+          "description": "A powerful, inspirational headline highlighting BKF Pharma's mission with a background image or video featuring abstract, futuristic visuals."
+        },
+        {
+          "name": "About Section",
+          "description": "A brief introduction to BKF Pharma, focusing on the company's mission and vision, with images of people to add a human touch."
+        },
+        {
+          "name": "Call-to-Action",
+          "description": "A clear call-to-action encouraging visitors to learn more about the company."
+        }
+      ]
+    },
+    {
+      "name": "About Page",
+      "sections": [
+        {
+          "name": "Mission and Vision",
+          "description": "Detailed information about BKF Pharma's mission, vision, and values."
+        },
+        {
+          "name": "Team",
+          "description": "Information about the company's founders and key team members, along with images of the team and research facilities."
+        }
+      ]
+    },
+    {
+      "name": "Research and Development Page",
+      "sections": [
+        {
+          "name": "Research Focus",
+          "description": "High-level information about BKF Pharma's research focus and proprietary medicine for cancer treatment with abstract visuals."
+        }
+      ]
+    },
+    {
+      "name": "News and Updates Page",
+      "sections": [
+        {
+          "name": "Latest News",
+          "description": "Updates on research progress, partnerships, and milestones related to BKF Pharma."
+        }
+      ]
+    },
+    {
+      "name": "Contact Page",
+      "sections": [
+        {
+          "name": "Contact Form",
+          "description": "A form for potential partners and investors to get in touch, along with contact information including email address and phone number."
+        },
+        {
+          "name": "Inspirational Message",
+          "description": "An inspirational message encouraging collaboration and partnership."
+        }
+      ]
+    }
+  ]
+}

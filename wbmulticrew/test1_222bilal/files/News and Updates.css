@@ -1,0 +1,153 @@
+/* Latest News */
+#latest-news {
+  background-color: #F2F2F2;
+  padding: 60px 0;
+}
+.header {
+  height: 300px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 40px;
+}
+.header h1 {
+  color: #FFFFFF;
+  font-family: 'Helvetica Neue', sans-serif;
+  text-transform: uppercase;
+  font-size: 48px;
+  font-weight: bold;
+}
+.header .subheadline {
+  color: #FFFFFF;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 18px;
+  font-weight: light;
+}
+.section-title {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: #003366;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.news-card .card {
+  background-color: #FFFFFF;
+  border: 1px solid #F2F2F2;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 20px;
+}
+.news-card .card-img-top {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.news-card .card-body {
+  font-family: 'Helvetica Neue', sans-serif;
+}
+.news-card .card-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #003366;
+}
+.news-card .card-text {
+  font-size: 16px;
+  color: #666666;
+}
+.news-card .read-more-btn {
+  background-color: #00FF00;
+  color: #FFFFFF;
+  border-radius: 5px;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  transition: background-color 0.3s;
+}
+.news-card .read-more-btn:hover {
+  background-color: #00cc00;
+}
+.news-card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+
+/* Press Releases */
+#press-releases {
+  padding: 40px 0;
+}
+
+.section-title {
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 36px;
+  color: #003366;
+  font-weight: bold;
+}
+
+.subtitle {
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 18px;
+  color: #008080;
+  margin-bottom: 40px;
+}
+
+.press-release-card {
+  background-color: #ffffff;
+  border: 1px solid #f2f2f2;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+  padding: 20px;
+}
+
+.press-release-card:hover {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 24px;
+  color: #003366;
+  font-weight: bold;
+}
+
+.release-date {
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  color: #333333;
+  margin-bottom: 15px;
+}
+
+.card-text {
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+.btn-readmore {
+  background-color: #00ff00;
+  color: #ffffff;
+  border-radius: 5px;
+  padding: 10px 20px;
+  transition: background-color 0.3s;
+}
+
+.btn-readmore:hover {
+  background-color: #00cc00;
+}
+
+.pagination .page-link {
+  border: none;
+  color: #003366;
+  font-family: "Helvetica Neue", sans-serif;
+}
+
+.pagination .page-link.active {
+  background-color: #003366;
+  color: #ffffff;
+}
+
+.pagination .page-link:hover {
+  background-color: #008080;
+}
+

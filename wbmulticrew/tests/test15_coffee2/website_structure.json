@@ -1,0 +1,57 @@
+{
+  "sitename": "BKF Pharma",
+  "pages": [
+    {
+      "name": "Home",
+      "sections": [
+        {
+          "name": "Introduction",
+          "description": "Brief introduction to BKF Pharma’s mission and vision with high-impact visuals."
+        },
+        {
+          "name": "Innovative Work",
+          "description": "Highlights the innovative nature of the company's cancer treatment research."
+        }
+      ]
+    },
+    {
+      "name": "About Us",
+      "sections": [
+        {
+          "name": "Company Goals and Values",
+          "description": "Detailed information about BKF Pharma’s goals and values."
+        },
+        {
+          "name": "Our Team",
+          "description": "Introduction to the team members behind BKF Pharma."
+        }
+      ]
+    },
+    {
+      "name": "Research and Development",
+      "sections": [
+        {
+          "name": "Ongoing Research",
+          "description": "Overview of ongoing cancer treatment research and future plans."
+        },
+        {
+          "name": "Research Focus",
+          "description": "Structured overview of the research focus, without disclosing sensitive information."
+        }
+      ]
+    },
+    {
+      "name": "Contact",
+      "sections": [
+        {
+          "name": "Contact Form",
+          "description": "Easy-to-use contact form for potential partners and investors to reach out."
+        },
+        {
+          "name": "Contact Information",
+          "description": "Direct contact information for the BKF Pharma team."
+        }
+      ]
+    }
+  ]
+}

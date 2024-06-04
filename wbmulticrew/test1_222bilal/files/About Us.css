@@ -1,0 +1,124 @@
+/* Company Overview */
+.section-title {
+  font-family: 'Helvetica Neue', sans-serif;
+  color: #003366;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  font-family: 'Helvetica Neue', sans-serif;
+  color: #008080;
+  margin-bottom: 30px;
+}
+
+.hero-image img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.card {
+  border: 1px solid #F2F2F2;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.card-title {
+  color: #003366;
+  font-family: 'Helvetica Neue', sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.card-body > p, .card-body > ul, .card-body > li {
+  color: #333;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.card-body > p strong, .card-body ul > li strong {
+  color: #008080;
+}
+
+.history-image, .mission-image, .achievement-image {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.btn-primary {
+  background-color: #00FF00;
+  border-color: #00FF00;
+  color: #FFFFFF;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.btn-primary:hover {
+  background-color: #00CC00;
+  border-color: #00CC00;
+}
+
+.btn-secondary {
+  background-color: #008080;
+  border-color: #008080;
+  color: #FFFFFF;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.btn-secondary:hover {
+  background-color: #006666;
+  border-color: #006666;
+}
+
+/* Team */
+.bg-light-gray {
+  background-color: #F2F2F2;
+}
+
+.text-deep-blue {
+  color: #003366;
+}
+
+.text-teal {
+  color: #008080;
+}
+
+.team-member-card {
+  background-color: #FFFFFF;
+  border: 1px solid #F2F2F2;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: border-color 0.3s ease;
+}
+
+.team-member-card:hover {
+  border-color: #E0E0E0;
+}
+
+.card-body h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.card-body p {
+  font-size: 1rem;
+  color: #333;
+}
+
+.btn-cta {
+  background-color: #00FF00;
+  color: #FFFFFF;
+  border-radius: 5px;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-cta:hover {
+  background-color: #009900;
+}
+

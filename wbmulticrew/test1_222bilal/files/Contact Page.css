@@ -1,0 +1,140 @@
+/* Contact Form */
+.contact-section {
+  background-size: cover;
+  padding: 60px 0;
+}
+
+.contact-section h2 {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 24px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #003366;
+}
+
+.contact-section p {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+.contact-form .form-group {
+  margin-bottom: 25px;
+}
+
+.contact-form .form-control {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 14px;
+  border: 1px solid #f2f2f2;
+  border-radius: 5px;
+  padding: 10px;
+  transition: border-color 0.3s;
+}
+
+.contact-form .form-control:focus {
+  border-color: #008080;
+  box-shadow: 0 0 8px rgba(0,128,128,0.4);
+}
+
+.contact-form .btn-submit {
+  background-color: #00FF00;
+  color: white;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  transition: background-color 0.3s;
+}
+
+.contact-form .btn-submit:hover {
+  background-color: #00e600;
+}
+
+.contact-info {
+  background-color: #F2F2F2;
+  padding: 20px;
+  border-radius: 10px;
+  color: #003366;
+  margin-top: 30px;
+}
+
+.contact-info a {
+  color: #003366;
+}
+
+.contact-icon {
+  display: block;
+  margin: 20px auto;
+  max-width: 100px;
+}
+
+iframe {
+  margin-top: 30px;
+  width: 100%;
+  height: 300px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 767px) {
+  .contact-form {
+    margin-top: 30px;
+  }
+}
+
+/* Contact Information */
+#contact-info {
+    background-color: #003366;
+    color: #FFFFFF;
+    padding: 60px 20px;
+}
+
+.contact-card {
+    background-color: #FFFFFF;
+    border: 1px solid #F2F2F2;
+    border-radius: 10px;
+    transition: box-shadow 0.3s ease;
+}
+
+.contact-card h4 {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.contact-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-card p, .contact-card a {
+    color: #003366;
+}
+
+.form-group input, 
+.form-group textarea {
+    border: 1px solid #F2F2F2;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #008080;
+    outline: none;
+}
+
+btn-success {
+    background-color: #00FF00;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+btn-success:hover {
+    background-color: #00CC00;
+}
+
+
+

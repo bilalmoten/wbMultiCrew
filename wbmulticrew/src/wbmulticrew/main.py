@@ -25,7 +25,7 @@ CONFIG = {
     "api_key": os.getenv("AZURE_OPENAI_API_KEY2"),
     "azure_deployment": "gpt4o-azure",
     "api_version": "2024-02-15-preview",
-    "project_name": "test1_pharma_gpt4o",
+    "project_name": "test15_coffee",
     "agents_config": "config/agents.yaml",
     "tasks_config": "config/tasks.yaml",
     "agents2_config": "config/agents2.yaml",
@@ -348,9 +348,7 @@ def run():
     # Run Section Design Crews
     tasks = []
     for page in website_structure["pages"]:
-        ## page name is either page["name"] or page["title"]
-        page_name = page["name"] if "name" in page else page["page"]
-
+        page_name = page["name"]
         for section in page["sections"]:
             section_name = section["name"]
             create_directories([f"{CONFIG['project_name']}/{page_name}/{section_name}"])
@@ -362,7 +360,7 @@ def run():
                     f"{CONFIG['project_name']}/{page_name}/{section_name}/image_urls.md",
                 ]
             ):
-                inputs = {
+                task_inputs = {
                     "user_requirements": user_requirements,
                     "website_design_brief": website_design_brief,
                     "website_structure": website_structure,
@@ -371,7 +369,7 @@ def run():
                 }
                 tasks.append(
                     lambda: define_section_design_crew(page_name, section_name).kickoff(
-                        inputs
+                        task_inputs
                     )
                 )
             else:
@@ -434,7 +432,3 @@ def run():
     )
 
     return "Website Generated Successfully!"
-
-
-# if __name__ == "__main__":
-#     run()

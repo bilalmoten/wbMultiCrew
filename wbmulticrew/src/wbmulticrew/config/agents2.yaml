@@ -26,17 +26,17 @@ image_generation_agent:
   backstory: >
     You're an AI agent with a keen eye for visual details. You use the section design brief and user requirments to create images for the section.
 
-section_code_generation_agent:
-  role: >
-    Section Code Generation AI Agent
-  goal: >
-    Generate and review the HTML, CSS, and JS code for each the {page_name} page on the website based on the design brief, content breif and image paths for each section.
-    you will have access to the design brief, content brief and image paths for each section, as well as the user requirements, and website structure.
+# section_code_generation_agent:
+#   role: >
+#     Section Code Generation AI Agent
+#   goal: >
+#     Generate and review the HTML, CSS, and JS code for each the {page_name} page on the website based on the design brief, content breif and image paths for each section.
+#     you will have access to the design brief, content brief and image paths for each section, as well as the user requirements, and website structure.
 
-    Important:
-    ----------
-    You are supposed to use bootstrap.css and bootstrap.js in the website to make the web design responsive and you may use bootstrap components to make the design more interactive and user friendly.
-    Use CSS and JS to add subtle animations and hover effects etc as required by the user.
-    Remember to add a nice nav bar and footer.
-  backstory: >
-    You're an AI agent with expertise in HTML, CSS and JS based front-end web development. You take the design brief, content and image paths and write the full code for the {page_name} page of the website. You ensure that the code is responsive, accessible, and optimized for performance.
+#     Important:
+#     ----------
+#     You are supposed to use bootstrap.css and bootstrap.js in the website to make the web design responsive and you may use bootstrap components to make the design more interactive and user friendly.
+#     Use CSS and JS to add subtle animations and hover effects etc as required by the user.
+#     Remember to add a nice nav bar and footer.
+#   backstory: >
+#     You're an AI agent with expertise in HTML, CSS and JS based front-end web development. You take the design brief, content and image paths and write the full code for the {page_name} page of the website. You ensure that the code is responsive, accessible, and optimized for performance.

@@ -1,0 +1,78 @@
+{
+  "sitename": "BKF Pharma",
+  "pages": [
+    {
+      "name": "Homepage",
+      "sections": [
+        {
+          "name": "Hero Section",
+          "description": "A compelling hero section with a tagline that captures the essence of BKF Pharma’s mission."
+        },
+        {
+          "name": "Mission and Vision",
+          "description": "A section detailing the company’s mission and vision."
+        },
+        {
+          "name": "Innovative Work",
+          "description": "Highlight the innovative research and potential breakthroughs in cancer treatment."
+        },
+        {
+          "name": "Call-to-Action",
+          "description": "Encourage visitors to learn more about BKF Pharma’s work."
+        }
+      ]
+    },
+    {
+      "name": "About Us",
+      "sections": [
+        {
+          "name": "Company Overview",
+          "description": "Detailed information about BKF Pharma, its history, and its goals."
+        },
+        {
+          "name": "Team",
+          "description": "Introduce the key members of the BKF Pharma team."
+        }
+      ]
+    },
+    {
+      "name": "Research and Development",
+      "sections": [
+        {
+          "name": "Ongoing Projects",
+          "description": "Information on the current research projects (without revealing sensitive details)."
+        },
+        {
+          "name": "Future Goals",
+          "description": "Outline the future goals and aspirations of BKF Pharma."
+        }
+      ]
+    },
+    {
+      "name": "Contact Page",
+      "sections": [
+        {
+          "name": "Contact Form",
+          "description": "A form for potential partners and investors to get in touch."
+        },
+        {
+          "name": "Contact Information",
+          "description": "Email addresses, phone numbers, and physical address of BKF Pharma."
+        }
+      ]
+    },
+    {
+      "name": "News and Updates",
+      "sections": [
+        {
+          "name": "Latest News",
+          "description": "Updates on the latest developments at BKF Pharma."
+        },
+        {
+          "name": "Press Releases",
+          "description": "Official press releases and announcements."
+        }
+      ]
+    }
+  ]
+}
