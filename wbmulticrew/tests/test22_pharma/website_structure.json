@@ -1,0 +1,75 @@
+{
+  "sitename": "BKF Pharma",
+  "pages": [
+    {
+      "name": "Home",
+      "sections": [
+        {
+          "name": "Introduction",
+          "description": "Overview of BKF Pharma's mission and vision with high-impact visuals and motivational messaging."
+        },
+        {
+          "name": "Call-to-Action",
+          "description": "Encouragement for visitors to learn more about the company."
+        }
+      ]
+    },
+    {
+      "name": "About Us",
+      "sections": [
+        {
+          "name": "Company Information",
+          "description": "Detailed information about BKF Pharma, including its history and leadership team."
+        },
+        {
+          "name": "Values and Goals",
+          "description": "Information on the company's values and long-term goals."
+        }
+      ]
+    },
+    {
+      "name": "Research & Development",
+      "sections": [
+        {
+          "name": "Ongoing Projects",
+          "description": "Overview of ongoing research and development projects."
+        },
+        {
+          "name": "Proprietary Medicine",
+          "description": "Information on the company's proprietary medicine for cancer treatment (without revealing sensitive details)."
+        }
+      ]
+    },
+    {
+      "name": "Contact",
+      "sections": [
+        {
+          "name": "Contact Form",
+          "description": "Easy-to-use form for potential partners, investors, and interested parties to get in touch with the team."
+        },
+        {
+          "name": "Contact Details",
+          "description": "Contact details including email addresses and phone numbers."
+        }
+      ]
+    },
+    {
+      "name": "News & Updates",
+      "sections": [
+        {
+          "name": "Latest News",
+          "description": "Section to keep visitors updated on the latest news and developments from BKF Pharma."
+        }
+      ]
+    },
+    {
+      "name": "Newsletter Signup",
+      "sections": [
+        {
+          "name": "Subscription Form",
+          "description": "Option for visitors to subscribe to a newsletter for updates."
+        }
+      ]
+    }
+  ]
+}

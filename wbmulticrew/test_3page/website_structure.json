@@ -1,0 +1,56 @@
+{
+  "sitename": "BKF Pharma",
+  "pages": [
+    {
+      "name": "Home",
+      "sections": [
+        {
+          "name": "Hero Section",
+          "description": "A visually engaging hero image with an abstract, futuristic visual and a motivational tagline that reflects the company's mission."
+        },
+        {
+          "name": "Mission Statement",
+          "description": "A brief overview of BKF Pharma's mission and innovative approach to cancer treatment."
+        },
+        {
+          "name": "Introduction",
+          "description": "A short introduction to BKF Pharma, highlighting its goals and vision."
+        }
+      ]
+    },
+    {
+      "name": "About Us",
+      "sections": [
+        {
+          "name": "Company Overview",
+          "description": "Detailed information about BKF Pharma's mission, vision, and values."
+        },
+        {
+          "name": "Our Team",
+          "description": "Images and brief bios of the team behind BKF Pharma to showcase expertise and collaborative spirit."
+        },
+        {
+          "name": "Our Story",
+          "description": "The history and journey of BKF Pharma, including milestones and achievements."
+        }
+      ]
+    },
+    {
+      "name": "Contact",
+      "sections": [
+        {
+          "name": "Contact Information",
+          "description": "Relevant contact information for potential partners, investors, or other interested parties to get in touch with BKF Pharma."
+        },
+        {
+          "name": "Contact Form",
+          "description": "A clean and minimalist contact form for visitors to send inquiries directly through the website."
+        },
+        {
+          "name": "Call to Action",
+          "description": "Encouragement for visitors to reach out and connect with BKF Pharma for partnership or investment opportunities."
+        }
+      ]
+    }
+  ]
+}

@@ -35,9 +35,8 @@ class file_write_tool(BaseTool):
     description: str = (
         """Useful to write a file to a given path with a given content.
         The input to this tool should be a pipe (|) separated text
-        of length two, representing the full path of the file, and the HTML or CSS or JS code you want to write to it.
-        For example, `{website_name}/codefiles/{pagename}.html|HTML_CODE_PLACEHOLDER` or `{website_name}/codefiles/{pagename}.css|CSS_CODE_PLACEHOLDER`.
-        Replace HTML_CODE_PLACEHOLDER with the actual
+        of length two, representing the full path of the file, and the HTML code(with inline css and js) you want to write to it.
+        For example, `{website_name}/Final_files/{pagename}.html|HTML_CODE_PLACEHOLDER` with the actual
         code you want to write to the file."""
     )
 

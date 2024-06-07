@@ -226,7 +226,9 @@ generate_website_structure:
     include sitename, pages and sections within each page (with section name  and description only)
 
     The section description would be a brief description of what the section is about and what it contains.
-    Remember to not have similar sections on different pages of the website
+    Remember to not have similar sections on different pages of the website۔
+
+    REMEMBER: 3 pages is the maximum limit for the website.
    
     user Conversation:
     {user_conversation}
