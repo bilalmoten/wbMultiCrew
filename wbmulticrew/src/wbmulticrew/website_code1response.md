@@ -1,0 +1,405 @@
+## index.html
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BKF Pharma - Home</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #1E3A8A;
+            margin: 0;
+            padding: 0;
+            background-color: #FFFFFF;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .btn-primary {
+            background-color: #3B82F6;
+            color: #FFFFFF;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #1E3A8A;
+        }
+        .hero-content h1 {
+            font-size: 2em;
+            font-weight: bold;
+            margin: 0 0 10px 0;
+        }
+        .hero-content p {
+            font-size: 1.5em;
+            margin: 0 0 20px 0;
+        }
+        .cta-section {
+            padding: 60px 0;
+            background-color: #FFFFFF;
+        }
+        .cta-section h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .cta-section p {
+            font-size: 1.2rem;
+            margin: 10px 0 20px 0;
+        }
+        .cta-section .btn {
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="hero" style="background-image: url('images/generated_image_Generate_an_abstract,_futuristic_visual.jpg'); background-size: cover; background-position: center; padding: 80px 0; color: #1E3A8A; display: flex; justify-content: center; align-items: center;">
+            <div class="container text-center">
+                <div class="hero-content">
+                    <h1>Join Us in the Fight Against Cancer</h1>
+                    <p>Discover how BKF Pharma is pioneering groundbreaking cancer treatments.</p>
+                    <a href="/learn-more" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </section>
+        <section class="cta-section">
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-md-6 offset-md-3">
+                        <img src="images/generated_image_A_high-quality,_abstract_futuristic_visual..jpg" alt="Abstract futuristic visual representing innovation and cutting-edge technology" class="cta-image" style="width: 100%; max-width: 100%; height: auto; transition: transform 0.3s ease;">
+                        <h2 class="cta-headline">Join Us in Revolutionizing Cancer Treatment</h2>
+                        <p class="cta-subheadline">Learn more about our mission and how you can be part of the future of cancer therapy.</p>
+                        <a href="#" class="btn cta-button" style="background-color: #3B82F6; color: #FFFFFF; font-weight: bold;">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="intro" class="text-center py-5">
+            <div class="container">
+                <h1 class="display-4 font-weight-bold">Join Us in Revolutionizing Cancer Treatment</h1>
+                <p class="lead my-4">Discover how BKF Pharma is pioneering groundbreaking solutions in cancer research and treatment. Partner with us to make a difference.</p>
+                <img src="images/generated_image_A_futuristic,_abstract_visual_representing.jpg" alt="Futuristic Abstract Visual" class="img-fluid my-4">
+                <a href="#" class="btn btn-primary btn-lg">Learn More</a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2023 BKF Pharma. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        $(document).ready(function() {
+            $('.btn-primary').mouseenter(function() {
+                $(this).css('background-color', '#1E3A8A');
+            }).mouseleave(function() {
+                $(this).css('background-color', '#3B82F6');
+            });
+
+            $('#intro').hide().fadeIn(1000);
+        });
+    </script>
+</body>
+</html>
+```
+
+## about.html
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - BKF Pharma</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #1E3A8A;
+            margin: 0;
+            padding: 0;
+            background-color: #FFFFFF;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .btn-primary {
+            background-color: #3B82F6;
+            color: #FFFFFF;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #1E3A8A;
+        }
+        .cta-section {
+            padding: 60px 0;
+            background-color: #FFFFFF;
+        }
+        .cta-section h1, .cta-section h2, .cta-section p {
+            margin-bottom: 20px;
+        }
+        .cta-section h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        .cta-section h2 {
+            font-size: 1.5rem;
+            font-weight: semi-bold;
+        }
+        .cta-section p {
+            font-size: 1rem;
+        }
+        .cta-section .btn {
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="cta-section">
+            <div class="container text-center">
+                <h1 class="cta-headline">Join Us in the Fight Against Cancer</h1>
+                <h2 class="cta-subtitle">Learn more about our cutting-edge research and how you can get involved.</h2>
+                <p class="cta-body-text">At BKF Pharma, we are at the forefront of cancer research, developing revolutionary treatments that have the potential to save lives. Join us on our mission to make a difference. Together, we can create a future free of cancer.</p>
+                <a href="research.html" class="btn cta-button">Discover Our Mission</a>
+            </div>
+        </section>
+        <section class="cta-section bg-white text-center py-5">
+            <div class="container">
+                <div class="row mb-4">
+                    <div class="col">
+                        <h2 class="cta-headline font-weight-bold text-dark-blue">Join Us in the Fight Against Cancer</h2>
+                        <p class="cta-subheader text-gray">Discover how BKF Pharma is pioneering innovative cancer treatments and making a difference.</p>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col">
+                        <a href="team.html" class="btn cta-button text-white font-weight-semi-bold">Learn More <span class="cta-icon">&#9654;</span></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <img src="images/generated_image_A_high-quality,_professional_image_of.jpg" class="cta-image img-fluid" alt="Scientist in lab">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="our-story" class="d-flex align-items-center bg-light-blue py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 text-center text-lg-left">
+                        <h1 class="headline">Join Us in the Fight Against Cancer</h1>
+                        <p class="tagline">Discover how BKF Pharma is pioneering innovative treatments to save lives.</p>
+                        <a href="story.html" class="btn btn-primary cta-button">Learn More</a>
+                    </div>
+                    <div class="col-lg-6 col-md-12 text-center">
+                        <img src="images/generated_image_An_abstract,_futuristic_background_with.jpg" alt="Futuristic background with technological elements" class="img-fluid cta-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2023 BKF Pharma. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        $(document).ready(function() {
+            $('.cta-section .container').css('opacity', '0.3').animate({ opacity: 1 }, 2000);
+            $(window).scroll(function() {
+                var hT = $('.cta-section').offset().top,
+                    hH = $('.cta-section').outerHeight(),
+                    wH = $(window).height(),
+                    wS = $(this).scrollTop();
+                if (wS > (hT + hH - wH)) {
+                    $('.cta-section .container').css('opacity', '1').fadeIn(1000);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+```
+
+## contact.html
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - BKF Pharma</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #1E3A8A;
+            margin: 0;
+            padding: 0;
+            background-color: #FFFFFF;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .text-center, .text-left {
+            text-align: center;
+        }
+        .btn-primary {
+            background-color: #3B82F6;
+            color: #FFFFFF;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #1E3A8A;
+        }
+        .cta-section {
+            padding: 60px 0;
+            background-color: #FFFFFF;
+        }
+        .cta-section h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        .cta-section p {
+            font-size: 1.25rem;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+        .cta-section .btn {
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="cta-section" class="text-center py-5">
+            <div class="container d-flex align-items-center justify-content-between">
+                <div class="cta-content text-lg-left">
+                    <h2>Join Us in Revolutionizing Cancer Treatment</h2>
+                    <p>At BKF Pharma, we're pioneering innovative solutions to combat cancer. Discover how you can be a part of this groundbreaking journey.</p>
+                    <a href="learn-more.html" class="btn btn-primary">Learn More</a>
+                </div>
+                <div class="cta-image">
+                    <img src="images/generated_image_An_abstract,_futuristic_visual_representing.jpg" alt="Science Image" class="img-fluid" style="max-width: 100%; transition: transform 0.3s ease;">
+                </div>
+            </div>
+        </section>
+        <section id="cta-section" class="text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 my-auto text-left">
+                        <h1 class="cta-headline">Join Us in Fighting Cancer</h1>
+                        <p class="cta-subheadline">Discover how our innovations are transforming cancer treatment.</p>
+                        <a href="learn-more.html" class="btn btn-primary">Learn More</a>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="images/generated_image_An_abstract,_futuristic_visual_that.jpg" class="img-fluid" alt="Futuristic Visual">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="call-to-action" class="text-center">
+            <div class="container">
+                <h2 class="cta-headline">Join Us in Revolutionizing Cancer Treatment</h2>
+                <p class="cta-subheading">Be a part of our innovative journey and help us make a difference in the fight against cancer.</p>
+                <a href="mission.html" class="btn cta-button">Learn More About Our Mission</a>
+            </div>
+            <img src="images/generated_image_an_abstract,_futuristic_visual_that.jpg" alt="Innovative Healthcare" class="cta-image" style="position: absolute; bottom: 0; right: 0; max-width: 50%; opacity: 0.1;">
+        </section>
+    </main>
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2023 BKF Pharma. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        $(document).ready(function() {
+            $('#cta-section .cta-content').fadeIn(800);
+            $(window).on('scroll', function() {
+                var scrolled = $(window).scrollTop();
+                if ($('#cta-section').offset().top - $(window).height() < scrolled) {
+                    $('#cta-section .cta-image img').css('transform', 'scale(1.1)').fadeIn(800);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+```
+
+## full website code completed

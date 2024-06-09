@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BKF Pharma - Contact Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/037776171a.js" crossorigin="anonymous"></script>
+</head>
+<body class="bg-white text-gray-800">
+    <!-- Navbar -->
+    <nav class="bg-blue-800 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold">BKF Pharma</a>
+            <ul class="flex space-x-6">
+                <li><a href="index.html" class="hover:underline">Home</a></li>
+                <li><a href="about_us.html" class="hover:underline">About Us</a></li>
+                <li><a href="contact_us.html" class="hover:underline">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Contact Information Section -->
+    <section class="py-16 text-center">
+        <div class="container mx-auto flex flex-col lg:flex-row items-center justify-between">
+            <div class="lg:w-1/2 text-left mb-8 lg:mb-0">
+                <h2 class="text-4xl font-bold text-blue-800">Join Us in Revolutionizing Cancer Treatment</h2>
+                <p class="mt-4 text-lg text-gray-600">At BKF Pharma, we're pioneering innovative solutions to combat cancer. Discover how you can be a part of this groundbreaking journey.</p>
+                <a href="#" class="mt-8 bg-blue-600 hover:bg-blue-800 text-white font-bold py-2 px-6 rounded">Learn More</a>
+            </div>
+            <div class="lg:w-1/2 text-center">
+                <img src="images/generated_image_An_abstract,_futuristic_visual_representing.jpg" alt="Science Image" class="mx-auto">
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Form Section -->
+    <section class="py-16 bg-gray-100 text-center">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-blue-800">Get in Touch</h2>
+            <form action="#" method="POST" class="mt-8">
+                <div class="mb-4">
+                    <input type="text" name="name" placeholder="Your Name" class="w-full p-4 border border-gray-300 rounded">
+                </div>
+                <div class="mb-4">
+                    <input type="email" name="email" placeholder="Your Email" class="w-full p-4 border border-gray-300 rounded">
+                </div>
+                <div class="mb-4">
+                    <textarea name="message" rows="5" placeholder="Your Message" class="w-full p-4 border border-gray-300 rounded"></textarea>
+                </div>
+                <button type="submit" class="mt-4 bg-blue-600 hover:bg-blue-800 text-white font-bold py-2 px-6 rounded">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-800 text-white p-4 text-center">
+        <div class="container mx-auto">
+            <p>&copy; 2023 BKF Pharma. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Fade in effect for Contact Form section
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactFormSection = document.getElementById('contact-form');
+            contactFormSection.style.opacity = 0;
+            window.addEventListener('scroll', function() {
+                if (window.scrollY + window.innerHeight > contactFormSection.offsetTop) {
+                    contactFormSection.style.opacity = 1;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+```

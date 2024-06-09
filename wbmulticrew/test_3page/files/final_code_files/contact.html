@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - BKF Pharma</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/037776171a.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #1E3A8A;
+            background-color: #FFFFFF;
+        }
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #1E3A8A;
+            margin-bottom: 1rem;
+        }
+        .btn-primary {
+            background-color: #3B82F6;
+            color: #FFFFFF;
+            padding: 10px 20px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #2563EB;
+        }
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #D1D5DB;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+        .form-input:focus {
+            border-color: #3B82F6;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="bg-blue-900 text-white px-4 py-2">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold">BKF Pharma</a>
+            <ul class="flex space-x-4">
+                <li><a href="index.html" class="hover:underline">Home</a></li>
+                <li><a href="about_us.html" class="hover:underline">About Us</a></li>
+                <li><a href="contact.html" class="hover:underline">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contact Information -->
+    <section class="py-12">
+        <div class="container mx-auto text-center">
+            <h2 class="section-title">Contact Us</h2>
+            <p>If you have any questions or would like to learn more about BKF Pharma, please get in touch with us using the contact information below.</p>
+            <p>Email: info@bkfpharma.com</p>
+            <p>Phone: +123 456 7890</p>
+            <p>Address: 123 Pharma Street, MedCity, USA</p>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="py-12 bg-gray-100">
+        <div class="container mx-auto">
+            <h2 class="section-title text-center">Send Us a Message</h2>
+            <form action="#" method="POST" class="max-w-lg mx-auto mt-8">
+                <label for="name" class="block text-left font-bold">Name</label>
+                <input type="text" id="name" name="name" class="form-input" required>
+                
+                <label for="email" class="block text-left font-bold">Email</label>
+                <input type="email" id="email" name="email" class="form-input" required>
+
+                <label for="message" class="block text-left font-bold">Message</label>
+                <textarea id="message" name="message" class="form-input" rows="4" required></textarea>
+
+                <button type="submit" class="btn-primary w-full mt-4">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2023 BKF Pharma. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+```

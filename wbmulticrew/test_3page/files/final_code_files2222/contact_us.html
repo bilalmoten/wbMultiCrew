@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - BKF Pharma</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/037776171a.js" crossorigin="anonymous"></script>
+</head>
+<body class="font-sans text-gray-900 antialiased">
+    <!-- Navbar -->
+    <nav class="bg-blue-800 p-4 shadow-md fixed w-full z-10">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-white text-xl font-bold">BKF Pharma</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html" class="text-white hover:underline">Home</a>
+                <a href="about_us.html" class="text-white hover:underline">About Us</a>
+                <a href="contact_us.html" class="text-white hover:underline">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Information Section -->
+    <section class="py-16 bg-white text-center mt-16">
+        <div class="container mx-auto flex flex-wrap items-center justify-between">
+            <div class="w-full md:w-1/2 text-left">
+                <h2 class="text-2xl md:text-3xl font-bold text-blue-800 mb-4">Join Us in Revolutionizing Cancer Treatment</h2>
+                <p class="text-lg text-gray-600 mb-6">At BKF Pharma, we're pioneering innovative solutions to combat cancer. Discover how you can be a part of this groundbreaking journey.</p>
+                <a href="#" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Learn More</a>
+            </div>
+            <div class="w-full md:w-1/2 text-center">
+                <img src="https://via.placeholder.com/400" alt="Science Image" class="mx-auto mb-4 w-full max-w-md">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="py-16 bg-gray-100 text-center">
+        <div class="container mx-auto">
+            <h1 class="text-3xl md:text-4xl font-bold text-blue-800 mb-4">Contact Us</h1>
+            <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 max-w-lg mx-auto">
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Name</label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="Your Name">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="Your Email">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="message">Message</label>
+                    <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="message" placeholder="Your Message"></textarea>
+                </div>
+                <div class="flex items-center justify-between">
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                        Send Message
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-800 py-6 text-white text-center">
+        <p>&copy; 2023 BKF Pharma. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Scroll animation for Contact Information Section
+            window.addEventListener('scroll', () => {
+                const contactSection = document.querySelector('#cta-section');
+                if (window.scrollY + window.innerHeight >= contactSection.offsetTop) {
+                    contactSection.querySelector('.cta-content').classList.add('opacity-100', 'transition-opacity', 'duration-1000');
+                }
+            });
+
+            // Fade-in effect for Contact Form Section
+            const contactFormSection = document.querySelector('#cta-section');
+            contactFormSection.classList.add('opacity-0');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY + window.innerHeight >= contactFormSection.offsetTop) {
+                    contactFormSection.classList.add('opacity-100', 'transition-opacity', 'duration-1000');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+```

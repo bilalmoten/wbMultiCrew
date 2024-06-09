@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BKF Pharma - Contact</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/037776171a.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4xF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .navbar {
+            background-color: #1E3A8A;
+        }
+
+        .navbar a,
+        .navbar .navbar-brand {
+            color: #FFFFFF;
+        }
+
+        .navbar a:hover {
+            color: #E0F2FE;
+        }
+
+        .footer {
+            background-color: #1E3A8A;
+            color: #FFFFFF;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #60A5FA;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .cta-section {
+            padding: 60px 0;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #1E3A8A;
+        }
+
+        .cta-content p {
+            font-size: 1.25em;
+            color: #6B7280;
+        }
+
+        .btn-primary {
+            background-color: #3B82F6;
+            color: #FFFFFF;
+            border-radius: 4px;
+        }
+
+        .btn-primary:hover {
+            background-color: #1E3A8A;
+        }
+
+        .cta-image img {
+            max-width: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-image img:hover {
+            transform: scale(1.05);
+        }
+
+        .contact-form {
+            padding: 60px 0;
+        }
+
+        .contact-form h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #1E3A8A;
+        }
+
+        .contact-form .form-group label {
+            font-weight: bold;
+            color: #1E3A8A;
+        }
+
+        .contact-form .btn-primary {
+            background-color: #3B82F6;
+            color: #FFFFFF;
+            border-radius: 4px;
+        }
+
+        .contact-form .btn-primary:hover {
+            background-color: #1E3A8A;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="/">BKF Pharma</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about_us.html">About Us</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="contact_us.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="cta-section" class="text-center py-5">
+        <div class="container d-flex align-items-center justify-content-between">
+            <div class="cta-content text-lg-left">
+                <h2>Join Us in Revolutionizing Cancer Treatment</h2>
+                <p>At BKF Pharma, we're pioneering innovative solutions to combat cancer. Discover how you can be a part
+                    of this groundbreaking journey.</p>
+                <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+            <div class="cta-image">
+                <img src="https://via.placeholder.com/400" alt="Science Image" class="img-fluid">
+            </div>
+        </div>
+    </section>
+
+    <section id="contact-form" class="contact-form">
+        <div class="container">
+            <h1 class="text-center">Contact Us</h1>
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea class="form-control" id="message" rows="5" placeholder="Enter your message"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2023 BKF Pharma. All Rights Reserved.</p>
+        <a href="index.html">Home</a> |<a href="about_us.html">About Us</a> | <a href="contact_us.html">Contact</a>
+    </footer>
+
+    <script>
+        $(document).ready(function () {
+            $(window).on('scroll', function () {
+                var scrolled = $(window).scrollTop();
+                if ($('#cta-section').offset().top - $(window).height() < scrolled) {
+                    $('#cta-section .cta-content').fadeIn(800);
+                    $('#cta-section .cta-image img').css('transform', 'scale(1.1)').fadeIn(800);
+                }
+            });
+
+            $('#contact-form').css('opacity', 0);
+            $(window).on('scroll', function () {
+                var scrollTop = $(this).scrollTop();
+                var elementOffset = $('#contact-form').offset().top;
+                var distance = elementOffset - scrollTop;
+                var windowHeight = $(this).height();
+                if (distance < windowHeight - 100) {
+                    $('#contact-form').animate({ 'opacity': 1 }, 1000);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
+```

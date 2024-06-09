@@ -11,15 +11,12 @@ from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 
 from langchain_openai import AzureChatOpenAI
-from wbmulticrew.page_code import generate_section_code, call_gpt4o
+from wbmulticrew.page_code import generate_section_code
 from wbmulticrew.parse_json import make_page_files
 
 from wbmulticrew.tools.dalle_tool import Dalle_Image
+from wbmulticrew.tools.file_tools import file_write_tool
 import yaml
-
-
-import os
-import shutil
 
 
 # import agentops
@@ -53,6 +50,8 @@ azure_gpt4o = AzureChatOpenAI(
 )
 
 dalle_tool = Dalle_Image()
+
+file_writer_tool = file_write_tool()
 
 USER_CONVERSATION = """ [
 { "role": "user", "content": "hello" },
@@ -314,250 +313,111 @@ def define_section_design_crew(page_name, section_name):
     return SectionDesignCrew(page_name=page_name, section_name=section_name).crew()
 
 
-def parse_markdown(markdown):
-    sections = markdown.split("## ")[1:]  # Split the markdown into sections
-    file_contents = []
-    for section in sections:
-        lines = section.split("\n")
-        filename = lines[0].strip()  # The filename is the first line of the section
-        print("filename is: ", filename)
-        code_block = "\n".join(lines[1:])  # The rest of the section is the code block
-        if "```html" in code_block:
-            code_lines = code_block.split("```html")[1].split(
-                "\n"
-            )  # Extract the code lines
-            file_content = "\n".join(
-                code_lines[1:]
-            ).strip()  # Join the code lines into a single string
-            file_contents.append((filename, file_content))
-    return file_contents
+def coding_crew():
 
+    # agentops.init(tags="coding_crew", api_key="794cc782-0211-4096-a9fb-eafaffd3655f")
 
-def generate_code_files(markdown, project_name):
-    file_contents = parse_markdown(markdown)
-    for filename, content in file_contents:
-        filepath = f"{project_name}/final_code_files/{filename}"
-        os.makedirs(os.path.dirname(filepath), exist_ok=True)
-        with open(filepath, "w") as file:
-            file.write(content)
-    shutil.move("src/wbmulticrew/images", f"{project_name}/final_code_files")
-
-
-def generate_full_website(
-    project_name, website_structure, user_requirements, website_design_brief
-):
-
-    logging.info("Generating Full Website1")
-
-    # Generate section codes for the website
-    all_section_codes = []
-    all_image_paths = []
-    for page in website_structure["pages"]:
-        page_name = page["name"]
-        for section in page["sections"]:
-            section_name = section["name"]
-            section_code_file = (
-                f"{project_name}/{page_name}/{section_name}/section_code.md"
-            )
-            image_path_file = f"{project_name}/{page_name}/{section_name}/image_urls.md"
-            with open(section_code_file, "r") as file:
-                section_code = file.read()
-            all_section_codes.append(section_code)
-            with open(image_path_file, "r") as file:
-                image_paths = file.read()
-            all_image_paths.append(image_paths)
-
-    # print(all_image_paths)
-
-    # system_prompt = f"""
-    # You are website GPT. You have extensive experience in designing and developing HTML CSS & JS based website
-    # You are known for making amazing websites that are visually appealing and user-friendly.
-    # your attention to detail is second to none. You have mastered the art of creating websites that are both beautiful and functional.
-    # Currently your task is to build a fully functional, responsive, visually apealing, interactive(with animations and hover affects), and user friendly website for {project_name}.
-
-    # Since you are the senior most website developer in the team, the junior developers and designers have been working on this website section by section, and now it's your turn to put everything together and make sure the website is ready to be deployed.
-
-    # Your job includes, understanding the user's requirements, and build the website according to the user's approved website structure. The junior developers have already written code for all the sections on all the pages of the website, your job is to write the full code for the website, by giving HTML codes for each page seperatly, and by using inline CSS and JS. Your job isnt just to put the code together, but to make it actually work well together, from consistant styling, to properly structured html sections, navbar and footer, proper layouts, and responsive design.
-
-    # the section codes, are for your reference only as they have been done by junior developers so they are not the best quality, so use your knowledge and their hard work to create the full website in the best way possible.
-
-    # Make sure to have consistant styling, aesthetic design, proper and consitant nav bar and footer on all pages, and a fully functional and responsive website. You are one of the best website developers in the world's top most website development agency, so make sure to show your skills in this project.
-
-    # Your Job depends on this website passing the clients approval, so make sure to make it as good as possible.
-
-    # Remember to use proper constraints for the images, as all images are originally 1024 by 1024 pixels, and u need to use them according to the requirements of the design of the website.
-
-    # Also Remember, the websites are supposed to use, tailwind css mainly,  and fontawesome for icons. so you should write the code accordingly to benefit from these, and also use the following links and scripts to add these libraries to the webspage,
-
-    # <script src="https://cdn.tailwindcss.com"></script>
-    # <script src="https://kit.fontawesome.com/037776171a.js" crossorigin="anonymous"></script>
-
-    # Expected Output: A markdown format with just the HTML code, nothing else.
-
-    # Example Output:
-    # Do Not add any Placeholders, comments, backticks (```) or any other text in your response
-
-    # Only Respond with a Properly Formatted MARKDOWN with the HTML code for each HTML file(each page) of the website.
-
-    # Write
-
-    # ## All Files Completed
-
-    # at the end of the markdown file, after all the HTML code for each page.
-
-    # the markdown should include each codeblock seperatly with language specified as HTML, and heading as name of the file, and a final heading of code completed.
-
-    # such as
-
-    # ## index.html
-    # ```html
-    # <html code here>
-    # ```
-
-    # ## about_us.html
-    # ```html
-    # <html code here>
-    # ```
-
-    # ## contact_us.html
-    # ```html
-    # <html code here>
-    # ```
-
-    # ## All Files Completed
-
-    # NOTHING ELSE.
-    # """
-
-    system_prompt = f"""
-    You are website GPT. You have extensive experience in designing and developing HTML CSS & JS based website
-    You are known for making amazing websites that are visually appealing and user-friendly.
-    your attention to detail is second to none. You have mastered the art of creating websites that are both beautiful and functional.
-    Currently your task is to build a fully functional, responsive, visually apealing, interactive(with animations and hover affects), and user friendly website for {project_name}.
-    
-    
-    Your job includes, understanding the user's requirements, and build the website according to the user's approved website structure. You job is to make sur ethe website is the best work of yours to date, from consistant styling, to properly structured html sections, navbar and footer, proper layouts, and responsive design.
-    
-    Make sure to have consistant styling, aesthetic design, proper and consistant navingation bar and footer on all pages, and a fully functional and responsive website. You are one of the best website developers in the world's top most website development agency, so make sure to show your skills in this project.
-    
-    Your Job depends on this website passing the clients approval, so make sure to make it as good as possible.
-    
-    In some cases, the client has also provided some referneces, for which u will be given the code, so try to use that code as a reference for the clients website, not to copy from it, or to make a replica, but for inspiration of the design that the client has already pointed to as something he likes.
-    
-    Remember to use proper constraints for the images, as all images are originally 1024 by 1024 pixels, and u need to use them according to the requirements of the design of the website.
-    
-    Also Remember, the websites are supposed to use, tailwind css mainly,  and fontawesome for icons. so you should write the code accordingly to benefit from these, and also use the following links and scripts to add these libraries to the webspage, 
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://kit.fontawesome.com/037776171a.js" crossorigin="anonymous"></script>
-   
-    
-    Expected Output: A markdown format with just the HTML code, nothing else.
-    
-    Example Output:
-    Do Not add any Placeholders, comments, backticks (```) or any other text in your response
-
-    Only Respond with a Properly Formatted MARKDOWN with the HTML code for each HTML file(each page) of the website.
-
-    Write 
-    
-    ## All Files Completed 
-    
-    at the end of the markdown file, after all the HTML code for each page.
-
-    the markdown should include each codeblock seperatly with language specified as HTML, and heading as name of the file, and a final heading of code completed.
-    
-
-    such as
-
-    ## index.html
-    ```html
-    <html code here>
-    ```
-    
-    ## about_us.html
-    ```html
-    <html code here>
-    ```
-    
-    ## contact_us.html
-    ```html
-    <html code here>
-    ```
-    
-    ## All Files Completed
-
-    NOTHING ELSE. 
-    """
-
-    user_prompt = f"""
-    
-    User Requirements for the website:
-    
-    {user_requirements} 
-    
-    Website Design Brief:
-    {website_design_brief}  
-    
-    Website Structure:
-    {website_structure}
-    
-    AI generated Images to use in this website:
-    {all_image_paths} 
-    
-    """
-    extra = f"""section codes for the website, by junior developers:
-    {all_section_codes}"""
-    assistant_messages = []
-    final_response = ""
-
-    while True:
-        print("Calling GPT4o")
-        response = call_gpt4o(system_prompt, user_prompt, assistant_messages)
-
-        # Add the response to the final response
-        final_response += response + "\n"
-
-        # If the response ends with "## All Files Completed", break the loop
-        if response.strip().endswith("## All Files Completed"):
-            break
-
-        # Otherwise, add the response to the assistant_messages and try again
-        assistant_messages.append(response)
-
-    # Save the final response to a file
-    print("Saving response to file")
-    with open("website_code1response.md", "w") as file:
-        file.write(final_response)
-
-    # Call the function with the markdown response
-    print("Generating code files from gpt4o response")
-    logging.info("Generating code files from gpt4o response")
-    generate_code_files(final_response, project_name)
-
-    return "Website Generated Successfully!"
-
-
-def section_code_generator(page_name, section_name, section_code_file):
-    start_time = time.time()
-    section_code_json = generate_section_code(
-        section_name,
-        open(
-            f"{CONFIG['project_name']}/{page_name}/{section_name}/design_brief.md",
-            "r",
-        ).read(),
-        open(
-            f"{CONFIG['project_name']}/{page_name}/{section_name}/text_content.md",
-            "r",
-        ).read(),
-        open(
-            f"{CONFIG['project_name']}/{page_name}/{section_name}/image_urls.md",
-            "r",
-        ).read(),
+    # Manager Agent
+    manager = Agent(
+        role="Project Manager",
+        goal="Oversee the website code generation process and that the final code represents a beautiful website, as per the user requirements. You are also given the website structure, to help with nav bar links and footer area links etc. Make sure that the website is fully functional and very nicely made, following the latest design trends and industry standards. You are expected to ue the HTML  Developer Agent, CSS  Developer Agent and the Javascript Developer Agent, to help you write the website code, and then use the file-write tool to write th final HTML files with inline JS and CSS.",
+        verbose=True,
+        llm=azure_gpt4o,
+        # tools=[file_writer_tool],
+        backstory="You are the project manager ensuring all tasks are completed efficiently and to a high standard.",
+        allow_delegation=True,
     )
 
-    with open(section_code_file, "w") as f:
-        f.write(section_code_json)
+    # Layout Agent
+    layout_agent = Agent(
+        role="HTML Developer Agent",
+        goal="Generate HTML structure for website sections.",
+        verbose=True,
+        llm=azure_gpt4o,
+        backstory="You are responsible for creating the HTML layout based on the design brief and user requirements.",
+    )
+
+    # Styling Agent
+    styling_agent = Agent(
+        role="CSS Developer Agent",
+        goal="Generate CSS for website sections.",
+        verbose=True,
+        llm=azure_gpt4o,
+        backstory="You ensure the website is visually appealing and consistent by creating the necessary CSS.",
+    )
+
+    # Animation Agent
+    animation_agent = Agent(
+        role="JavaScript Developer Agent",
+        goal="Add JavaScript animations and interactivity to the website.",
+        verbose=True,
+        llm=azure_gpt4o,
+        backstory="You enhance the user experience by adding engaging animations and interactivity with JavaScript.",
+    )
+
+    # Layout Task
+    layout_task = Task(
+        description="Generate HTML for each website section based on the design brief and user requirements.",
+        expected_output="HTML structure for each section.",
+        agent=layout_agent,
+    )
+
+    # Styling Task
+    styling_task = Task(
+        description="Generate CSS for each website section to ensure consistent styling.",
+        expected_output="CSS for each section.",
+        agent=styling_agent,
+    )
+
+    # Animation Task
+    animation_task = Task(
+        description="Generate JavaScript for animations and interactivity for each website section.",
+        expected_output="JavaScript for each section.",
+        agent=animation_agent,
+    )
+
+    # Integration Task
+    integration_task = Task(
+        description="""
+        Integrate the HTML, CSS, and JavaScript into final web pages. As the manager, your job is to understand the user requirements and website structure and get the full code of the website generated, you are expected to use the HTML css and JS agents to write the code for the website. You are also incharge of saving the finalised website files in the correct directories. The final set of files should be saved in the Final_files directory of the project. The expectation is that each page in the website would have an html file, using inline css and js.
+        
+        User Requiremnts:
+        
+        {user_requirements}
+        
+        
+        Website Design Brief
+        
+        {website_design_brief}
+        
+        
+        Website structure:
+        
+        {website_structure}
+        
+        
+        Design Brief, Text Content, and Image Paths, for each section of each page of the website:
+        
+        {pages_briefs}
+        
+        
+        
+        """,
+        expected_output="Complete and optimized HTML files with inline CSS and JS. You are supposed to use the file writer tool to write the code to the files.",
+        tools=[file_writer_tool],
+        agent=manager,  # Manager oversees this task
+    )
+
+    website_code_crew = Crew(
+        agents=[layout_agent, styling_agent, animation_agent],
+        tasks=[integration_task, layout_task, styling_task, animation_task],
+        process=Process.hierarchical,
+        manager_agent=manager,
+        verbose=2,
+    )
+
+    # Assuming `sections` contains the section briefs and other necessary information
+    return website_code_crew
 
 
 # Main workflow
@@ -664,8 +524,7 @@ def run():
     # time_till_crews = time.time() - overall_start_time
     # logging.info(f"Time taken till now(crews completed): {time_till_crews}")
 
-    # section_code_tasks = []
-    # # Generate section codes
+    # # Generate website code
     # for page in website_structure["pages"]:
     #     page_name = page["name"]
     #     for section in page["sections"]:
@@ -680,36 +539,83 @@ def run():
     #             )
     #             continue
 
-    #         section_code_tasks.append(
-    #             (
-    #                 lambda page_name=page_name, section_name=section_name, section_code_file=section_code_file,: section_code_generator(
-    #                     page_name, section_name, section_code_file
-    #                 )
-    #             )
+    #         start_time = time.time()
+    #         section_code_json = generate_section_code(
+    #             section_name,
+    #             open(
+    #                 f"{CONFIG['project_name']}/{page_name}/{section_name}/design_brief.md",
+    #                 "r",
+    #             ).read(),
+    #             open(
+    #                 f"{CONFIG['project_name']}/{page_name}/{section_name}/text_content.md",
+    #                 "r",
+    #             ).read(),
+    #             open(
+    #                 f"{CONFIG['project_name']}/{page_name}/{section_name}/image_urls.md",
+    #                 "r",
+    #             ).read(),
     #         )
 
-    # run_tasks_in_parallel(section_code_tasks)
-    print("Generating Full Website")
-    generate_full_website(
-        CONFIG["project_name"],
-        website_structure,
-        user_requirements,
-        website_design_brief,
-    )
+    #         with open(section_code_file, "w") as f:
+    #             f.write(section_code_json)
+
+    #         # end_time = time.time()
+    #         # logging.info(
+    #         #     f"Time taken for generating code for {section_name} section of {page_name} page: {end_time - start_time}"
+    #         # )
+
+    # # time_till_website_code = time.time() - overall_start_time
+    # # logging.info(f"Time taken till now(crews completed): {time_till_website_code}")
+
+    # make_page_files(
+    #     CONFIG["project_name"],
+    #     page_name,
+    #     [section["name"] for section in page["sections"]],
+    # )
+    # shutil.move("images", f"{CONFIG['project_name']}/files")
+
+    # overall_end_time = time.time()
+    # logging.info(
+    #     f"Time taken for generating website structure, design, content and images: {overall_end_time - overall_start_time}"
+    # )
+
+    # return "Website Generated Successfully!"
+
+    pages_brief = []  # Initialize pages_brief
+
+    for page in website_structure["pages"]:
+        page_name = page["name"]
+        page_brief = []  # Initialize page_brief for each page
+        for section in page["sections"]:
+            section_name = section["name"]
+
+            files = [
+                f"{CONFIG['project_name']}/{page_name}/{section_name}/design_brief.md",
+                f"{CONFIG['project_name']}/{page_name}/{section_name}/text_content.md",
+                f"{CONFIG['project_name']}/{page_name}/{section_name}/image_urls.md",
+            ]
+
+            if check_files_exist(files):
+                # Read the contents of the files and append to page_brief
+                for file in files:
+                    with open(file, "r") as f:
+                        page_brief.append(f.read())
+            else:
+                logging.info(
+                    f"Files dont exist for {section_name} section of {page_name} page"
+                )
+        pages_brief.append(page_brief)  # Append each page_brief to pages_brief
+
+    # Pass pages_brief to the kickoff method of the coding crew
+    coding_inputs = {
+        "pages_briefs": pages_brief,
+        "website_structure": website_structure,
+        "user_requirements": user_requirements,
+        "website_design_brief": website_design_brief,
+    }
+    coding_crew().kickoff(coding_inputs)
 
     overall_end_time = time.time()
-    print(
-        f"Time taken for generating website structure, design, content and images: {overall_end_time - overall_start_time}"
+    logging.info(
+        f"Time taken for generating website code using coding crew: {overall_end_time - overall_start_time}"
     )
-
-    return "Website Generated Successfully!"
-
-
-## testing markdown parsing
-# # print current directory
-# print(os.getcwd())
-# # load mark down file named website_code1response.md
-# with open("website_code1response.md", "r") as file:
-#     response = file.read()
-# # use parse markdown function
-# generate_code_files(response, project_name="hello")

@@ -1,0 +1,146 @@
+/* Contact Information */
+#cta-section {
+    background-color: #FFFFFF;
+}
+
+#cta-section .cta-content h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 2.5em;
+    color: #1E3A8A;
+}
+
+#cta-section .cta-content p {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: regular;
+    font-size: 1.25em;
+    color: #6B7280;
+}
+
+#cta-section .btn-primary {
+    font-family: 'Roboto', sans-serif;
+    font-weight: medium;
+    font-size: 1em;
+    color: #FFFFFF;
+    background-color: #3B82F6;
+    border-radius: 4px;
+    padding: 15px 30px;
+    transition: background-color 0.3s ease;
+}
+
+#cta-section .btn-primary:hover {
+    background-color: #1E3A8A;
+}
+
+#cta-section .cta-image img {
+    max-width: 100%;
+    transition: transform 0.3s ease;
+}
+
+#cta-section .cta-content,
+#cta-section .cta-image {
+    flex: 1;
+}
+
+@media (max-width: 768px) {
+    #cta-section .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #cta-section .cta-image {
+        margin-top: 20px;
+    }
+}
+
+/* Contact Form */
+#cta-section {
+  background-color: #FFFFFF;
+  padding: 60px 0;
+}
+.cta-headline {
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-size: 2.5rem;
+  color: #1E3A8A;
+}
+.cta-subheadline {
+  font-family: "Roboto", sans-serif;
+  font-weight: regular;
+  font-size: 1.25rem;
+  color: #6B7280;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+#cta-section .btn-primary {
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  background-color: #3B82F6;
+  color: #FFFFFF;
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+#cta-section .btn-primary:hover {
+  background-color: #2B6CB0;
+  transform: scale(1.05);
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+/* Call to Action */
+#call-to-action {
+    background-color: #FFFFFF;
+    padding: 50px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-headline {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 2.5em;
+    color: #1E3A8A;
+    margin-bottom: 15px;
+}
+
+.cta-subheading {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2em;
+    color: #6B7280;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+    background-color: #3B82F6;
+    color: #FFFFFF;
+    padding: 15px 30px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #1E40AF;
+}
+
+.cta-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    max-width: 50%;
+    opacity: 0.1;
+}
+
+@media (max-width: 768px) {
+    .cta-image {
+        max-width: 80%;
+        position: static;
+        display: block;
+        margin: 20px auto 0;
+        opacity: 0.3;
+    }
+}
+

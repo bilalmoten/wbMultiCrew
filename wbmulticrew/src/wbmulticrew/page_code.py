@@ -13,6 +13,7 @@ load_dotenv()
 
 
 from dotenv import load_dotenv
+import time
 
 load_dotenv()
 
@@ -91,30 +92,34 @@ Only Respond with a Properly Formatted Markdown with the following
 # If the value of a key is a multi-line string, replace line breaks with \n.
 
 
-def call_gpt4o(system_prompt, user_prompt):
+def call_gpt4o(system_prompt, user_prompt, assistant_messages=None):
     client = AzureOpenAI(
         azure_endpoint="https://answerai-bilal.openai.azure.com/",
         api_version="2024-02-01",
         api_key="523a50ed7a7444468d1ae5a384f032bf",
         # azure_deployment="gpt4o-azure",
     )
+    start_time = time.time()
+    messageshistory = [
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": user_prompt},
+    ]
+    if assistant_messages is not None:
+        for message in assistant_messages:
+            messageshistory.append({"role": "assistant", "content": message})
+            messageshistory.append({"role": "user", "content": "Continue."})
+
     completion = client.chat.completions.create(
         model="gpt4o-azure",
-        messages=[
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": user_prompt},
-        ],
-        temperature=1.3,
-        max_tokens=4096,
-        top_p=1,
+        messages=messageshistory,
+        temperature=1.2,
+        max_tokens=4000,
+        # top_p=1,
         stop=None,
         stream=False,
     )
-    # print the number of tokens used
-    print(completion.to_json())
-    # print(completion.to_json())
-    # print("################### helllolo #############################")
-    # print(completion.choices[0].message.content)
+    end_time = time.time()
+    print("Time taken for the call:", end_time - start_time, "seconds")
     return completion.choices[0].message.content
 
 
