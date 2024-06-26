@@ -1,15 +1,11 @@
 import json
-import os
-from groq import Groq
+from openai import AzureOpenAI
 
-from dotenv import load_dotenv
-
-load_dotenv()
-
-
-client = Groq(
-    api_key=os.environ.get("GROQ_API_KEY"),
-)  # Create a Groq client
+client = AzureOpenAI(
+    azure_endpoint="https://wbmulticrew.openai.azure.com/",
+    api_key="c76325f5635a45e7adf492263bb15534",
+    api_version="2024-02-15-preview",
+)
 
 
 def chat_with_groq_llm():

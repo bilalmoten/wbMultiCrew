@@ -1,19 +1,39 @@
-import json
-import os
 from groq import Groq
 
-from dotenv import load_dotenv
+import streamlit as st
+import json
+from openai import AzureOpenAI
 
-load_dotenv()
+# # Initialize the Azure OpenAI client
+# client = AzureOpenAI(
+#     azure_endpoint="https://wbmulticrew.openai.azure.com/",
+#     api_key="c76325f5635a45e7adf492263bb15534",
+#     api_version="2024-02-15-preview",
+# )
 
 
 client = Groq(
-    api_key=os.environ.get("GROQ_API_KEY"),
+    api_key="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",
 )  # Create a Groq client
 
 
-def chat_with_groq_llm():
-    chat_history = [
+# Function to generate a response from the chat history
+def generate_response(chat_history):
+    chat_completion = client.chat.completions.create(
+        messages=chat_history,
+        model="llama3-70b-8192",
+        temperature=0.5,
+        max_tokens=1024,
+        top_p=1,
+        stop=None,
+        stream=False,
+    )
+    return chat_completion.choices[0].message.content
+
+
+# Function to initialize chat history in session state
+def init_chat_history():
+    return [
         {
             "role": "system",
             "content": """
@@ -44,62 +64,65 @@ def chat_with_groq_llm():
                 You donot need to generate a summary, or tell the user that u are exiting the conversation, 
                 once you are done asking questions, just return "EXIT" to end the conversation.
                 Your final message should have no other text, only say "Exit" once you have gathered all the information.
-                Do Not say "Exit" before gathering all the information, only say "Exit" when you are done asking questions.
-                Do Not say EXIT along with any text response.
                 
-                if the user wants to add anything, he will msggage you again.
                 """,
         },
     ]
 
-    while True:
-        user_input = input("You: ")
 
-        chat_history.append(
-            {
-                "role": "user",
-                "content": user_input,
-            }
-        )
+# Initialize session state for chat history if it doesn't exist
+if "chat_history" not in st.session_state:
+    st.session_state.chat_history = init_chat_history()
 
-        response = generate_response(chat_history)
-        if response.lower() == "exit":
-            print(
-                "Assistant: Thankyou for your time! I have noted all the details, ill get the team started on your website. Have a great day! \n\n You will receive an email as soon as the website is ready for review."
+
+# Function to display the chat messages
+def display_chat():
+    for i, message in enumerate(st.session_state.chat_history):
+        if message["role"] == "user":
+            st.markdown(
+                f"<div style='display: inline-block; float: right; text-align: right; color: white; background-color: blue; padding: 5px; margin: 5px; border-radius: 5px;'>{message['content']}</div>",
+                unsafe_allow_html=True,
             )
-            # save conversation to file
+        elif message["role"] == "assistant":
+            st.markdown(
+                f"<div style='display: inline-block; float: right;  text-align: left; color: black; background-color: lightgrey; padding:5px; margin: 5px; border-radius: 5px;'>{message['content']}</div>",
+                unsafe_allow_html=True,
+            )
+
+
+# Title of the app
+st.title("AI Website Builder Chatbot")
+
+# Display chat history at the top
+display_chat()
+
+# Input field for user message and Send button at the bottom
+user_input = st.text_input("Type your message here:", key="user_input")
+
+# Send button or pressing Enter sends the message
+if st.button("Send"):
+    st.session_state.enter_pressed = False
+    if user_input.strip():
+        st.session_state.chat_history.append({"role": "user", "content": user_input})
+        response = generate_response(st.session_state.chat_history)
+
+        if response.lower() == "exit":
+            st.session_state.chat_history.append(
+                {
+                    "role": "assistant",
+                    "content": "Thank you for your time! I have noted all the details, I'll get the team started on your website. Have a great day!\n\nYou will receive an email as soon as the website is ready for review.",
+                }
+            )
+            # Save conversation to file
             filtered_chat_history = [
-                msg for msg in chat_history if msg["role"] != "system"
+                msg for msg in st.session_state.chat_history if msg["role"] != "system"
             ]
             with open("conversation2.json", "w") as f:
                 json.dump(filtered_chat_history, f)
-            break
         else:
-            print(f"Assistant: {response}")
-
-            chat_history.append(
-                {
-                    "role": "assistant",
-                    "content": response,
-                }
+            st.session_state.chat_history.append(
+                {"role": "assistant", "content": response}
             )
 
-
-def generate_response(
-    chat_history,
-):
-    chat_completion = client.chat.completions.create(
-        messages=chat_history,
-        model="llama3-70b-8192",
-        temperature=0.5,
-        max_tokens=1024,
-        top_p=1,
-        stop=None,
-        stream=False,
-    )
-
-    return chat_completion.choices[0].message.content
-
-
-if __name__ == "__main__":
-    chat_with_groq_llm()
+        # Clear input field by re-rendering
+        st.experimental_rerun()

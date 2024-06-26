@@ -1,55 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BKF Pharma</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://kit.fontawesome.com/037776171a.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BKF Pharma</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/037776171a.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #1E3A8A;
+        }
+
+        .hover-darken:hover {
+            background-color: rgba(30, 58, 138, 0.8);
+        }
+    </style>
 </head>
-<body class="font-sans bg-white">
 
-  <header class="bg-primary-blue p-6">
-    <nav class="container mx-auto flex justify-between items-center">
-      <a href="index.html" class="text-white text-2xl font-bold">BKF Pharma</a>
-      <ul class="flex space-x-6">
-        <li><a href="index.html" class="text-white hover:text-gray-300">Home</a></li>
-        <li><a href="about_us.html" class="text-white hover:text-gray-300">About Us</a></li>
-        <li><a href="contact_us.html" class="text-white hover:text-gray-300">Contact</a></li>
-      </ul>
+<body class="bg-white">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-blue-800 text-white p-4 fixed w-full z-10">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold">BKF Pharma</a>
+            <div class="space-x-4">
+                <a href="#" class="hover:text-blue-300">Home</a>
+                <a href="about.html" class="hover:text-blue-300">About Us</a>
+                <a href="contact.html" class="hover:text-blue-300">Contact</a>
+            </div>
+        </div>
     </nav>
-  </header>
 
-  <section class="hero_section relative h-screen bg-cover bg-center" style="background-image: url('images/generated_image_Generate_an_abstract,_futuristic_visual.jpg');">
-    <div class="container mx-auto flex justify-center items-center h-full text-center">
-      <div class="text-white">
-        <h1 class="text-5xl font-bold">Innovating Cancer Treatment</h1>
-        <p class="mt-4 text-xl">Discover our mission and values driving groundbreaking research</p>
-        <a href="about_us.html" class="mt-6 inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">Learn More</a>
-      </div>
-    </div>
-  </section>
+    <!-- Hero Section -->
+    <section class="flex items-center justify-center h-screen bg-cover bg-center"
+        style="background-image: url('images/generated_image_Generate_an_abstract,_futuristic_visual.jpg');">
+        <div class="bg-white bg-opacity-75 p-10 text-center rounded shadow">
+            <h1 class="text-4xl font-bold">Innovating the Future of Cancer Treatment</h1>
+            <p class="mt-4 text-lg">Pioneering the fight against cancer with cutting-edge technology and research.</p>
+        </div>
+    </section>
 
-  <section class="py-24 bg-gray-100 text-center">
-    <div class="container mx-auto">
-      <h2 class="text-4xl font-bold mb-6">Our Mission</h2>
-      <p class="text-lg leading-relaxed">At BKF Pharma, our mission is to develop innovative treatments that advance the fight against cancer. We strive to bring hope through pioneering research and a commitment to excellence.</p>
-    </div>
-  </section>
+    <!-- Mission Statement -->
+    <section class="container mx-auto my-12 p-4 text-center">
+        <h2 class="text-3xl font-bold">Our Mission</h2>
+        <p class="mt-4 text-gray-600">At BKF Pharma, we are dedicated to advancing cancer treatment through innovative
+            research and technology. Our mission is to develop effective and accessible therapies that improve the
+            quality of life for patients worldwide.</p>
+    </section>
 
-  <section class="py-24 text-center">
-    <div class="container mx-auto">
-      <h2 class="text-2xl font-bold mb-6">Welcome to BKF Pharma</h2>
-      <p class="text-lg leading-relaxed">BKF Pharma was founded with the vision of changing the landscape of cancer treatment. Our cutting-edge research and dedicated team are at the forefront of developing treatments that make a difference.</p>
-    </div>
-  </section>
+    <!-- Introduction -->
+    <section class="container mx-auto my-12 p-4 text-center">
+        <h2 class="text-3xl font-bold">Welcome to BKF Pharma</h2>
+        <p class="mt-4 text-gray-600">BKF Pharma is at the forefront of cancer research, pushing the boundaries of
+            science to create life-saving treatments. Join us on our journey to revolutionize the future of healthcare.
+        </p>
+    </section>
 
-  <footer class="bg-primary-blue py-6">
-    <div class="container mx-auto text-center text-white">
-      &copy; 2023 BKF Pharma. All rights reserved.
-    </div>
-  </footer>
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white p-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2023 BKF Pharma. All rights reserved.</p>
+        </div>
+    </footer>
 
 </body>
+
 </html>
 ```

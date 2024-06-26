@@ -3,221 +3,211 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BKF Pharma</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://kit.fontawesome.com/037776171a.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BKF Pharma</title>
+    <link rel="stylesheet" href="https://cdn.tailwindcss.com">
+    <script src="https://kit.fontawesome.com/037776171a.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #1E3A8A;
+        }
+        .hover-darken:hover {
+            background-color: rgba(30, 58, 138, 0.8);
+        }
+    </style>
 </head>
-<body class="font-sans bg-white">
+<body class="bg-white">
 
-  <header class="bg-primary-blue p-6">
-    <nav class="container mx-auto flex justify-between items-center">
-      <a href="index.html" class="text-white text-2xl font-bold">BKF Pharma</a>
-      <ul class="flex space-x-6">
-        <li><a href="index.html" class="text-white hover:text-gray-300">Home</a></li>
-        <li><a href="about_us.html" class="text-white hover:text-gray-300">About Us</a></li>
-        <li><a href="contact_us.html" class="text-white hover:text-gray-300">Contact</a></li>
-      </ul>
+    <!-- Navigation Bar -->
+    <nav class="bg-blue-800 text-white p-4 fixed w-full z-10">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold">BKF Pharma</a>
+            <div class="space-x-4">
+                <a href="#" class="hover:text-blue-300">Home</a>
+                <a href="about.html" class="hover:text-blue-300">About Us</a>
+                <a href="contact.html" class="hover:text-blue-300">Contact</a>
+            </div>
+        </div>
     </nav>
-  </header>
 
-  <section class="hero_section relative h-screen bg-cover bg-center" style="background-image: url('images/generated_image_Generate_an_abstract,_futuristic_visual.jpg');">
-    <div class="container mx-auto flex justify-center items-center h-full text-center">
-      <div class="text-white">
-        <h1 class="text-5xl font-bold">Innovating Cancer Treatment</h1>
-        <p class="mt-4 text-xl">Discover our mission and values driving groundbreaking research</p>
-        <a href="about_us.html" class="mt-6 inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">Learn More</a>
-      </div>
-    </div>
-  </section>
+    <!-- Hero Section -->
+    <section class="flex items-center justify-center h-screen bg-cover bg-center" style="background-image: url('images/generated_image_Generate_an_abstract,_futuristic_visual.jpg');">
+        <div class="bg-white bg-opacity-75 p-10 text-center rounded shadow">
+            <h1 class="text-4xl font-bold">Innovating the Future of Cancer Treatment</h1>
+            <p class="mt-4 text-lg">Pioneering the fight against cancer with cutting-edge technology and research.</p>
+        </div>
+    </section>
 
-  <section class="py-24 bg-gray-100 text-center">
-    <div class="container mx-auto">
-      <h2 class="text-4xl font-bold mb-6">Our Mission</h2>
-      <p class="text-lg leading-relaxed">At BKF Pharma, our mission is to develop innovative treatments that advance the fight against cancer. We strive to bring hope through pioneering research and a commitment to excellence.</p>
-    </div>
-  </section>
+    <!-- Mission Statement -->
+    <section class="container mx-auto my-12 p-4 text-center">
+        <h2 class="text-3xl font-bold">Our Mission</h2>
+        <p class="mt-4 text-gray-600">At BKF Pharma, we are dedicated to advancing cancer treatment through innovative research and technology. Our mission is to develop effective and accessible therapies that improve the quality of life for patients worldwide.</p>
+    </section>
 
-  <section class="py-24 text-center">
-    <div class="container mx-auto">
-      <h2 class="text-2xl font-bold mb-6">Welcome to BKF Pharma</h2>
-      <p class="text-lg leading-relaxed">BKF Pharma was founded with the vision of changing the landscape of cancer treatment. Our cutting-edge research and dedicated team are at the forefront of developing treatments that make a difference.</p>
-    </div>
-  </section>
+    <!-- Introduction -->
+    <section class="container mx-auto my-12 p-4 text-center">
+        <h2 class="text-3xl font-bold">Welcome to BKF Pharma</h2>
+        <p class="mt-4 text-gray-600">BKF Pharma is at the forefront of cancer research, pushing the boundaries of science to create life-saving treatments. Join us on our journey to revolutionize the future of healthcare.</p>
+    </section>
 
-  <footer class="bg-primary-blue py-6">
-    <div class="container mx-auto text-center text-white">
-      &copy; 2023 BKF Pharma. All rights reserved.
-    </div>
-  </footer>
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white p-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2023 BKF Pharma. All rights reserved.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
 ```
 
-## about_us.html
+## about.html
 ```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About BKF Pharma</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://kit.fontawesome.com/037776171a.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - BKF Pharma</title>
+    <link rel="stylesheet" href="https://cdn.tailwindcss.com">
+    <script src="https://kit.fontawesome.com/037776171a.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #1E3A8A;
+        }
+    </style>
 </head>
-<body class="font-sans bg-white">
+<body class="bg-white">
 
-  <header class="bg-primary-blue p-6">
-    <nav class="container mx-auto flex justify-between items-center">
-      <a href="index.html" class="text-white text-2xl font-bold">BKF Pharma</a>
-      <ul class="flex space-x-6">
-        <li><a href="index.html" class="text-white hover:text-gray-300">Home</a></li>
-        <li><a href="about_us.html" class="text-white hover:text-gray-300">About Us</a></li>
-        <li><a href="contact_us.html" class="text-white hover:text-gray-300">Contact</a></li>
-      </ul>
+    <!-- Navigation Bar -->
+    <nav class="bg-blue-800 text-white p-4 fixed w-full z-10">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold">BKF Pharma</a>
+            <div class="space-x-4">
+                <a href="index.html" class="hover:text-blue-300">Home</a>
+                <a href="#" class="hover:text-blue-300">About Us</a>
+                <a href="contact.html" class="hover:text-blue-300">Contact</a>
+            </div>
+        </div>
     </nav>
-  </header>
 
-  <section class="hero_section relative h-96 bg-cover bg-center" style="background-image: url('images/generated_image_A_high-quality,_abstract_futuristic_visual..jpg');">
-    <div class="container mx-auto flex justify-center items-center h-full text-center">
-      <div class="text-white">
-        <h1 class="text-5xl font-bold">About Us</h1>
-      </div>
-    </div>
-  </section>
+    <!-- Company Overview -->
+    <section class="container mx-auto my-12 p-4 text-center">
+        <h2 class="text-3xl font-bold">About BKF Pharma</h2>
+        <p class="mt-4 text-gray-600">BKF Pharma is committed to revolutionizing cancer treatment through cutting-edge research and innovative therapies. Our mission is to improve patient outcomes and advance the field of oncology.</p>
+    </section>
 
-  <section class="py-24 bg-gray-100 text-center">
-    <div class="container mx-auto">
-      <h2 class="text-4xl font-bold mb-6">Company Overview</h2>
-      <p class="text-lg leading-relaxed">BKF Pharma is dedicated to pioneering cancer treatments that innovate and save lives. We merge cutting-edge technology with compassionate care to bring hope to countless individuals.</p>
-    </div>
-  </section>
-
-  <section class="py-24 text-center">
-    <div class="container mx-auto">
-      <h2 class="text-4xl font-bold mb-6">Our Team</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        <div class="bg-white p-6 rounded shadow-sm">
-          <img src="images/generated_image_A_high-quality,_professional_image_of.jpg" alt="Team Member" class="w-full h-48 object-cover rounded mb-4">
-          <h3 class="text-2xl font-bold">Dr. Jane Smith</h3>
-          <p class="text-gray-600 mt-2">Chief Scientist</p>
+    <!-- Our Team -->
+    <section class="container mx-auto my-12 p-4 text-center">
+        <h2 class="text-3xl font-bold">Our Team</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+            <div class="bg-white p-6 rounded shadow">
+                <img src="images/generated_image_A_high-quality,_professional_image_of.jpg" alt="Team Member" class="h-40 w-40 mx-auto rounded-full">
+                <h3 class="mt-4 text-xl font-bold">Dr. Jane Doe</h3>
+                <p class="text-gray-600">Chief Scientist</p>
+            </div>
+            <!-- Additional team members can be added here -->
         </div>
-        <div class="bg-white p-6 rounded shadow-sm">
-          <img src="images/generated_image_A_high-quality,_professional_image_of.jpg" alt="Team Member" class="w-full h-48 object-cover rounded mb-4">
-          <h3 class="text-2xl font-bold">Dr. John Doe</h3>
-          <p class="text-gray-600 mt-2">Researcher</p>
-        </div>
-        <div class="bg-white p-6 rounded shadow-sm">
-          <img src="images/generated_image_A_high-quality,_professional_image_of.jpg" alt="Team Member" class="w-full h-48 object-cover rounded mb-4">
-          <h3 class="text-2xl font-bold">Dr. Pamela Brown</h3>
-          <p class="text-gray-600 mt-2">Lead Developer</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="py-24 bg-gray-100 text-center">
-    <div class="container mx-auto">
-      <h2 class="text-4xl font-bold mb-6">Our Story</h2>
-      <p class="text-lg leading-relaxed">BKF Pharma has been a journey of passion and commitment. From our humble beginnings to our significant milestones, our story is one of innovation, determination, and success in the field of cancer treatment.</p>
-    </div>
-  </section>
+    <!-- Our Story -->
+    <section class="container mx-auto my-12 p-4 text-center">
+        <h2 class="text-3xl font-bold">Our Story</h2>
+        <p class="mt-4 text-gray-600">Founded in 2020, BKF Pharma has quickly become a leader in cancer research. Our journey began with a vision to make cutting-edge treatments accessible to all, and we continue to drive innovation in the field of oncology.</p>
+    </section>
 
-  <footer class="bg-primary-blue py-6">
-    <div class="container mx-auto text-center text-white">
-      &copy; 2023 BKF Pharma. All rights reserved.
-    </div>
-  </footer>
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white p-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2023 BKF Pharma. All rights reserved.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
 ```
 
-## contact_us.html
+## contact.html
 ```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact BKF Pharma</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://kit.fontawesome.com/037776171a.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - BKF Pharma</title>
+    <link rel="stylesheet" href="https://cdn.tailwindcss.com">
+    <script src="https://kit.fontawesome.com/037776171a.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #1E3A8A;
+        }
+        .hover-darken:hover {
+            background-color: rgba(30, 58, 138, 0.8);
+        }
+    </style>
 </head>
-<body class="font-sans bg-white">
+<body class="bg-white">
 
-  <header class="bg-primary-blue p-6">
-    <nav class="container mx-auto flex justify-between items-center">
-      <a href="index.html" class="text-white text-2xl font-bold">BKF Pharma</a>
-      <ul class="flex space-x-6">
-        <li><a href="index.html" class="text-white hover:text-gray-300">Home</a></li>
-        <li><a href="about_us.html" class="text-white hover:text-gray-300">About Us</a></li>
-        <li><a href="contact_us.html" class="text-white hover:text-gray-300">Contact</a></li>
-      </ul>
+    <!-- Navigation Bar -->
+    <nav class="bg-blue-800 text-white p-4 fixed w-full z-10">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold">BKF Pharma</a>
+            <div class="space-x-4">
+                <a href="index.html" class="hover:text-blue-300">Home</a>
+                <a href="about.html" class="hover:text-blue-300">About Us</a>
+                <a href="#" class="hover:text-blue-300">Contact</a>
+            </div>
+        </div>
     </nav>
-  </header>
 
-  <section class="hero_section relative h-96 bg-cover bg-center" style="background-image: url('images/generated_image_A_futuristic,_abstract_visual_representing.jpg');">
-    <div class="container mx-auto flex justify-center items-center h-full text-center">
-      <div class="text-white">
-        <h1 class="text-5xl font-bold">Contact Us</h1>
-      </div>
-    </div>
-  </section>
+    <!-- Contact Information -->
+    <section class="container mx-auto my-12 p-4 text-center">
+        <h2 class="text-3xl font-bold">Contact Information</h2>
+        <p class="mt-4 text-gray-600">For potential partnerships, investment opportunities, or general inquiries, please reach out to us:</p>
+        <p class="mt-2 text-gray-600"><strong>Email:</strong> contact@bkfpharma.com</p>
+        <p class="mt-2 text-gray-600"><strong>Phone:</strong> +1 (123) 456-7890</p>
+    </section>
 
-  <section class="py-24 bg-gray-100 text-center">
-    <div class="container mx-auto">
-      <h2 class="text-4xl font-bold mb-6">Get in Touch</h2>
-      <p class="text-lg leading-relaxed">We would love to hear from you. Whether you are a potential partner, investor, or looking to collaborate, please use the contact information or form below to reach out to us.</p>
-    </div>
-  </section>
+    <!-- Contact Form -->
+    <section class="container mx-auto my-12 p-4 text-center">
+        <h2 class="text-3xl font-bold">Get in Touch</h2>
+        <form action="#" method="post" class="mt-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label for="name" class="block text-gray-700 font-bold">Name</label>
+                    <input type="text" id="name" name="name" class="w-full p-3 border border-gray-300 rounded mt-1" required>
+                </div>
+                <div>
+                    <label for="email" class="block text-gray-700 font-bold">Email</label>
+                    <input type="email" id="email" name="email" class="w-full p-3 border border-gray-300 rounded mt-1" required>
+                </div>
+            </div>
+            <div class="mt-4">
+                <label for="message" class="block text-gray-700 font-bold">Message</label>
+                <textarea id="message" name="message" class="w-full p-3 border border-gray-300 rounded mt-1" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="mt-6 bg-blue-600 text-white p-3 rounded hover:bg-blue-700">
+                Submit
+            </button>
+        </form>
+    </section>
 
-  <section class="py-24 text-center">
-    <div class="container mx-auto">
-      <h2 class="text-4xl font-bold mb-6">Contact Information</h2>
-      <p class="text-lg leading-relaxed">Email: info@bkfpharma.com</p>
-      <p class="text-lg leading-relaxed">Phone: +1 (555) 123-4567</p>
-      <p class="text-lg leading-relaxed">Address: 124 Main St., Pharma City, PC 12345</p>
-    </div>
-  </section>
+    <!-- Call to Action -->
+    <section class="container mx-auto my-12 p-4 text-center">
+        <h2 class="text-3xl font-bold">Interested in Partnering with Us?</h2>
+        <p class="mt-4 text-gray-600">We're always looking for new partners and investors to join us on our mission to revolutionize cancer treatment. Contact us today to learn more about our research and opportunities for collaboration.</p>
+    </section>
 
-  <section class="py-24 bg-gray-100 text-center">
-    <div class="container mx-auto">
-      <h2 class="text-4xl font-bold mb-6">Contact Form</h2>
-      <form class="w-full max-w-lg mx-auto">
-        <div class="mb-6">
-          <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name:</label>
-          <input type="text" id="name" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-primary-blue" placeholder="Your Name">
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white p-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2023 BKF Pharma. All rights reserved.</p>
         </div>
-        <div class="mb-6">
-          <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
-          <input type="email" id="email" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-primary-blue" placeholder="Your Email">
-        </div>
-        <div class="mb-6">
-          <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Message:</label>
-          <textarea id="message" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-primary-blue" placeholder="Your Message"></textarea>
-        </div>
-        <div>
-          <button type="submit" class="bg-primary-blue text-white py-2 px-4 rounded hover:bg-blue-700">Submit</button>
-        </div>
-      </form>
-    </div>
-  </section>
-
-  <section class="py-24 text-center">
-    <div class="container mx-auto">
-      <h2 class="text-4xl font-bold mb-6">Partner with Us</h2>
-      <p class="text-lg leading-relaxed">We welcome opportunities for partnership and investment. If you are interested in collaborating with BKF Pharma, please reach out using the contact information or form above.</p>
-    </div>
-  </section>
-
-  <footer class="bg-primary-blue py-6">
-    <div class="container mx-auto text-center text-white">
-      &copy; 2023 BKF Pharma. All rights reserved.
-    </div>
-  </footer>
+    </footer>
 
 </body>
 </html>

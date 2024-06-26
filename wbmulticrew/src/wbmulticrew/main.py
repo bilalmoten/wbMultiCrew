@@ -446,7 +446,7 @@ def generate_full_website(
     
     Remember to use proper constraints for the images, as all images are originally 1024 by 1024 pixels, and u need to use them according to the requirements of the design of the website.
     
-    Also Remember, the websites are supposed to use, tailwind css mainly,  and fontawesome for icons. so you should write the code accordingly to benefit from these, and also use the following links and scripts to add these libraries to the webspage, 
+    Also Remember, the websites are supposed to use, tailwind css mainly,  and fontawesome for icons. so you should write the code accordingly to benefit from these, and also use the following scripts to add these libraries to the webspage, 
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/037776171a.js" crossorigin="anonymous"></script>
