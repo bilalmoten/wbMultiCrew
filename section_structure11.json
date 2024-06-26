@@ -1,0 +1,35 @@
+{
+  "homepage": [
+    {
+      "Hero_1": "Hero Image(Abstract, futuristic visual), Text( Motivational tagline reflecting the company's mission.), Call-to-Action Buttons(Primary (Start now) and secondary (Take tour).)"
+    },
+    {
+      "Stats_2": "Layout(Highlighting key achievements and information about BKF Pharma's innovative approach to cancer treatment.), Design(Clean, professional look with a centralized heading and description text transitioning into a stat grid.)"
+    },
+    {
+      "Content_2": "Layout(Two-column design with an image on the left and text content on the right.), Design(Clean and professional layout with a focus on textual information supported by a visual element.), Introductory Text(Who we are.), Headline(Introduction to BKF Pharma.), Body Text(Detailed descriptive text with inline links for additional information.)"
+    }
+  ],
+  "about_us": [
+    {
+      "Content_2": "Layout(Two-column design with an image on the left and text content on the right.), Design(Clean and professional layout with a focus on textual information supported by a visual element.), Introductory Text(Our Mission, Vision, and Values.), Headline(Company Overview.), Body Text(Detailed descriptive text with inline links for additional information.)"
+    },
+    {
+      "Team_1": "Layout(Grid format displaying multiple team members.), Design(Clean and professional. Each team member is presented in a card-like layout with a profile picture, name, title, and social media links.), Introductory Text(Meet Our Team.)"
+    },
+    {
+      "Content_1": "Layout(Grid layout with evenly spaced feature boxes.), Design(Minimalistic and modern. Each feature represented by an icon within a colored circle, followed by a title and descriptive text.), Heading(Our Journey.), Subheading(The history and milestones of BKF Pharma.), Feature Boxes(Highlighting key milestones and achievements.)"
+    }
+  ],
+  "contact": [
+    {
+      "Form_2": "Layout(Centralized text and form layout.), Design(Clean and organized, with a strong emphasis on user input.), Headline(Get in Touch.), Form Inputs(Fields for first name, last name, company, email, subject, and a large message textarea.), Submit Button(Clearly labeled button for form submission.)"
+    },
+    {
+      "Form_1": "Layout(Fixed top bar with a logo on the left and navigation links on the right.), Design(Clean and organized with a focus on usability and accessibility.), Navigation Links(Organized for easy access.)"
+    },
+    {
+      "Call_To_Action_2": "Layout(Horizontal split-screen design with an image on the left and content on the right.), Design(Clean and structured.), Headline(Highlighting contact encouragement.), Descriptive Text(Additional information and encouragement for visitors to reach out.), Call-to-Action Button(Prominent button to initiate contact.)"
+    }
+  ]
+}

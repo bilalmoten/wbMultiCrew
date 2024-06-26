@@ -1,0 +1,14 @@
+{
+  "Who We Are Section with Image": {
+    "Layout": "Two-column design with an image on the left and text content on the right.",
+    "Design": "Clean, professional layout with a focus on textual information supported by a visual element.",
+    "Key Elements": {
+      "Image": "High-quality, portrait-oriented image with a rounded border and shadow effect, adding visual interest.",
+      "Introductory Text": "Brief introduction with a bold tagline 'Who we are' to establish the section's focus.",
+      "Headline": "Medium-sized, bold headline highlighting the competitive advantage.",
+      "Body Text": "Detailed descriptive text with inline links for additional information.",
+      "Subheading": "'About us' subheading for further details about the entity.",
+      "Use Cases": "Ideal for company profiles, team introductions, or sections highlighting competitive advantages and core values."
+    }
+  }
+}

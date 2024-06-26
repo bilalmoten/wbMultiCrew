@@ -1,0 +1,41 @@
+{
+  "homepage": [
+    {
+      "Hero_1": "Hero Image(Abstract, futuristic visual), Text( Motivational tagline reflecting the company's mission.), Call-to-Action Buttons(Primary (Start now) and secondary (Take tour).)"
+    },
+    {
+      "Stats_2": "Layout(Highlighting key achievements and information about BKF Pharma's innovative approach to cancer treatment.), Design(Clean, professional look with a centralized heading and description text transitioning into a stat grid.)"
+    },
+    {
+      "Content_2": "Layout(Two-column design with an image on the left and text content on the right.), Design(Clean and professional layout with a focus on textual information supported by a visual element.), Introductory Text(Who we are.), Headline(Introduction to BKF Pharma.), Body Text(Detailed descriptive text with inline links for additional information.)"
+    },
+    {
+      "Team_1": "Layout(Grid format displaying multiple team members.), Design(Clean and professional. Each team member is presented in a card-like layout with a profile picture, name, title, and social media links.), Introductory Text(Meet Our Team.)"
+    },
+    {
+      "Footer_8": "Layout(Multi-column grid layout with distinct sections for various navigation categories.), Design(Modern, informative, and structured.), Key Elements(Logo, Description, Social Media Links, Navigation Categories, Copyright Notice.)"
+    }
+  ],
+  "about_us": [
+    {
+      "Content_1": "Layout(Grid layout with evenly spaced feature boxes.), Design(Minimalistic and modern. Each feature represented by an icon within a colored circle, followed by a title and descriptive text.), Heading(Our Journey.), Subheading(The history and milestones of BKF Pharma.), Feature Boxes(Highlighting key milestones and achievements.)"
+    },
+    {
+      "Team_3": "Layout(Centered text block at the top followed by a grid-based arrangement of team member profiles.), Design(Clean, organized, and visually appealing.), Key Elements(Introduction Text, Team Grid, Profile Image, Name and Title, Social Media Links.)"
+    },
+    {
+      "Footer_3": "Layout(Horizontal layout with a vertically stacked fallback for smaller screens. Flexbox used for alignment and spacing.), Design(Clean, minimalistic, and functional.), Key Elements(Navigation Links, Social Media Icons, Footer Note.)"
+    }
+  ],
+  "contact": [
+    {
+      "Form_2": "Layout(Centralized text and form layout.), Design(Clean and organized, with a strong emphasis on user input.), Headline(Get in Touch.), Form Inputs(Fields for first name, last name, company, email, subject, and a large message textarea.), Submit Button(Clearly labeled button for form submission.)"
+    },
+    {
+      "Call_To_Action_2": "Layout(Horizontal split-screen design with an image on the left and content on the right.), Design(Clean and structured.), Headline(Highlighting contact encouragement.), Descriptive Text(Additional information and encouragement for visitors to reach out.), Call-to-Action Button(Prominent button to initiate contact.)"
+    },
+    {
+      "Footer_2": "Layout(Single-column layout with centered alignment, featuring navigation links and social media icons.), Design(Minimalistic and clean.), Key Elements(Navigation Menu, Social Media Links, Copyright Notice.)"
+    }
+  ]
+}
